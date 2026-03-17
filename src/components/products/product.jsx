@@ -3,10 +3,9 @@ import ProductsList from "./productslist";
 
 function Product() {
   return (
-    // ── SECTION: full-width, px mobile safety margin ──
     <Box
       sx={{
-        px: { xs: "16px", sm: "5%" }, //  moved from section, mobile safe
+        px: { xs: "16px", sm: "5%" },
         py: {
           xs: "40px",
           sm: "60px",
@@ -18,10 +17,8 @@ function Product() {
         boxSizing: "border-box",
       }}
     >
-      {/* ── CONTAINER ── */}
       <Box sx={{ maxWidth: "1350px", width: "100%", mx: "auto" }}>
 
-        {/* ── CONTENT ── */}
         <Typography
           variant="overline"
           sx={{
@@ -35,6 +32,7 @@ function Product() {
         </Typography>
 
         <Typography
+          component="h1"
           sx={{
             fontWeight: 700,
             color: "#071b3f",
@@ -48,7 +46,21 @@ function Product() {
             },
           }}
         >
-          Industrial Machinery Solutions
+          Special Purpose Machines & Industrial Automation Solutions
+        </Typography>
+
+        <Typography
+          sx={{
+            mb: 4,
+            color: "#555",
+            maxWidth: "800px",
+            lineHeight: 1.8,
+            fontSize: { xs: "13px", sm: "14px", md: "15px" },
+          }}
+        >
+          Explore our comprehensive range of <strong>custom SPM machinery</strong>, 
+          <strong> hydraulic systems</strong>, and <strong>industrial automation solutions </strong> 
+          designed for precision engineering and manufacturing efficiency across industries.
         </Typography>
 
         <ProductsList />

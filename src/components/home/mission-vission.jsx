@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
-import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";   // Vision 🚀
-import TrackChangesIcon from "@mui/icons-material/TrackChanges";   // Mission 🎯
+import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
+import TrackChangesIcon from "@mui/icons-material/TrackChanges";
 
 function MissionVision() {
   const cards = [
@@ -13,7 +13,7 @@ function MissionVision() {
       ),
       title: "Our Vision",
       content: "text",
-      text: "To become a leading and most trusted world-class Special Purpose Machine manufacturer in India, delivering innovative automation solutions that enhance industrial productivity, efficiency, and technological advancement.",
+      text: "To become a leading and most trusted world-class Special Purpose Machine manufacturer in India, delivering innovative industrial automation solutions that enhance productivity, efficiency, and technological advancement across manufacturing sectors.",
     },
     {
       number: "02",
@@ -25,9 +25,9 @@ function MissionVision() {
       title: "Our Mission",
       content: "list",
       items: [
-        "Design and manufacture high-quality, customized Special Purpose Machines tailored to customer requirements",
-        "Deliver innovative automation solutions that improve productivity, accuracy, and cost-efficiency",
-        "Maintain uncompromising standards in quality, safety, and reliability",
+        "Design and manufacture high-quality, custom Special Purpose Machines tailored to specific industrial requirements",
+        "Deliver innovative automation solutions that improve productivity, accuracy, and cost-efficiency for Indian manufacturers",
+        "Maintain uncompromising standards in quality, safety, and reliability across all SPM machinery",
       ],
     },
   ];
@@ -50,7 +50,6 @@ function MissionVision() {
         overflow: "hidden",
       }}
     >
-      {/* Background grid */}
       <Box
         sx={{
           position: "absolute",
@@ -71,7 +70,6 @@ function MissionVision() {
           zIndex: 1,
         }}
       >
-        {/* Heading */}
         <Box sx={{ textAlign: "center", mb: { xs: 4, sm: 6, md: 8 } }}>
           <Typography
             variant="overline"
@@ -86,6 +84,7 @@ function MissionVision() {
           </Typography>
 
           <Typography
+            component="h2"
             sx={{
               fontWeight: 700,
               mt: 1.5,
@@ -126,7 +125,6 @@ function MissionVision() {
           </Typography>
         </Box>
 
-        {/* Cards */}
         <Box
           sx={{
             display: "flex",
@@ -144,7 +142,6 @@ function MissionVision() {
                 flex: 1,
               }}
             >
-              {/* Card */}
               <Box
                 sx={{
                   flex: 1,
@@ -163,7 +160,6 @@ function MissionVision() {
                   },
                 }}
               >
-                {/* Icon */}
                 <Box
                   sx={{
                     width: { xs: 48, md: 56 },
@@ -180,8 +176,8 @@ function MissionVision() {
                   {card.icon}
                 </Box>
 
-                {/* Title */}
                 <Typography
+                  component="h3"
                   sx={{
                     fontWeight: 700,
                     mb: 2.5,
@@ -192,7 +188,6 @@ function MissionVision() {
                   {card.title}
                 </Typography>
 
-                {/* Content */}
                 {card.content === "list" ? (
                   <Box sx={{ opacity: 0.9 }}>
                     {card.items.map((text, i) => (
@@ -230,7 +225,6 @@ function MissionVision() {
                 )}
               </Box>
 
-              {/* Divider desktop */}
               {index < cards.length - 1 && (
                 <Box
                   sx={{
@@ -251,7 +245,6 @@ function MissionVision() {
                 </Box>
               )}
 
-              {/* Divider mobile */}
               {index < cards.length - 1 && (
                 <Box
                   sx={{

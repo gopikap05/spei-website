@@ -1,50 +1,47 @@
 import { Box, Typography } from "@mui/material";
-import { motion } from "framer-motion";
-
-const MotionBox = motion(Box);
 
 const steps = [
   {
     number: "01",
     title: "Design Engineering",
     description:
-      "Our experienced design team develops innovative and efficient machine concepts tailored to specific production requirements.",
+      "Our experienced design team develops innovative and efficient custom SPM concepts tailored to specific production requirements.",
   },
   {
     number: "02",
     title: "Manufacturing",
     description:
-      "Equipped with modern manufacturing facilities, we produce high-quality machines built for durability, precision, and performance.",
+      "Equipped with modern manufacturing facilities, we produce high-quality special purpose machines built for durability, precision, and performance.",
   },
   {
     number: "03",
     title: "Quality Testing",
     description:
-      "Every machine undergoes rigorous testing at multiple stages to ensure compliance with industrial standards and reliable operation.",
+      "Every SPM machine undergoes rigorous testing at multiple stages to ensure compliance with industrial standards and reliable operation.",
   },
   {
     number: "04",
     title: "Installation & Commissioning",
     description:
-      "Our skilled professionals ensure smooth installation and timely commissioning at the client's site.",
+      "Our skilled professionals ensure smooth installation and timely commissioning of industrial automation equipment at the client's site.",
   },
   {
     number: "05",
     title: "After-Sales Support",
     description:
-      "We provide dependable after-sales service and technical support to ensure uninterrupted performance and long-term customer satisfaction.",
+      "We provide dependable after-sales service and technical support for all our custom machinery to ensure uninterrupted performance.",
   },
-    {
+  {
     number: "06",
     title: "Machine Refurbishment Services",
     description:
-"At SP Engineers India, we refurbish and upgrade industrial machines to extend life, improve performance, and restore optimal efficiency."  },
+      "At SP Engineers India, we refurbish and upgrade industrial machines to extend life, improve performance, and restore optimal efficiency.",
+  },
 ];
 
 function Steps() {
   return (
     <>
-      {/* ── SECTION 1: Infrastructure ── */}
       <Box
         sx={{
           px: { xs: "16px", sm: "5%" },
@@ -75,6 +72,7 @@ function Steps() {
           </Typography>
 
           <Typography
+            component="h2"
             sx={{
               fontWeight: 700,
               mb: 3,
@@ -108,17 +106,16 @@ function Steps() {
               fontSize: { xs: "13px", sm: "14px", md: "15px", lg: "16px" },
             }}
           >
-            Our machine building section is located in the Hosur Industrial
+            Our <strong>SPM machine building section</strong> is located in the Hosur Industrial
             Area, known as the Tamil Nadu industrial manufacturing hub of India.
-            Our setup includes a 3000 sq.ft building dedicated to machine
-            assembly and inspection. We have a strong team of engineers along
+            Our setup includes a 3000 sq.ft building dedicated to <strong>custom machine
+            assembly</strong> and inspection. We have a strong team of engineers along
             with experienced in-house machine builders including designers,
             fitters, welders, and electrical engineers.
           </Typography>
         </Box>
       </Box>
 
-      {/* ── SECTION 2: Process Steps ── */}
       <Box
         sx={{
           px: { xs: "16px", sm: "5%" },
@@ -149,6 +146,7 @@ function Steps() {
           </Typography>
 
           <Typography
+            component="h2"
             sx={{
               fontWeight: 700,
               mb: 2,
@@ -174,7 +172,6 @@ function Steps() {
             }}
           />
 
-          {/* Steps - Animation Removed */}
           {steps.map((step, index) => {
             const isEven = index % 2 === 0;
 
@@ -197,7 +194,6 @@ function Steps() {
                   },
                 }}
               >
-                {/* Big number - Fixed sizing and alignment */}
                 <Box
                   sx={{
                     width: { md: "180px", lg: "220px" },
@@ -218,7 +214,6 @@ function Steps() {
                   </Typography>
                 </Box>
 
-                {/* Content - Fixed padding and width */}
                 <Box
                   sx={{
                     flex: 1,
@@ -241,6 +236,7 @@ function Steps() {
                   </Typography>
 
                   <Typography
+                    component="h3"
                     sx={{
                       fontWeight: 700,
                       mb: 1.5,

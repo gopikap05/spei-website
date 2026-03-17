@@ -3,10 +3,9 @@ import { NavLink } from "react-router-dom";
 
 function CTASection() {
   return (
-    // ── SECTION ──
     <Box
       sx={{
-        px: { xs: "16px", sm: "5%" }, //  mobile safety margin
+        px: { xs: "16px", sm: "5%" },
         py: {
           xs: "40px",
           sm: "60px",
@@ -21,7 +20,6 @@ function CTASection() {
         boxSizing: "border-box",
       }}
     >
-      {/* Grid Overlay */}
       <Box
         sx={{
           position: "absolute",
@@ -34,11 +32,10 @@ function CTASection() {
             from: { backgroundPosition: "0 0, 0 0" },
             to: { backgroundPosition: "60px 60px, 60px 60px" },
           },
-          pointerEvents: "none", //  prevent overlay blocking clicks
+          pointerEvents: "none",
         }}
       />
 
-      {/* ── CONTAINER ── */}
       <Box
         sx={{
           maxWidth: "1350px",
@@ -49,7 +46,6 @@ function CTASection() {
           textAlign: "center",
         }}
       >
-        {/* Overline */}
         <Typography
           variant="overline"
           sx={{
@@ -65,8 +61,8 @@ function CTASection() {
           LET'S WORK TOGETHER
         </Typography>
 
-        {/* Heading */}
         <Typography
+          component="h2"
           sx={{
             fontWeight: 700,
             mb: 3,
@@ -84,7 +80,6 @@ function CTASection() {
           Special Purpose Machine?
         </Typography>
 
-        {/* Subtext */}
         <Typography
           sx={{
             maxWidth: "640px",
@@ -100,13 +95,11 @@ function CTASection() {
             },
           }}
         >
-          Partner with SPEI to design and manufacture precision-engineered
-          machinery tailored specifically to your industrial requirements.
-          Let's build a solution that improves efficiency and drives
-          productivity.
+          Partner with SP Engineers India to design and manufacture precision-engineered
+          <strong> custom SPM machinery</strong> tailored specifically to your industrial requirements.
+          Let's build an <strong>industrial automation solution</strong> that improves efficiency and drives productivity.
         </Typography>
 
-        {/* Buttons */}
         <Box
           sx={{
             display: "flex",
@@ -115,7 +108,6 @@ function CTASection() {
             flexWrap: "wrap",
           }}
         >
-          {/* Primary CTA */}
           <Button
             component={NavLink}
             to="/contact"
@@ -132,7 +124,6 @@ function CTASection() {
               borderRadius: "8px",
               textDecoration: "none",
               transition: "all 0.35s ease",
-              // Shimmer effect
               "&::before": {
                 content: '""',
                 position: "absolute",
@@ -155,7 +146,6 @@ function CTASection() {
             Request Consultation
           </Button>
 
-          {/* Secondary CTA */}
           <Button
             component={NavLink}
             to="/products"
@@ -177,7 +167,7 @@ function CTASection() {
               },
             }}
           >
-            View Products
+            View Our SPM Products
           </Button>
         </Box>
       </Box>

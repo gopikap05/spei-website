@@ -11,10 +11,9 @@ function AboutMe() {
 
   return (
     <>
-      {/* ── SECTION 1: Main About ── */}
       <Box
         sx={{
-          px: { xs: "16px", sm: "5%" }, //  Mobile safety margin
+          px: { xs: "16px", sm: "5%" },
           py: {
             xs: "40px",
             sm: "60px",
@@ -25,11 +24,9 @@ function AboutMe() {
           boxSizing: "border-box",
         }}
       >
-        {/* ── CONTAINER ── */}
         <Box sx={{ maxWidth: "1350px", width: "100%", mx: "auto" }}>
           <Grid container spacing={{ xs: 4, md: 8 }} alignItems="center">
 
-            {/* TEXT CONTENT */}
             <Grid item xs={12} md={7}>
               <Box>
                 <Typography
@@ -45,6 +42,7 @@ function AboutMe() {
                 </Typography>
 
                 <Typography
+                  component="h2"
                   sx={{
                     fontWeight: 700,
                     mt: 2,
@@ -71,10 +69,10 @@ function AboutMe() {
                   }}
                 >
                   With over <strong>30 years of hands-on experience</strong> in
-                  industrial machinery, our company is built on a strong
+                  industrial machinery, SP Engineers India is built on a strong
                   foundation of technical expertise, innovation, and commitment
                   to excellence. We specialize in the design and manufacturing
-                  of high-quality Special Purpose Machines (SPMs) tailored to
+                  of high-quality <strong>custom Special Purpose Machines (SPMs)</strong> tailored to
                   meet the specific requirements of Indian industries.
                 </Typography>
 
@@ -87,8 +85,8 @@ function AboutMe() {
                   }}
                 >
                   Our deep understanding of industrial processes enables us to
-                  develop reliable, efficient, and cost-effective automation
-                  solutions that enhance productivity and operational performance.
+                  develop reliable, efficient, and cost-effective <strong>industrial automation
+                  solutions</strong> that enhance productivity and operational performance.
                 </Typography>
 
                 <Typography
@@ -99,7 +97,7 @@ function AboutMe() {
                   }}
                 >
                   We are committed to supporting India's manufacturing growth by
-                  delivering precision-engineered machines that combine
+                  delivering <strong>precision-engineered machines</strong> that combine
                   durability, advanced technology, and practical design. Driven
                   by experience and powered by innovation, we aim to be a
                   trusted automation partner for industries across India.
@@ -107,17 +105,15 @@ function AboutMe() {
               </Box>
             </Grid>
 
-            {/* RIGHT SIDE (future image area) */}
             <Grid item xs={12} md={5} />
 
           </Grid>
         </Box>
       </Box>
 
-      {/* ── SECTION 2: Why Choose Us Strip ── */}
       <Box
         sx={{
-          px: { xs: "16px", sm: "5%" }, //  Mobile safety margin
+          px: { xs: "16px", sm: "5%" },
           py: {
             xs: "40px",
             sm: "60px",
@@ -129,7 +125,6 @@ function AboutMe() {
           background: "linear-gradient(135deg, #0b2a66 0%, #071b3f 100%)",
         }}
       >
-        {/* ── CONTAINER ── */}
         <Box sx={{ maxWidth: "1350px", width: "100%", mx: "auto" }}>
           <Box
             sx={{

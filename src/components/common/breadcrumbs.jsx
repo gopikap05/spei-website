@@ -36,7 +36,7 @@ function Breadcrumbs() {
       <Box sx={{ maxWidth: "1350px", mx: "auto", px: { xs: "16px", sm: "5%" } }}>
         <MUIBreadcrumbs
           separator={
-            <Typography sx={{ ...textStyle, opacity: 0.5 }}>&gt;</Typography>
+            <Typography sx={{ ...textStyle, opacity: 0.5 }} aria-hidden="true">&gt;</Typography>
           }
           sx={{
             "& .MuiBreadcrumbs-ol": {
@@ -45,7 +45,6 @@ function Breadcrumbs() {
             },
           }}
         >
-          {/* Home */}
           <Typography
             component={RouterLink}
             to="/"
@@ -70,13 +69,17 @@ function Breadcrumbs() {
             return (
               <Typography
                 key={to}
-                component={RouterLink}
-                to={to}
+                component={isLast ? "span" : RouterLink}
+                to={isLast ? undefined : to}
                 sx={{
                   ...textStyle,
                   textDecoration: "none",
-                  opacity: isLast ? 1 : 1,
-                  "&:hover": { opacity: 0.7 },
+                  color: isLast ? "#071b3f" : "#071b3f",
+                  fontWeight: isLast ? 700 : 500,
+                  cursor: isLast ? "default" : "pointer",
+                  "&:hover": {
+                    opacity: isLast ? 1 : 0.7,
+                  },
                 }}
               >
                 {formatted}

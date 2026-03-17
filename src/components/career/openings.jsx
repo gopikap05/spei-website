@@ -22,7 +22,7 @@ export const openings = [
     type: "Full-time",
     experience: "3+ years",
     description:
-      "We are looking for a skilled arc welder with hands-on experience in industrial fabrication.",
+      "We are looking for a skilled arc welder with hands-on experience in industrial fabrication for SPM manufacturing.",
     responsibilities: [
       "Perform arc welding on structural and fabricated components",
       "Read and interpret technical drawings",
@@ -43,11 +43,11 @@ export const openings = [
     type: "Full-time",
     experience: "Fresher",
     description:
-      "Opportunity for fresh diploma holders to gain hands-on experience in manufacturing and machine operations.",
+      "Opportunity for fresh diploma holders to gain hands-on experience in SPM manufacturing and machine operations.",
     responsibilities: [
-      "Assist engineers",
-      "Support maintenance",
-      "Prepare reports",
+      "Assist engineers in SPM design",
+      "Support machine maintenance",
+      "Prepare technical reports",
       "Follow SOPs",
     ],
     requirements: [
@@ -64,10 +64,10 @@ export const openings = [
     type: "Full-time",
     experience: "1–2 years",
     description:
-      "Hiring a Design Engineer with SolidWorks experience to develop mechanical components.",
+      "Hiring a Design Engineer with SolidWorks experience to develop mechanical components for special purpose machines.",
     responsibilities: [
-      "Create 3D models",
-      "Develop assemblies",
+      "Create 3D models for SPMs",
+      "Develop machine assemblies",
       "Work with production team",
     ],
     requirements: [
@@ -126,6 +126,7 @@ function JobCard({ job }) {
             />
 
             <Typography
+              component="h3"
               sx={{
                 fontFamily: F,
                 fontWeight: 800,
@@ -138,16 +139,16 @@ function JobCard({ job }) {
 
             <Box sx={{ mt: 1, display: "flex", gap: 2, flexWrap: "wrap" }}>
               <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
-                <LocationOnOutlinedIcon sx={{ fontSize: 16 }} />
-                <Typography variant="body2">{job.location}</Typography>
+                <LocationOnOutlinedIcon sx={{ fontSize: 16, color: "#666" }} />
+                <Typography variant="body2" sx={{ color: "#555" }}>{job.location}</Typography>
               </Box>
               <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
-                <AccessTimeOutlinedIcon sx={{ fontSize: 16 }} />
-                <Typography variant="body2">{job.type}</Typography>
+                <AccessTimeOutlinedIcon sx={{ fontSize: 16, color: "#666" }} />
+                <Typography variant="body2" sx={{ color: "#555" }}>{job.type}</Typography>
               </Box>
               <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
-                <WorkHistoryOutlinedIcon sx={{ fontSize: 16 }} />
-                <Typography variant="body2">{job.experience}</Typography>
+                <WorkHistoryOutlinedIcon sx={{ fontSize: 16, color: "#666" }} />
+                <Typography variant="body2" sx={{ color: "#555" }}>{job.experience}</Typography>
               </Box>
             </Box>
           </Box>
@@ -189,23 +190,26 @@ function Openings() {
           <Box>
             <Typography
               variant="overline"
-              sx={{ color: "#FFC400", fontWeight: 700 }}
+              sx={{ color: "#FFC400", fontWeight: 700, letterSpacing: 1.5 }}
             >
               OPPORTUNITIES
             </Typography>
             <Typography
+              component="h2"
               sx={{
                 fontWeight: 800,
                 fontSize: { xs: "22px", md: "28px" },
+                color: "#071b3f",
               }}
             >
-              Open Positions
+              Open Positions at SP Engineers India
             </Typography>
           </Box>
 
           <Chip
             icon={<WorkOutlineIcon />}
             label={`${openings.length} roles open`}
+            sx={{ fontWeight: 600 }}
           />
         </Box>
 

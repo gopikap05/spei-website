@@ -7,30 +7,29 @@ const contactItems = [
   {
     icon: <EmailOutlinedIcon fontSize="small" />,
     label: "Email",
-    value: "info@spei.com",
-    href: "mailto:info@spei.com",
+    value: "spengineersindia2001@gmail.com",
+    href: "mailto:spengineersindia2001@gmail.com",
   },
   {
     icon: <PhoneOutlinedIcon fontSize="small" />,
     label: "Phone",
-    value: "+91 XXXXX XXXXX",
-    href: "tel:+91XXXXXXXXXX",
+    value: "+91 9500990032",
+    href: "tel:+919500990032",
   },
   {
     icon: <LinkedInIcon fontSize="small" />,
     label: "LinkedIn",
-    value: "linkedin.com/company/your-company",
-    href: "https://www.linkedin.com/company/your-company",
-    external: true,
+    value: "Coming Soon",
+    href: "#",
+    external: false,
   },
 ];
 
 function Details() {
   return (
-    // ── SECTION ──
     <Box
       sx={{
-        px: { xs: "16px", sm: "5%" }, //  mobile safety margin
+        px: { xs: "16px", sm: "5%" },
         py: {
           xs: "40px",
           sm: "60px",
@@ -42,7 +41,6 @@ function Details() {
         boxSizing: "border-box",
       }}
     >
-      {/* ── CONTAINER ── */}
       <Box sx={{ maxWidth: "1350px", width: "100%", mx: "auto" }}>
 
         <Box
@@ -53,13 +51,12 @@ function Details() {
             border: "1px solid rgba(0,0,0,0.06)",
             position: "relative",
             overflow: "hidden",
-            transition: "box-shadow 0.3s ease", //  no transform — avoids fixed child issues
+            transition: "box-shadow 0.3s ease",
             "&:hover": {
               boxShadow: "0 15px 40px rgba(0,0,0,0.08)",
             },
           }}
         >
-          {/* Gold accent bar  brand color */}
           <Box
             sx={{
               position: "absolute",
@@ -72,7 +69,6 @@ function Details() {
             }}
           />
 
-          {/* Heading */}
           <Typography
             variant="overline"
             sx={{
@@ -88,6 +84,7 @@ function Details() {
           </Typography>
 
           <Typography
+            component="h2"
             sx={{
               fontWeight: 700,
               mb: { xs: 3, md: 4 },
@@ -98,7 +95,6 @@ function Details() {
             Contact Details
           </Typography>
 
-          {/* Contact Items */}
           <Box sx={{ display: "flex", flexDirection: "column", gap: { xs: 1.5, md: 2 } }}>
             {contactItems.map((item, index) => (
               <Box
@@ -111,23 +107,22 @@ function Details() {
                   borderRadius: "12px",
                   transition: "all 0.3s ease",
                   "&:hover": {
-                    backgroundColor: "rgba(255,196,0,0.06)", //  gold tint
+                    backgroundColor: "rgba(255,196,0,0.06)",
                     transform: "translateX(6px)",
                   },
                 }}
               >
-                {/* Icon box  gold themed */}
                 <Box
                   sx={{
                     width: { xs: 38, md: 44 },
                     height: { xs: 38, md: 44 },
-                    borderRadius: "10px", //  rounded square vs circle
+                    borderRadius: "10px",
                     backgroundColor: "rgba(255,196,0,0.1)",
                     border: "1px solid rgba(255,196,0,0.25)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    color: "#FFC400", //  gold icon
+                    color: "#FFC400",
                     flexShrink: 0,
                   }}
                 >
@@ -162,6 +157,7 @@ function Details() {
                       whiteSpace: "nowrap",
                       transition: "color 0.2s ease",
                       "&:hover": { color: "#071b3f" },
+                      cursor: item.href === "#" ? "default" : "pointer",
                     }}
                   >
                     {item.value}

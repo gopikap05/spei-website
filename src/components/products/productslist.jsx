@@ -24,7 +24,7 @@ function ProductsList() {
 
   return (
     <>
-      {/* <Typography
+      {/* <Box
         sx={{
           mb: { xs: 3, md: 4 },
           color: "#555",
@@ -32,8 +32,10 @@ function ProductsList() {
           fontSize: { xs: "14px", md: "16px" },
         }}
       >
-        {totalProducts} Products
-      </Typography> */}
+        Showing {startIndex + 1}-
+        {Math.min(startIndex + PRODUCTS_PER_PAGE, totalProducts)} of{" "}
+        <strong>{totalProducts} SPM Machines & Automation Solutions</strong>
+      </Box> */}
 
       <Box
         sx={{
@@ -63,6 +65,7 @@ function ProductsList() {
           page={page}
           onChange={handleChange}
           color="primary"
+          aria-label="Product pagination"
         />
       </Box>
     </>

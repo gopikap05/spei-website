@@ -1,4 +1,3 @@
-// ImageLightbox.jsx
 import { Box } from "@mui/material";
 import { useState } from "react";
 import { createPortal } from "react-dom";
@@ -8,15 +7,16 @@ function ImageLightbox({ src, alt, sx = {} }) {
 
   return (
     <>
-      {/* Clickable image with hover overlay */}
       <Box
         sx={{ position: "relative", cursor: "pointer", ...sx }}
         onClick={() => setOpen(true)}
+        aria-label={`View larger image of ${alt}`}
       >
         <Box
           component="img"
           src={src}
           alt={alt}
+          loading="lazy"
           sx={{
             width: "100%",
             height: "100%",
@@ -25,7 +25,6 @@ function ImageLightbox({ src, alt, sx = {} }) {
           }}
         />
 
-        {/* Hover overlay */}
         <Box
           sx={{
             position: "absolute",
@@ -44,7 +43,6 @@ function ImageLightbox({ src, alt, sx = {} }) {
             },
           }}
         >
-          {/*  Text instead of icon */}
           <Box
             className="zoom-text"
             sx={{
@@ -69,11 +67,13 @@ function ImageLightbox({ src, alt, sx = {} }) {
         </Box>
       </Box>
 
-      {/* Lightbox */}
       {open &&
         createPortal(
           <Box
             onClick={() => setOpen(false)}
+            role="dialog"
+            aria-modal="true"
+            aria-label={`Image lightbox for ${alt}`}
             sx={{
               position: "fixed",
               inset: 0,
@@ -86,9 +86,9 @@ function ImageLightbox({ src, alt, sx = {} }) {
               cursor: "zoom-out",
             }}
           >
-            {/* Close button */}
             <Box
               onClick={() => setOpen(false)}
+              aria-label="Close lightbox"
               sx={{
                 position: "fixed",
                 top: { xs: 14, md: 22 },
@@ -114,12 +114,12 @@ function ImageLightbox({ src, alt, sx = {} }) {
               ✕
             </Box>
 
-            {/* Full image */}
             <Box
               component="img"
               src={src}
               alt={alt}
               onClick={(e) => e.stopPropagation()}
+              loading="lazy"
               sx={{
                 maxWidth: "95vw",
                 maxHeight: "95vh",

@@ -7,10 +7,9 @@ function ProductsSection() {
   const previewProducts = productData.slice(0, 2);
 
   return (
-    // ── SECTION ──
     <Box
       sx={{
-        px: { xs: "16px", sm: "5%" }, //  mobile safety margin
+        px: { xs: "16px", sm: "5%" },
         py: {
           xs: "40px",
           sm: "60px",
@@ -22,10 +21,8 @@ function ProductsSection() {
         boxSizing: "border-box",
       }}
     >
-      {/* ── CONTAINER ── */}
       <Box sx={{ maxWidth: "1350px", width: "100%", mx: "auto" }}>
 
-        {/* Heading */}
         <Box sx={{ textAlign: "center", mb: { xs: 4, sm: 5, md: 8 } }}>
           <Typography
             variant="overline"
@@ -33,13 +30,14 @@ function ProductsSection() {
               color: "#FFC400",
               fontWeight: 700,
               letterSpacing: 2,
-              fontSize: { xs: "11px", sm: "12px", md: "13px" }, //  responsive
+              fontSize: { xs: "11px", sm: "12px", md: "13px" },
             }}
           >
             OUR PRODUCTS
           </Typography>
 
           <Typography
+            component="h2"
             sx={{
               fontWeight: 700,
               mt: 2,
@@ -48,27 +46,39 @@ function ProductsSection() {
                 xs: "22px",
                 sm: "26px",
                 md: "30px",
-                lg: "36px", //  added lg
+                lg: "36px",
               },
             }}
           >
-            Engineered Machinery Solutions
+            Special Purpose Machines & Automation Solutions
+          </Typography>
+
+          <Typography
+            sx={{
+              mt: 2,
+              color: "#666",
+              maxWidth: "600px",
+              mx: "auto",
+              lineHeight: 1.7,
+              fontSize: { xs: "13px", sm: "14px", md: "15px" },
+            }}
+          >
+            Explore our range of <strong>custom SPM machinery</strong> and <strong>industrial automation systems</strong> designed for precision engineering and manufacturing efficiency.
           </Typography>
         </Box>
 
-        {/* Product Cards */}
         <Box
           sx={{
             display: "grid",
             gridTemplateColumns: {
               xs: "1fr",
-              sm: "repeat(2, 1fr)", //  2 cols from sm (was md)
+              sm: "repeat(2, 1fr)",
             },
             gap: {
               xs: "20px",
               sm: "24px",
               md: "32px",
-              lg: "40px", //  smooth gap scale
+              lg: "40px",
             },
           }}
         >
@@ -77,7 +87,6 @@ function ProductsSection() {
           ))}
         </Box>
 
-        {/* View All Button */}
         <Box sx={{ textAlign: "center", mt: { xs: 5, sm: 6, md: 8 } }}>
           <Button
             component={NavLink}
@@ -91,7 +100,7 @@ function ProductsSection() {
               px: { xs: 4, md: 5 },
               py: { xs: 1.3, md: 1.5 },
               fontWeight: 700,
-              fontSize: { xs: "13px", sm: "14px", md: "15px" }, //  responsive
+              fontSize: { xs: "13px", sm: "14px", md: "15px" },
               borderRadius: "8px",
               textDecoration: "none",
               transition: "all 0.35s ease",
@@ -115,7 +124,7 @@ function ProductsSection() {
               "&:active": { transform: "scale(0.96)" },
             }}
           >
-            View All Products
+            View All SPM Products
           </Button>
         </Box>
 

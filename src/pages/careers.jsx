@@ -1,45 +1,30 @@
 import { Box, Typography } from "@mui/material";
 import Openings from "../components/career/openings";
-
-// ✅ ADD THIS
 import { Helmet } from "react-helmet-async";
 
 function Careers() {
   return (
     <>
-      {/* ✅ SEO START */}
       <Helmet>
-        <title>Careers at SP Engineers India | Jobs in Hosur</title>
+        <title>Careers at SP Engineers India | SPM Manufacturing Jobs in Hosur</title>
 
         <meta
           name="description"
-          content="Explore career opportunities at SP Engineers India. Join our team in Hosur, Tamil Nadu and grow in the field of industrial machines, automation, and SPM manufacturing."
+          content="Explore career opportunities at SP Engineers India. Join our team in Hosur, Tamil Nadu and grow in the field of industrial automation, SPM manufacturing, and machine design."
         />
 
-        <meta
-          name="keywords"
-          content="jobs in Hosur, careers SP Engineers India, SPM jobs India, industrial jobs Tamil Nadu, machine manufacturing jobs"
-        />
-
+        <link rel="canonical" href="https://www.spei.in/careers" />
         <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        {/* Open Graph */}
-        <meta property="og:title" content="Careers at SP Engineers India" />
-        <meta
-          property="og:description"
-          content="Join our team and build your career in industrial automation and SPM manufacturing"
-        />
+        <meta property="og:title" content="Careers at SP Engineers India - Jobs in Hosur" />
+        <meta property="og:description" content="Join our team and build your career in industrial automation and SPM manufacturing in Hosur, Tamil Nadu." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.spei.in/careers" />
       </Helmet>
-      {/* ✅ SEO END */}
 
-      {/* ✅ H1 for SEO */}
-      <h1 style={{ display: "none" }}>
-        Careers at SP Engineers India | Jobs in Hosur Tamil Nadu
-      </h1>
+      <h1 style={{ display: "none" }}>Careers at SP Engineers India | Jobs in Hosur Tamil Nadu for SPM and Automation Industry</h1>
 
-      {/* ── SECTION: Page Header ── */}
       <Box
         sx={{
           px: { xs: "16px", sm: "5%" },
@@ -63,7 +48,6 @@ function Careers() {
           overflow: "hidden",
         }}
       >
-        {/* Decorative rings */}
         <Box
           sx={{
             position: "absolute",
@@ -89,7 +73,6 @@ function Careers() {
           }}
         />
 
-        {/* ── CONTAINER ── */}
         <Box sx={{ maxWidth: "1350px", width: "100%", mx: "auto" }}>
           <Typography
             variant="overline"
@@ -133,7 +116,6 @@ function Careers() {
         </Box>
       </Box>
 
-      {/* ── Main Content ── */}
       <Openings />
     </>
   );

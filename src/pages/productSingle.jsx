@@ -1,7 +1,6 @@
 import { useParams, NavLink } from "react-router-dom";
 import { Box, Typography, Button } from "@mui/material";
-import { Helmet } from "react-helmet-async"; // ✅ SEO import
-
+import { Helmet } from "react-helmet-async";
 import productData from "../data/productData";
 import ImageLightbox from "../components/common/ImageLightbox";
 
@@ -36,44 +35,28 @@ function ProductSingle() {
 
   return (
     <>
-      {/* ✅ SEO START */}
       <Helmet>
-        <title>
-          {product.title} | SPM Machine Manufacturer | SP Engineers India
-        </title>
+        <title>{product.title} | Custom SPM Machine Manufacturer | SP Engineers India</title>
 
         <meta
           name="description"
-          content={`${product.title} - High quality industrial machine by SP Engineers India. Custom-built SPM solutions for automation, efficiency, and performance.`}
+          content={`${product.title} - High quality custom special purpose machine by SP Engineers India. Designed for industrial automation, efficiency, and high performance in manufacturing.`}
         />
 
-        <meta
-          name="keywords"
-          content={`${product.title}, SPM machine India, special purpose machine, industrial automation, custom machinery`}
-        />
-
+        <link rel="canonical" href={`https://www.spei.in/products/${product.id}`} />
         <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        {/* Open Graph */}
-        <meta property="og:title" content={`${product.title} - SP Engineers India`} />
-        <meta
-          property="og:description"
-          content={`Explore ${product.title} from SP Engineers India`}
-        />
+        <meta property="og:title" content={`${product.title} | SP Engineers India`} />
+        <meta property="og:description" content={`${product.title} - Custom SPM machine for industrial automation and manufacturing efficiency.`} />
         <meta property="og:type" content="website" />
-        <meta
-          property="og:url"
-          content={`https://www.spei.in/products/${product.id}`}
-        />
+        <meta property="og:url" content={`https://www.spei.in/products/${product.id}`} />
       </Helmet>
-      {/* ✅ SEO END */}
 
-      {/* ✅ H1 for SEO */}
       <h1 style={{ display: "none" }}>
-        {product.title} - Special Purpose Machine Manufacturer in India
+        {product.title} - Custom Special Purpose Machine Manufacturer in India | SP Engineers India
       </h1>
 
-      {/* ── SECTION 1: Product Content ── */}
       <Box
         sx={{
           px: { xs: "16px", sm: "5%" },
@@ -88,10 +71,8 @@ function ProductSingle() {
           boxSizing: "border-box",
         }}
       >
-        {/* ── CONTAINER ── */}
         <Box sx={{ maxWidth: "1350px", width: "100%", mx: "auto" }}>
           
-          {/* Title */}
           <Typography
             variant="h3"
             sx={{
@@ -109,7 +90,6 @@ function ProductSingle() {
             {product.title}
           </Typography>
 
-          {/* Layout */}
           <Box
             sx={{
               display: "flex",
@@ -118,11 +98,10 @@ function ProductSingle() {
               alignItems: "center",
             }}
           >
-            {/* Image */}
             <Box sx={{ width: { xs: "100%", md: "50%" } }}>
               <ImageLightbox
                 src={product.singleImage}
-                alt={`${product.title} - SPM machine manufacturer India`} // ✅ SEO improved alt
+                alt={`${product.title} - custom SPM machine manufacturer India`}
                 sx={{
                   width: "100%",
                   height: {
@@ -137,7 +116,6 @@ function ProductSingle() {
               />
             </Box>
 
-            {/* Description */}
             <Box sx={{ width: { xs: "100%", md: "50%" } }}>
               <Typography
                 sx={{
@@ -154,7 +132,6 @@ function ProductSingle() {
                 {product.description}
               </Typography>
 
-              {/* ✅ EXTRA SEO CONTENT */}
               <Typography
                 sx={{
                   mt: 2,
@@ -167,7 +144,7 @@ function ProductSingle() {
                   lineHeight: 1.7,
                 }}
               >
-                SP Engineers India manufactures high-performance special purpose
+                SP Engineers India manufactures high-performance custom special purpose
                 machines tailored for industrial automation and production
                 efficiency across various industries in India.
               </Typography>
@@ -176,7 +153,6 @@ function ProductSingle() {
         </Box>
       </Box>
 
-      {/* ── SECTION 2: CTA ── */}
       <Box
         sx={{
           px: { xs: "16px", sm: "5%" },

@@ -12,13 +12,12 @@ function ProductCard({ product }) {
         height: "100%",
         display: "flex",
         flexDirection: "column",
-        transition: "box-shadow 0.3s ease", //  only shadow, no transform
+        transition: "box-shadow 0.3s ease",
         "&:hover": {
-          boxShadow: "0 16px 32px rgba(0,0,0,0.16)", //  no translateY — was breaking fixed
+          boxShadow: "0 16px 32px rgba(0,0,0,0.16)",
         },
       }}
     >
-      {/* Image — lightbox, does NOT navigate */}
       <Box
         sx={{
           height: { xs: 190, sm: 210, md: 230, lg: 250 },
@@ -29,12 +28,11 @@ function ProductCard({ product }) {
       >
         <ImageLightbox
           src={product.cardImage}
-          alt={product.title}
+          alt={`${product.title} - Custom SPM Machine by SP Engineers India`}
           sx={{ height: "100%" }}
         />
       </Box>
 
-      {/* Card body — navigates to product page */}
       <CardContent
         component={NavLink}
         to={`/products/${product.id}`}
@@ -49,6 +47,7 @@ function ProductCard({ product }) {
         }}
       >
         <Typography
+          component="h3"
           sx={{
             fontWeight: 700,
             fontSize: { xs: "15px", sm: "16px", md: "17px", lg: "18px" },
@@ -74,7 +73,7 @@ function ProductCard({ product }) {
               color: "#777",
             }}
           >
-            SPEI Industrial Machine
+            {product.category || "SPM Machine"}
           </Typography>
 
           <Button
@@ -90,7 +89,7 @@ function ProductCard({ product }) {
               "&:hover": { color: "#FFC400", background: "none" },
             }}
           >
-            See More →
+            View Details →
           </Button>
         </Box>
       </CardContent>

@@ -15,6 +15,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { NavLink } from "react-router-dom";
+
 const logo = "/logo/logo.jpeg";
 
 const navItems = [
@@ -39,13 +40,11 @@ function Navbar() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  //  Toggle instead of just open
   const handleMenuToggle = () => setMobileOpen((prev) => !prev);
   const handleMenuClose = () => setMobileOpen(false);
 
   return (
     <>
-      {/* ── SECTION ── */}
       <AppBar
         position="fixed"
         elevation={0}
@@ -62,7 +61,6 @@ function Navbar() {
           },
         }}
       >
-        {/* ── CONTAINER ── */}
         <Toolbar
           sx={{
             maxWidth: "1350px",
@@ -74,17 +72,18 @@ function Navbar() {
             p: "0 !important",
           }}
         >
-          {/* Logo */}
           <Box
             component={NavLink}
             to="/"
             onClick={handleNavClick}
             sx={{ display: "flex", alignItems: "center" }}
+            aria-label="SP Engineers India Home"
           >
             <Box
               component="img"
               src={logo}
-              alt="SPEI Logo"
+              alt="SP Engineers India - SPM Machine Manufacturer Logo"
+              loading="eager"
               sx={{
                 height: {
                   xs: scrolled ? 36 : 40,
@@ -96,7 +95,6 @@ function Navbar() {
             />
           </Box>
 
-          {/* Desktop Nav */}
           <Box
             sx={{
               display: { xs: "none", md: "flex" },
@@ -137,10 +135,10 @@ function Navbar() {
             ))}
           </Box>
 
-          {/*  Toggle icon: Hamburger ↔ Close */}
           <IconButton
             sx={{ display: { xs: "flex", md: "none" }, color: "white" }}
             onClick={handleMenuToggle}
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
           >
             {mobileOpen ? (
               <CloseIcon
@@ -162,13 +160,12 @@ function Navbar() {
         </Toolbar>
       </AppBar>
 
-      {/* ── Mobile Drawer ── */}
       <Drawer
         anchor="right"
         open={mobileOpen}
-        onClose={handleMenuClose} //  closes on backdrop click too
+        onClose={handleMenuClose}
         ModalProps={{
-          keepMounted: true, //  better mobile performance
+          keepMounted: true,
         }}
         sx={{
           "& .MuiDrawer-paper": {
@@ -179,7 +176,6 @@ function Navbar() {
           },
         }}
       >
-        {/* Drawer Header with close button */}
         <Box
           sx={{
             display: "flex",
@@ -193,19 +189,19 @@ function Navbar() {
           <Box
             component="img"
             src={logo}
-            alt="SPEI Logo"
+            alt="SP Engineers India Logo"
             sx={{ height: 36 }}
+            loading="eager"
           />
-          {/*  Close button inside drawer too */}
           <IconButton
             onClick={handleMenuClose}
             sx={{ color: "white", p: 0.5 }}
+            aria-label="Close menu"
           >
             <CloseIcon sx={{ fontSize: "20px" }} />
           </IconButton>
         </Box>
 
-        {/* Nav Links */}
         <List sx={{ pt: 1 }}>
           {navItems.map((item, index) => (
             <ListItem key={index} disablePadding>
@@ -214,7 +210,7 @@ function Navbar() {
                 to={item.path}
                 onClick={() => {
                   handleNavClick();
-                  handleMenuClose(); //  closes drawer on nav
+                  handleMenuClose();
                 }}
                 sx={{
                   px: 3,

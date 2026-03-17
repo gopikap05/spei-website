@@ -28,20 +28,19 @@ const contactDetails = [
     value: "spengineersindia2001@gmail.com",
     href: "mailto:spengineersindia2001@gmail.com",
   },
-{
-  icon: <LocationOnIcon sx={{ color: "#FFC400", fontSize: "22px" }} />,
-  label: "Our Location",
-  value: (
-    <>
-      Plot No: 22, SF No: 579/5A1,<br />
-      Rajaji Layout, Rajsriya U-8 Back Side,<br />
-      Hosur Taluk, Krishnagiri District - 635126
-    </>
-  ),
-  href:
-    "https://www.google.com/maps/dir/?api=1&destination=Plot%20No%2022%2C%20SF%20No%20579%2F5A1%2C%20Rajaji%20Layout%2C%20Hosur%2C%20Krishnagiri%2C%20Tamil%20Nadu%20635126",
-  external: true,
-}
+  {
+    icon: <LocationOnIcon sx={{ color: "#FFC400", fontSize: "22px" }} />,
+    label: "Our Location",
+    value: (
+      <>
+        Plot No: 22, SF No: 579/5A1,<br />
+        Rajaji Layout, Rajsriya U-8 Back Side,<br />
+        Hosur Taluk, Krishnagiri District - 635126
+      </>
+    ),
+    href: "https://www.google.com/maps/dir/?api=1&destination=Plot%20No%2022%2C%20SF%20No%20579%2F5A1%2C%20Rajaji%20Layout%2C%20Hosur%2C%20Krishnagiri%2C%20Tamil%20Nadu%20635126",
+    external: true,
+  },
 ];
 
 const inputStyle = {
@@ -100,12 +99,10 @@ function ContactForm() {
 
   const [loading, setLoading] = useState(false);
 
-  // EmailJS configuration
   const EMAILJS_SERVICE_ID = "service_8e1pz9j";
-  const EMAILJS_TEMPLATE_ID = "template_llk2292"; // Your template
+  const EMAILJS_TEMPLATE_ID = "template_llk2292";
   const EMAILJS_PUBLIC_KEY = "jMCUD7zLd8Wt2y3wX";
 
-  // Validation functions (keeping your existing validation)
   const validateName = (name) => {
     const nameRegex = /^[A-Za-z\s]+$/;
     if (!name.trim()) return "First name is required";
@@ -235,41 +232,27 @@ function ContactForm() {
       setLoading(true);
       
       try {
-        // Initialize EmailJS
         emailjs.init(EMAILJS_PUBLIC_KEY);
         
-        // IMPORTANT: For AUTO-REPLY, the email goes TO the customer
-        // The "to_email" parameter must match what's in your template
-        
         const templateParams = {
-          // Customer's email (where auto-reply goes)
-          to_email: formData.email,  // This sends email to the customer
-          to_name: formData.firstName, // Customer's name for personalization
-          
-          // Sender details
+          to_email: formData.email,
+          to_name: formData.firstName,
           from_name: formData.firstName,
           from_company: formData.company || 'Not provided',
           from_email: formData.email,
           from_phone: `+91${formData.phone}`,
           message: formData.message,
-          
-          // Your company details for the auto-reply
-          company_name: 'SP Engineers',
+          company_name: 'SP Engineers India',
           contact_phone: '+91 9500990032',
           contact_email: 'spengineersindia2001@gmail.com',
           contact_location: 'Hosur, Tamil Nadu, India',
         };
 
-        console.log("Sending auto-reply to customer:", templateParams.to_email);
-
-        // Send email
         const result = await emailjs.send(
           EMAILJS_SERVICE_ID,
           EMAILJS_TEMPLATE_ID,
           templateParams
         );
-
-        console.log("Auto-reply sent successfully:", result.text);
 
         setSnackbar({
           open: true,
@@ -277,7 +260,6 @@ function ContactForm() {
           severity: "success",
         });
         
-        // Reset form
         setFormData({
           firstName: "",
           company: "",
@@ -297,12 +279,7 @@ function ContactForm() {
       } catch (error) {
         console.error("EmailJS Error:", error);
         
-        let errorMessage = "Failed to send message. ";
-        if (error.text) {
-          errorMessage += error.text;
-        } else {
-          errorMessage += "Please try again.";
-        }
+        let errorMessage = "Failed to send message. Please try again.";
         
         setSnackbar({
           open: true,
@@ -350,7 +327,6 @@ function ContactForm() {
           gap: { xs: 5, md: 6, lg: 8 },
         }}
       >
-        {/* Left: Form */}
         <Box sx={{ flex: 0.6 }}>
           <Typography
             variant="overline"
@@ -367,6 +343,7 @@ function ContactForm() {
           </Typography>
 
           <Typography
+            component="h2"
             sx={{
               mb: 1.5,
               fontWeight: 700,
@@ -400,12 +377,11 @@ function ContactForm() {
               lineHeight: 1.7,
             }}
           >
-            Have questions or need more details? Fill out the form below
-            and we'll get back to you shortly.
+            Have questions about our <strong>SPM machines</strong> or <strong>industrial automation</strong> solutions? 
+            Fill out the form below and we'll get back to you shortly.
           </Typography>
 
           <Box component="form" ref={formRef} onSubmit={sendEmail} noValidate>
-            {/* Row 1 */}
             <Box
               sx={{
                 display: "flex",
@@ -439,7 +415,6 @@ function ContactForm() {
               />
             </Box>
 
-            {/* Row 2 */}
             <Box
               sx={{
                 display: "flex",
@@ -486,7 +461,6 @@ function ContactForm() {
               />
             </Box>
 
-            {/* Message */}
             <TextField
               fullWidth
               label="Message"
@@ -525,7 +499,6 @@ function ContactForm() {
           </Box>
         </Box>
 
-        {/* Right: Contact Details */}
         <Box
           sx={{
             flex: 0.4,
@@ -549,6 +522,7 @@ function ContactForm() {
           </Typography>
 
           <Typography
+            component="h2"
             sx={{
               fontWeight: 700,
               color: "#071b3f",

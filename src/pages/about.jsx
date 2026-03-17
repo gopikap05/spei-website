@@ -1,46 +1,31 @@
 import { Box, Typography } from "@mui/material";
 import AboutMe from "../components/about/aboutme";
 import Steps from "../components/about/steps";
-
-// ✅ ADD THIS
 import { Helmet } from "react-helmet-async";
 
 function About() {
   return (
     <>
-      {/* ✅ SEO START */}
       <Helmet>
-        <title>About SP Engineers India | 30+ Years Industrial Experience</title>
+        <title>About SP Engineers India | 30+ Years SPM Manufacturing Experience</title>
 
         <meta
           name="description"
-          content="Learn about SP Engineers India, a trusted SPM machine manufacturer with over 30 years of experience in industrial machines, automation, and refurbishment services."
+          content="Learn about SP Engineers India, a trusted SPM machine manufacturer with over 30 years of experience in custom special purpose machines, industrial automation, and machine refurbishment services in Hosur."
         />
 
-        <meta
-          name="keywords"
-          content="about SP Engineers India, SPM manufacturer India, industrial automation company, machine refurbishment Hosur"
-        />
-
+        <link rel="canonical" href="https://www.spei.in/about" />
         <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        {/* Open Graph */}
-        <meta property="og:title" content="About SP Engineers India" />
-        <meta
-          property="og:description"
-          content="30+ years experience in industrial machines and automation"
-        />
+        <meta property="og:title" content="About SP Engineers India - SPM Machine Manufacturer" />
+        <meta property="og:description" content="30+ years experience in custom SPM machines and industrial automation solutions in India." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.spei.in/about" />
       </Helmet>
-      {/* ✅ SEO END */}
 
-      {/* ✅ H1 for SEO (hidden, no UI change) */}
-      <h1 style={{ display: "none" }}>
-        About SP Engineers India | SPM Machine Manufacturer in India
-      </h1>
+      <h1 style={{ display: "none" }}>About SP Engineers India | SPM Machine Manufacturer in Hosur, India</h1>
 
-      {/* ── SECTION: Page Header ── */}
       <Box
         sx={{
           px: { xs: "16px", sm: "5%" },
@@ -105,7 +90,6 @@ function About() {
         </Box>
       </Box>
 
-      {/* ── Main Content ── */}
       <AboutMe />
       <Steps />
     </>

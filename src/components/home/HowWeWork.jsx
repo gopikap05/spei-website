@@ -5,28 +5,27 @@ const steps = [
     number: "01",
     title: "Understand Requirements",
     description:
-      "We begin by deeply understanding your industrial process, production goals, and technical constraints through detailed consultations.",
+      "We begin by deeply understanding your industrial process, production goals, and technical constraints through detailed consultations to design the perfect custom SPM solution.",
     icon: "🔍",
   },
   {
     number: "02",
     title: "Design & Engineer",
     description:
-      "Our engineers design a custom SPM solution tailored precisely to your specifications — optimized for efficiency, safety, and reliability.",
+      "Our engineers design a custom SPM solution tailored precisely to your specifications — optimized for efficiency, safety, and reliability for your industrial automation needs.",
     icon: "⚙️",
   },
   {
     number: "03",
     title: "Build & Deliver",
     description:
-      "We manufacture, test, and deliver the machine to your facility — with full installation support and after-service assistance.",
+      "We manufacture, test, and deliver the special purpose machine to your facility — with full installation support and after-service assistance.",
     icon: "🚀",
   },
 ];
 
 function HowWeWork() {
   return (
-    // ── SECTION ──
     <Box
       sx={{
         px: { xs: "16px", sm: "5%" },
@@ -41,10 +40,8 @@ function HowWeWork() {
         boxSizing: "border-box",
       }}
     >
-      {/* ── CONTAINER ── */}
       <Box sx={{ maxWidth: "1350px", width: "100%", mx: "auto" }}>
 
-        {/* Heading */}
         <Box sx={{ textAlign: "center", mb: { xs: 4, sm: 5, md: 6 } }}>
           <Typography
             variant="overline"
@@ -59,6 +56,7 @@ function HowWeWork() {
           </Typography>
 
           <Typography
+            component="h2"
             sx={{
               fontWeight: 700,
               mt: 1.5,
@@ -71,7 +69,7 @@ function HowWeWork() {
               },
             }}
           >
-            How We Work
+            How We Build Your SPM Solutions
           </Typography>
 
           <Typography
@@ -85,15 +83,14 @@ function HowWeWork() {
             }}
           >
             A simple, transparent process from first conversation to
-            final delivery — built around your needs.
+            final delivery of your custom <strong>special purpose machine</strong> — built around your needs.
           </Typography>
         </Box>
 
-        {/* ── Steps Row ── */}
         <Box
           sx={{
             display: "flex",
-            flexDirection: { xs: "column", sm: "row" }, //  side by side from sm
+            flexDirection: { xs: "column", sm: "row" },
             gap: { xs: 3, sm: 2, md: 3 },
             alignItems: "stretch",
           }}
@@ -111,7 +108,6 @@ function HowWeWork() {
                 boxShadow: "0 4px 20px rgba(0,0,0,0.05)",
                 transition: "all 0.35s ease",
                 overflow: "hidden",
-                // Gold left accent bar
                 "&::before": {
                   content: '""',
                   position: "absolute",
@@ -131,7 +127,6 @@ function HowWeWork() {
                 },
               }}
             >
-              {/* Watermark number */}
               <Typography
                 sx={{
                   position: "absolute",
@@ -147,7 +142,6 @@ function HowWeWork() {
                 {step.number}
               </Typography>
 
-              {/* Icon */}
               <Box
                 sx={{
                   width: { xs: 46, md: 52 },
@@ -165,7 +159,6 @@ function HowWeWork() {
                 {step.icon}
               </Box>
 
-              {/* Step label */}
               <Typography
                 sx={{
                   fontSize: { xs: "10px", sm: "10px", md: "11px" },
@@ -179,8 +172,8 @@ function HowWeWork() {
                 Step {step.number}
               </Typography>
 
-              {/* Title */}
               <Typography
+                component="h3"
                 sx={{
                   fontWeight: 700,
                   color: "#071b3f",
@@ -192,7 +185,6 @@ function HowWeWork() {
                 {step.title}
               </Typography>
 
-              {/* Description */}
               <Typography
                 sx={{
                   color: "#666",
@@ -206,7 +198,6 @@ function HowWeWork() {
           ))}
         </Box>
 
-        {/* ── Connector dots — desktop only ── */}
         <Box
           sx={{
             display: { xs: "none", sm: "flex" },

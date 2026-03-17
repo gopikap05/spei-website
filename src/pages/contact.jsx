@@ -1,46 +1,33 @@
 import { Box, Typography } from "@mui/material";
 import ContactForm from "../components/contact/contactform";
 import Map from "../components/contact/map";
-
-// ✅ ADD THIS
 import { Helmet } from "react-helmet-async";
 
 function Contact() {
   return (
     <>
-      {/* ✅ SEO START */}
       <Helmet>
-        <title>Contact SP Engineers India | Hosur Tamil Nadu</title>
+        <title>Contact SP Engineers India | SPM Manufacturer in Hosur Tamil Nadu</title>
 
         <meta
           name="description"
-          content="Contact SP Engineers India for Special Purpose Machines, industrial automation, and machine refurbishment services in Hosur, Tamil Nadu."
+          content="Contact SP Engineers India for custom Special Purpose Machines, industrial automation, and machine refurbishment services in Hosur, Tamil Nadu. Get a quote today."
         />
 
-        <meta
-          name="keywords"
-          content="contact SP Engineers India, SPM manufacturer Hosur, industrial automation Tamil Nadu, machine manufacturers India"
-        />
-
+        <link rel="canonical" href="https://www.spei.in/contact" />
         <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        {/* Open Graph */}
-        <meta property="og:title" content="Contact SP Engineers India" />
-        <meta
-          property="og:description"
-          content="Get in touch for SPM machines and automation solutions"
-        />
+        <meta property="og:title" content="Contact SP Engineers India - SPM Manufacturer Hosur" />
+        <meta property="og:description" content="Get in touch for custom SPM machines, industrial automation, and machine refurbishment solutions in Tamil Nadu." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.spei.in/contact" />
       </Helmet>
-      {/* ✅ SEO END */}
 
-      {/* ✅ H1 for SEO */}
       <h1 style={{ display: "none" }}>
-        Contact SP Engineers India | SPM Manufacturer in Hosur Tamil Nadu
+        Contact SP Engineers India | Special Purpose Machine Manufacturer in Hosur, Tamil Nadu
       </h1>
 
-      {/* ── SECTION: Page Header ── */}
       <Box
         sx={{
           px: { xs: "16px", sm: "5%" },
@@ -105,7 +92,6 @@ function Contact() {
         </Box>
       </Box>
 
-      {/* ── Main Content ── */}
       <ContactForm />
       <Map />
     </>

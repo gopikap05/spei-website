@@ -21,12 +21,10 @@ import CareerSingle from "./pages/careerSingle";
 function App() {
   const location = useLocation();
 
-  // ✅ 1. Initialize Google Analytics
   useEffect(() => {
-    ReactGA.initialize("G-Q31XM6K6CH"); // 🔁 replace with your real GA ID
+    ReactGA.initialize("G-Q31XM6K6CH");
   }, []);
 
-  // ✅ 2. Track page views on route change
   useEffect(() => {
     ReactGA.send({
       hitType: "pageview",
@@ -34,7 +32,6 @@ function App() {
     });
   }, [location]);
 
-  // ✅ 3. Lenis Smooth Scroll (your existing code)
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,

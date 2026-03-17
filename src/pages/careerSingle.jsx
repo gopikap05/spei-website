@@ -89,11 +89,8 @@ function ApplyForm({ job }) {
         templateParams,
         EMAILJS_PUBLIC_KEY
       );
-      console.log("EmailJS success:", result.text);
       setStatus("success");
     } catch (err) {
-      console.error("EmailJS error status:", err.status);
-      console.error("EmailJS error text:", err.text);
       setStatus("error");
     }
   };
@@ -143,7 +140,7 @@ function ApplyForm({ job }) {
 
       {status === "error" && (
         <Alert severity="error" sx={{ fontFamily: F, borderRadius: "10px", mt: 2.5 }}>
-          Submission failed. Please open the browser console (F12) and share the error message so we can fix it.
+          Submission failed. Please try again or contact us directly.
         </Alert>
       )}
 
@@ -170,8 +167,6 @@ function ApplyForm({ job }) {
   );
 }
 
-// ── PAGE ──────────────────────────────────────────────────────────────────────
-
 function CareerSingle() {
   const { id }   = useParams();
   const navigate = useNavigate();
@@ -192,33 +187,25 @@ function CareerSingle() {
 
   return (
     <>
-      {/* ── SEO ── */}
       <Helmet>
         <title>{job.title} Job in {job.location} | SP Engineers India Careers</title>
         <meta
           name="description"
-          content={`${job.title} job opening at SP Engineers India in ${job.location}. Apply now for a career in industrial machines and SPM manufacturing.`}
+          content={`${job.title} job opening at SP Engineers India in ${job.location}. Apply now for a career in industrial automation, SPM manufacturing, and machine design.`}
         />
-        <meta
-          name="keywords"
-          content={`${job.title}, jobs in ${job.location}, SPM jobs India, industrial jobs Tamil Nadu`}
-        />
+        <link rel="canonical" href={`https://www.spei.in/careers/${job.id}`} />
         <meta name="robots" content="index, follow" />
-        <meta property="og:title" content={`${job.title} - SP Engineers India`} />
-        <meta
-          property="og:description"
-          content={`Apply for ${job.title} role at SP Engineers India`}
-        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta property="og:title" content={`${job.title} - SP Engineers India Careers`} />
+        <meta property="og:description" content={`Apply for ${job.title} role in ${job.location}. Join our team in industrial automation and SPM manufacturing.`} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`https://www.spei.in/careers/${job.id}`} />
       </Helmet>
 
-      {/* ── Hidden H1 for SEO ── */}
       <h1 style={{ display: "none" }}>
-        {job.title} Job in {job.location} | SP Engineers India
+        {job.title} Job Opening in {job.location} | SP Engineers India Careers
       </h1>
 
-      {/* ── HEADER ── */}
       <Box
         sx={{
           px: { xs: "16px", sm: "5%" },
@@ -263,11 +250,9 @@ function CareerSingle() {
         </Box>
       </Box>
 
-      {/* ── BODY ── */}
       <Box sx={{ px: { xs: "16px", sm: "5%" }, py: { xs: "48px", md: "80px" }, backgroundColor: "#f7f9fc", boxSizing: "border-box", width: "100%", overflow: "hidden" }}>
         <Box sx={{ maxWidth: "1350px", mx: "auto", display: "flex", flexDirection: { xs: "column", md: "row" }, gap: { xs: 3, md: 5 }, alignItems: "flex-start", width: "100%", minWidth: 0 }}>
 
-          {/* LEFT: Details */}
           <Box sx={{ width: { xs: "100%", md: "40%" }, flexShrink: 0, minWidth: 0, boxSizing: "border-box", backgroundColor: "white", border: "1px solid #e8ecf4", borderRadius: "16px", p: { xs: 3, md: 4 }, position: { md: "sticky" }, top: { md: "120px" } }}>
             <Typography sx={{ fontFamily: F, fontWeight: 800, fontSize: "18px", color: "#071b3f", mb: 2 }}>About this Role</Typography>
             <Typography variant="body2" sx={{ fontFamily: F, color: "#3d4f72", lineHeight: 1.8, mb: 3 }}>{job.description}</Typography>
@@ -293,7 +278,6 @@ function CareerSingle() {
             ))}
           </Box>
 
-          {/* RIGHT: Form */}
           <Box sx={{ width: { xs: "100%", md: "60%" }, minWidth: 0, boxSizing: "border-box", backgroundColor: "white", border: "1px solid #e8ecf4", borderRadius: "16px", p: { xs: 3, md: 4 } }}>
             <Typography variant="overline" sx={{ fontFamily: F, color: "#FFC400", fontWeight: 700, letterSpacing: 2, fontSize: "12px", display: "block", mb: 1 }}>
               YOUR APPLICATION

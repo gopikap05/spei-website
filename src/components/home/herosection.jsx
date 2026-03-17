@@ -9,17 +9,13 @@ function HeroSection() {
         minHeight: { xs: "80dvh", md: "100vh" },
         position: "relative",
         display: "flex",
-
-        //  FIX: align top on mobile, center on desktop
         alignItems: { xs: "flex-start", md: "center" },
-
         backgroundImage: `url(${companyImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         overflow: "hidden",
       }}
     >
-      {/* Overlay */}
       <Box
         sx={{
           position: "absolute",
@@ -29,7 +25,6 @@ function HeroSection() {
         }}
       />
 
-      {/* Grid animation */}
       <Box
         sx={{
           position: "absolute",
@@ -46,19 +41,15 @@ function HeroSection() {
         }}
       />
 
-      {/* Content wrapper */}
       <Box
         sx={{
           width: "100%",
           position: "relative",
           zIndex: 2,
-
-          //  FIX: reduced mobile spacing
           pt: { xs: "90px", sm: "120px", md: "160px" },
           pb: { xs: "50px", sm: "80px", md: "100px" },
         }}
       >
-        {/* Container */}
         <Box
           sx={{
             maxWidth: "1350px",
@@ -67,11 +58,9 @@ function HeroSection() {
             px: { xs: "16px", sm: "5%" },
           }}
         >
-          {/* Content */}
           <Box sx={{ maxWidth: { xs: "100%", md: "720px", lg: "800px" } }}>
-            {/* Heading */}
             <Typography
-              variant="h2"
+              variant="h1"
               sx={{
                 fontWeight: 300,
                 color: "white",
@@ -107,7 +96,6 @@ function HeroSection() {
               for Industrial Automation
             </Typography>
 
-            {/* Subtext */}
             <Typography
               sx={{
                 color: "rgba(255,255,255,0.75)",
@@ -122,12 +110,10 @@ function HeroSection() {
                 maxWidth: "580px",
               }}
             >
-              SPEI designs and manufactures custom-built automation and
-              precision-engineered machinery tailored to complex manufacturing
-              requirements.
+              SP Engineers India designs and manufactures custom-built <strong>industrial automation</strong> and
+              <strong> precision-engineered SPM machinery</strong> tailored to complex manufacturing requirements.
             </Typography>
 
-            {/* Buttons */}
             <Box
               sx={{
                 display: "flex",
@@ -135,7 +121,6 @@ function HeroSection() {
                 flexWrap: "wrap",
               }}
             >
-              {/* Primary */}
               <Button
                 component={NavLink}
                 to="/products"
@@ -170,10 +155,9 @@ function HeroSection() {
                   },
                 }}
               >
-                Explore Products
+                Explore SPM Products
               </Button>
 
-              {/* Secondary */}
               <Button
                 component={NavLink}
                 to="/contact"
@@ -212,7 +196,6 @@ function HeroSection() {
               </Button>
             </Box>
 
-            {/* Scroll indicator */}
             <Box
               sx={{
                 mt: { xs: 5, md: 7 },

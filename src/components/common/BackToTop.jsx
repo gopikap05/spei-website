@@ -33,6 +33,7 @@ function BackToTop() {
       <Fab
         onClick={scrollTop}
         size="medium"
+        aria-label="Back to top"
         sx={{
           position: "fixed",
           bottom: 30,

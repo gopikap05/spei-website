@@ -8,10 +8,9 @@ function Map() {
   const embedLink = `https://www.google.com/maps?q=${encodedLocation}&output=embed`;
 
   return (
-    // ── SECTION ──
     <Box
       sx={{
-        px: { xs: "16px", sm: "5%" }, //  mobile safety margin
+        px: { xs: "16px", sm: "5%" },
         py: {
           xs: "40px",
           sm: "60px",
@@ -23,10 +22,8 @@ function Map() {
         boxSizing: "border-box",
       }}
     >
-      {/* ── CONTAINER ── */}
       <Box sx={{ maxWidth: "1350px", width: "100%", mx: "auto" }}>
 
-        {/* Heading */}
         <Typography
           variant="overline"
           sx={{
@@ -42,6 +39,7 @@ function Map() {
         </Typography>
 
         <Typography
+          component="h2"
           sx={{
             mb: { xs: 3, md: 4 },
             fontWeight: 700,
@@ -54,10 +52,9 @@ function Map() {
             },
           }}
         >
-          Find Us Here
+          Find Us in Hosur, Tamil Nadu
         </Typography>
 
-        {/* Gold underline */}
         <Box
           sx={{
             mb: { xs: 3, md: 4 },
@@ -68,7 +65,6 @@ function Map() {
           }}
         />
 
-        {/* Map */}
         <Box
           component="a"
           href={mapsLink}
@@ -82,7 +78,6 @@ function Map() {
             overflow: "hidden",
             textDecoration: "none",
             border: "1px solid rgba(0,0,0,0.08)",
-            //  Subtle hover effect on the map container
             transition: "box-shadow 0.3s ease",
             "&:hover": {
               boxShadow: "0 12px 32px rgba(0,0,0,0.12)",
@@ -98,6 +93,7 @@ function Map() {
             loading="lazy"
             allowFullScreen
             referrerPolicy="no-referrer-when-downgrade"
+            title="Google Maps location of SP Engineers India in Hosur, Tamil Nadu"
           />
         </Box>
       </Box>

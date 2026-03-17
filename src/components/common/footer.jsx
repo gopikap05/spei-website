@@ -6,7 +6,6 @@ const logo = "/logo/logo.jpeg";
 function Footer() {
   const navigate = useNavigate();
 
-  // ✅ Full address added
   const fullAddress =
     "Plot No: 22, SF No: 579/5A1, Rajaji Layout, Rajsriya U-8 Back Side, Hosur Taluk, Krishnagiri District - 635126";
 
@@ -35,9 +34,7 @@ function Footer() {
         boxSizing: "border-box",
       }}
     >
-      {/* Container */}
       <Box sx={{ maxWidth: "1350px", width: "100%", mx: "auto" }}>
-        {/* Main Content */}
         <Box
           sx={{
             display: "flex",
@@ -46,7 +43,6 @@ function Footer() {
             gap: { xs: 3, md: 0 },
           }}
         >
-          {/* LEFT: Brand */}
           <Box sx={{ maxWidth: { xs: "80%", md: 420 } }}>
             <Box
               onClick={() => handleNavigation("/")}
@@ -60,7 +56,7 @@ function Footer() {
               <Box
                 component="img"
                 src={logo}
-                alt="SP Engineers India Logo"
+                alt="SP Engineers India - SPM Machine Manufacturer Logo"
                 sx={{ height: { xs: 38, sm: 42, md: 50 }, mr: 2 }}
               />
               <Typography
@@ -81,12 +77,11 @@ function Footer() {
               }}
             >
               SP Engineers India specializes in manufacturing
-              precision-engineered Special Purpose Machines designed to
+              precision-engineered <strong>Special Purpose Machines</strong> designed to
               optimize industrial productivity and automation efficiency.
             </Typography>
           </Box>
 
-          {/* RIGHT: Links + Contact */}
           <Box
             sx={{
               display: "flex",
@@ -94,7 +89,6 @@ function Footer() {
               gap: { xs: 4, sm: 6, md: 10 },
             }}
           >
-            {/* Quick Links */}
             <Box>
               <Typography
                 sx={{
@@ -135,7 +129,6 @@ function Footer() {
               ))}
             </Box>
 
-            {/* Contact */}
             <Box>
               <Typography
                 sx={{
@@ -157,7 +150,7 @@ function Footer() {
                       Rajaji Layout, Rajsriya U-8 Back Side,<br />
                       Hosur Taluk, Krishnagiri District - 635126
                     </>
-                  ), // ✅ Updated
+                  ),
                   href: mapLink,
                   external: true,
                 },
@@ -186,8 +179,8 @@ function Footer() {
                       display: "flex",
                       alignItems: "flex-start",
                       gap: 1,
-                      lineHeight: 1.6, // ✅ improves readability
-                      wordBreak: "break-word", // ✅ prevents overflow
+                      lineHeight: 1.6,
+                      wordBreak: "break-word",
                       transition: "color 0.2s ease",
                       "&:hover": { color: "#FFC400", opacity: 1 },
                     }}
@@ -203,7 +196,6 @@ function Footer() {
           </Box>
         </Box>
 
-        {/* Bottom Strip */}
         <Box
           sx={{
             borderTop: "1px solid rgba(255,255,255,0.1)",

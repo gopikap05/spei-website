@@ -2,14 +2,48 @@ import { Box, Typography } from "@mui/material";
 import ContactForm from "../components/contact/contactform";
 import Map from "../components/contact/map";
 
+// ✅ ADD THIS
+import { Helmet } from "react-helmet-async";
+
 function Contact() {
   return (
     <>
+      {/* ✅ SEO START */}
+      <Helmet>
+        <title>Contact SP Engineers India | Hosur Tamil Nadu</title>
+
+        <meta
+          name="description"
+          content="Contact SP Engineers India for Special Purpose Machines, industrial automation, and machine refurbishment services in Hosur, Tamil Nadu."
+        />
+
+        <meta
+          name="keywords"
+          content="contact SP Engineers India, SPM manufacturer Hosur, industrial automation Tamil Nadu, machine manufacturers India"
+        />
+
+        <meta name="robots" content="index, follow" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="Contact SP Engineers India" />
+        <meta
+          property="og:description"
+          content="Get in touch for SPM machines and automation solutions"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.spei.in/contact" />
+      </Helmet>
+      {/* ✅ SEO END */}
+
+      {/* ✅ H1 for SEO */}
+      <h1 style={{ display: "none" }}>
+        Contact SP Engineers India | SPM Manufacturer in Hosur Tamil Nadu
+      </h1>
+
       {/* ── SECTION: Page Header ── */}
       <Box
         sx={{
-          px: { xs: "16px", sm: "5%" }, //  mobile safety margin
-          //  Top padding clears fixed navbar + breadcrumb
+          px: { xs: "16px", sm: "5%" },
           pt: {
             xs: "65px",
             sm: "90px",
@@ -26,13 +60,9 @@ function Contact() {
           color: "white",
           width: "100%",
           boxSizing: "border-box",
-          // ❌ Removed margin: "0px" — unnecessary reset
         }}
       >
-        {/* ── CONTAINER ── */}
         <Box sx={{ maxWidth: "1350px", width: "100%", mx: "auto" }}>
-
-          {/* ── CONTENT ── */}
           <Typography
             variant="overline"
             sx={{
@@ -63,7 +93,6 @@ function Contact() {
             Contact Us
           </Typography>
 
-          {/* Decorative gold underline */}
           <Box
             sx={{
               mt: 2.5,

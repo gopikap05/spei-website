@@ -1,5 +1,7 @@
 import { useParams, NavLink } from "react-router-dom";
 import { Box, Typography, Button } from "@mui/material";
+import { Helmet } from "react-helmet-async"; // ✅ SEO import
+
 import productData from "../data/productData";
 import ImageLightbox from "../components/common/ImageLightbox";
 
@@ -34,6 +36,43 @@ function ProductSingle() {
 
   return (
     <>
+      {/* ✅ SEO START */}
+      <Helmet>
+        <title>
+          {product.title} | SPM Machine Manufacturer | SP Engineers India
+        </title>
+
+        <meta
+          name="description"
+          content={`${product.title} - High quality industrial machine by SP Engineers India. Custom-built SPM solutions for automation, efficiency, and performance.`}
+        />
+
+        <meta
+          name="keywords"
+          content={`${product.title}, SPM machine India, special purpose machine, industrial automation, custom machinery`}
+        />
+
+        <meta name="robots" content="index, follow" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content={`${product.title} - SP Engineers India`} />
+        <meta
+          property="og:description"
+          content={`Explore ${product.title} from SP Engineers India`}
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content={`https://www.spei.in/products/${product.id}`}
+        />
+      </Helmet>
+      {/* ✅ SEO END */}
+
+      {/* ✅ H1 for SEO */}
+      <h1 style={{ display: "none" }}>
+        {product.title} - Special Purpose Machine Manufacturer in India
+      </h1>
+
       {/* ── SECTION 1: Product Content ── */}
       <Box
         sx={{
@@ -70,7 +109,7 @@ function ProductSingle() {
             {product.title}
           </Typography>
 
-          {/*  Image + Description Layout */}
+          {/* Layout */}
           <Box
             sx={{
               display: "flex",
@@ -83,7 +122,7 @@ function ProductSingle() {
             <Box sx={{ width: { xs: "100%", md: "50%" } }}>
               <ImageLightbox
                 src={product.singleImage}
-                alt={product.title}
+                alt={`${product.title} - SPM machine manufacturer India`} // ✅ SEO improved alt
                 sx={{
                   width: "100%",
                   height: {
@@ -114,6 +153,24 @@ function ProductSingle() {
               >
                 {product.description}
               </Typography>
+
+              {/* ✅ EXTRA SEO CONTENT */}
+              <Typography
+                sx={{
+                  mt: 2,
+                  color: "#666",
+                  fontSize: {
+                    xs: "13px",
+                    sm: "14px",
+                    md: "15px",
+                  },
+                  lineHeight: 1.7,
+                }}
+              >
+                SP Engineers India manufactures high-performance special purpose
+                machines tailored for industrial automation and production
+                efficiency across various industries in India.
+              </Typography>
             </Box>
           </Box>
         </Box>
@@ -134,7 +191,6 @@ function ProductSingle() {
           boxSizing: "border-box",
         }}
       >
-        {/* ── CONTAINER ── */}
         <Box sx={{ maxWidth: "1350px", width: "100%", mx: "auto" }}>
           <Box
             sx={{

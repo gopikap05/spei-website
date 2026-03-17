@@ -2,14 +2,48 @@ import { Box, Typography } from "@mui/material";
 import AboutMe from "../components/about/aboutme";
 import Steps from "../components/about/steps";
 
+// ✅ ADD THIS
+import { Helmet } from "react-helmet-async";
+
 function About() {
   return (
     <>
+      {/* ✅ SEO START */}
+      <Helmet>
+        <title>About SP Engineers India | 30+ Years Industrial Experience</title>
+
+        <meta
+          name="description"
+          content="Learn about SP Engineers India, a trusted SPM machine manufacturer with over 30 years of experience in industrial machines, automation, and refurbishment services."
+        />
+
+        <meta
+          name="keywords"
+          content="about SP Engineers India, SPM manufacturer India, industrial automation company, machine refurbishment Hosur"
+        />
+
+        <meta name="robots" content="index, follow" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="About SP Engineers India" />
+        <meta
+          property="og:description"
+          content="30+ years experience in industrial machines and automation"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.spei.in/about" />
+      </Helmet>
+      {/* ✅ SEO END */}
+
+      {/* ✅ H1 for SEO (hidden, no UI change) */}
+      <h1 style={{ display: "none" }}>
+        About SP Engineers India | SPM Machine Manufacturer in India
+      </h1>
+
       {/* ── SECTION: Page Header ── */}
       <Box
         sx={{
-          px: { xs: "16px", sm: "5%" }, //  mobile safety margin
-          //  Top padding accounts for fixed navbar + breadcrumb bar
+          px: { xs: "16px", sm: "5%" },
           pt: {
             xs: "65px",
             sm: "90px",
@@ -28,10 +62,7 @@ function About() {
           boxSizing: "border-box",
         }}
       >
-        {/* ── CONTAINER ── */}
         <Box sx={{ maxWidth: "1350px", width: "100%", mx: "auto" }}>
-
-          {/* ── CONTENT ── */}
           <Typography
             variant="overline"
             sx={{
@@ -62,7 +93,6 @@ function About() {
             About Us
           </Typography>
 
-          {/* Decorative gold underline */}
           <Box
             sx={{
               mt: 2.5,

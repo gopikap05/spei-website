@@ -10,6 +10,7 @@ import {
   Alert,
   CircularProgress,
 } from "@mui/material";
+import { Helmet } from "react-helmet-async";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
 import WorkHistoryOutlinedIcon from "@mui/icons-material/WorkHistoryOutlined";
@@ -66,8 +67,6 @@ function ApplyForm({ job }) {
     setForm((prev) => ({ ...prev, [field]: e.target.value }));
     setErrors((prev) => ({ ...prev, [field]: "" }));
   };
-
-  
 
   const handleSubmit = async () => {
     if (!validate()) return;
@@ -193,6 +192,32 @@ function CareerSingle() {
 
   return (
     <>
+      {/* ── SEO ── */}
+      <Helmet>
+        <title>{job.title} Job in {job.location} | SP Engineers India Careers</title>
+        <meta
+          name="description"
+          content={`${job.title} job opening at SP Engineers India in ${job.location}. Apply now for a career in industrial machines and SPM manufacturing.`}
+        />
+        <meta
+          name="keywords"
+          content={`${job.title}, jobs in ${job.location}, SPM jobs India, industrial jobs Tamil Nadu`}
+        />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content={`${job.title} - SP Engineers India`} />
+        <meta
+          property="og:description"
+          content={`Apply for ${job.title} role at SP Engineers India`}
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`https://www.spei.in/careers/${job.id}`} />
+      </Helmet>
+
+      {/* ── Hidden H1 for SEO ── */}
+      <h1 style={{ display: "none" }}>
+        {job.title} Job in {job.location} | SP Engineers India
+      </h1>
+
       {/* ── HEADER ── */}
       <Box
         sx={{

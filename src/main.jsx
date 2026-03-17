@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { HelmetProvider } from "react-helmet-async"; // ✅ ADD THIS
+
 import App from "./App";
 import "./index.css";
 
@@ -18,9 +20,13 @@ const theme = createTheme({
 });
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <ThemeProvider theme={theme}>
-      <App />
-    </ThemeProvider>
-  </BrowserRouter>
+  <React.StrictMode>
+    <HelmetProvider> {/* ✅ ADD THIS */}
+      <BrowserRouter>
+        <ThemeProvider theme={theme}>
+          <App />
+        </ThemeProvider>
+      </BrowserRouter>
+    </HelmetProvider>
+  </React.StrictMode>
 );

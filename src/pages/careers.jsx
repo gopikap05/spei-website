@@ -1,9 +1,44 @@
 import { Box, Typography } from "@mui/material";
 import Openings from "../components/career/openings";
 
+// ✅ ADD THIS
+import { Helmet } from "react-helmet-async";
+
 function Careers() {
   return (
     <>
+      {/* ✅ SEO START */}
+      <Helmet>
+        <title>Careers at SP Engineers India | Jobs in Hosur</title>
+
+        <meta
+          name="description"
+          content="Explore career opportunities at SP Engineers India. Join our team in Hosur, Tamil Nadu and grow in the field of industrial machines, automation, and SPM manufacturing."
+        />
+
+        <meta
+          name="keywords"
+          content="jobs in Hosur, careers SP Engineers India, SPM jobs India, industrial jobs Tamil Nadu, machine manufacturing jobs"
+        />
+
+        <meta name="robots" content="index, follow" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="Careers at SP Engineers India" />
+        <meta
+          property="og:description"
+          content="Join our team and build your career in industrial automation and SPM manufacturing"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.spei.in/careers" />
+      </Helmet>
+      {/* ✅ SEO END */}
+
+      {/* ✅ H1 for SEO */}
+      <h1 style={{ display: "none" }}>
+        Careers at SP Engineers India | Jobs in Hosur Tamil Nadu
+      </h1>
+
       {/* ── SECTION: Page Header ── */}
       <Box
         sx={{
@@ -56,7 +91,6 @@ function Careers() {
 
         {/* ── CONTAINER ── */}
         <Box sx={{ maxWidth: "1350px", width: "100%", mx: "auto" }}>
-          {/* ── CONTENT ── */}
           <Typography
             variant="overline"
             sx={{
@@ -87,7 +121,6 @@ function Careers() {
             Careers at SPEI
           </Typography>
 
-          {/* Decorative gold underline */}
           <Box
             sx={{
               mt: 3,

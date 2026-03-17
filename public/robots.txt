@@ -1,0 +1,5 @@
+id="robotstxt"
+User-agent: *
+Allow: /
+
+Sitemap: https://www.spei.in/sitemap.xml

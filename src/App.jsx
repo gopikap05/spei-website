@@ -1,7 +1,8 @@
 import { useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { Box } from "@mui/material";
 import Lenis from "@studio-freight/lenis";
+import ReactGA from "react-ga4";
 
 import Navbar from "./components/common/navbar";
 import Breadcrumbs from "./components/common/breadcrumbs";
@@ -18,6 +19,22 @@ import Careers from "./pages/careers";
 import CareerSingle from "./pages/careerSingle";
 
 function App() {
+  const location = useLocation();
+
+  // ✅ 1. Initialize Google Analytics
+  useEffect(() => {
+    ReactGA.initialize("G-Q31XM6K6CH"); // 🔁 replace with your real GA ID
+  }, []);
+
+  // ✅ 2. Track page views on route change
+  useEffect(() => {
+    ReactGA.send({
+      hitType: "pageview",
+      page: location.pathname,
+    });
+  }, [location]);
+
+  // ✅ 3. Lenis Smooth Scroll (your existing code)
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,

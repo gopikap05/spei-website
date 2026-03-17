@@ -1,15 +1,13 @@
 import { Box, Typography } from "@mui/material";
-import AboutMe from "../components/about/aboutme";
-import Steps from "../components/about/steps";
+import Openings from "../components/career/openings";
 
-function About() {
+function Careers() {
   return (
     <>
       {/* ── SECTION: Page Header ── */}
       <Box
         sx={{
-          px: { xs: "16px", sm: "5%" }, //  mobile safety margin
-          //  Top padding accounts for fixed navbar + breadcrumb bar
+          px: { xs: "16px", sm: "5%" },
           pt: {
             xs: "65px",
             sm: "90px",
@@ -26,11 +24,38 @@ function About() {
           color: "white",
           width: "100%",
           boxSizing: "border-box",
+          position: "relative",
+          overflow: "hidden",
         }}
       >
+        {/* Decorative rings */}
+        <Box
+          sx={{
+            position: "absolute",
+            top: "-80px",
+            right: "-80px",
+            width: "360px",
+            height: "360px",
+            borderRadius: "50%",
+            border: "1px solid rgba(255,196,0,0.12)",
+            pointerEvents: "none",
+          }}
+        />
+        <Box
+          sx={{
+            position: "absolute",
+            bottom: "-120px",
+            right: "60px",
+            width: "240px",
+            height: "240px",
+            borderRadius: "50%",
+            border: "1px solid rgba(255,255,255,0.06)",
+            pointerEvents: "none",
+          }}
+        />
+
         {/* ── CONTAINER ── */}
         <Box sx={{ maxWidth: "1350px", width: "100%", mx: "auto" }}>
-
           {/* ── CONTENT ── */}
           <Typography
             variant="overline"
@@ -43,7 +68,7 @@ function About() {
               mb: 1.5,
             }}
           >
-            WHO WE ARE
+            JOIN OUR TEAM
           </Typography>
 
           <Typography
@@ -59,13 +84,13 @@ function About() {
               },
             }}
           >
-            About Us
+            Careers at SPEI
           </Typography>
 
           {/* Decorative gold underline */}
           <Box
             sx={{
-              mt: 2.5,
+              mt: 3,
               width: { xs: "48px", md: "64px" },
               height: "4px",
               borderRadius: "2px",
@@ -76,10 +101,9 @@ function About() {
       </Box>
 
       {/* ── Main Content ── */}
-      <AboutMe />
-      <Steps />
+      <Openings />
     </>
   );
 }
 
-export default About;
+export default Careers;

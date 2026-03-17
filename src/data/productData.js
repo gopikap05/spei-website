@@ -72,9 +72,9 @@ const productData = [
   },
   {
     id: "pipeline",
-    title: "Pipeline Fabrication",
+    title: "Pipeline and Heavy Fabrication",
     description:
-      "Precision pipeline fabrication and installation using MS, SS, and alloy steels for industrial applications.",
+      "Precision Pipeline and Heavy Fabrication and installation using MS, SS, and alloy steels for industrial applications.",
     cardImage: pipeNew,   //  updated new image
     singleImage: pipe1,
   },

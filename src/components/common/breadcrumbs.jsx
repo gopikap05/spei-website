@@ -7,12 +7,14 @@ import { Link as RouterLink, useLocation } from "react-router-dom";
 
 function Breadcrumbs() {
   const location = useLocation();
-  const pathnames = location.pathname.split("/").filter((x) => x);
+
+  const allSegments = location.pathname.split("/").filter((x) => x);
+  const pathnames = allSegments.filter((x) => isNaN(x));
 
   const textStyle = {
     fontWeight: 700,
     fontSize: { xs: "12px", sm: "13px", md: "14px", lg: "15px" },
-    lineHeight: 1.4, //  SAME everywhere = perfect alignment
+    lineHeight: 1.4,
     display: "flex",
     alignItems: "center",
     color: "#071b3f",
@@ -31,18 +33,10 @@ function Breadcrumbs() {
         zIndex: 1200,
       }}
     >
-      <Box
-        sx={{
-          maxWidth: "1350px",
-          mx: "auto",
-          px: { xs: "16px", sm: "5%" },
-        }}
-      >
+      <Box sx={{ maxWidth: "1350px", mx: "auto", px: { xs: "16px", sm: "5%" } }}>
         <MUIBreadcrumbs
           separator={
-            <Typography sx={{ ...textStyle, opacity: 0.5 }}>
-              &gt;
-            </Typography>
+            <Typography sx={{ ...textStyle, opacity: 0.5 }}>&gt;</Typography>
           }
           sx={{
             "& .MuiBreadcrumbs-ol": {
@@ -59,27 +53,21 @@ function Breadcrumbs() {
               ...textStyle,
               textDecoration: "none",
               transition: "0.2s",
-              "&:hover": {
-                opacity: 0.7,
-              },
+              "&:hover": { opacity: 0.7 },
             }}
           >
             Home
           </Typography>
 
           {pathnames.map((value, index) => {
-            const to = `/${pathnames.slice(0, index + 1).join("/")}`;
+            const segmentIndex = allSegments.indexOf(value);
+            const to = `/${allSegments.slice(0, segmentIndex + 1).join("/")}`;
             const isLast = index === pathnames.length - 1;
-
             const formatted = value
               .replace(/-/g, " ")
               .replace(/\b\w/g, (l) => l.toUpperCase());
 
-            return isLast ? (
-              <Typography key={to} sx={textStyle}>
-                {formatted}
-              </Typography>
-            ) : (
+            return (
               <Typography
                 key={to}
                 component={RouterLink}
@@ -87,6 +75,7 @@ function Breadcrumbs() {
                 sx={{
                   ...textStyle,
                   textDecoration: "none",
+                  opacity: isLast ? 1 : 1,
                   "&:hover": { opacity: 0.7 },
                 }}
               >

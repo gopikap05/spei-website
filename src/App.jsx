@@ -14,13 +14,14 @@ import About from "./pages/about";
 import Products from "./pages/products";
 import Contact from "./pages/contact";
 import ProductSingle from "./pages/productSingle";
+import Careers from "./pages/careers";
+import CareerSingle from "./pages/careerSingle";
 
 function App() {
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
-      easing: (t) =>
-        Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smooth: true,
       direction: "vertical",
       gestureDirection: "vertical",
@@ -47,12 +48,9 @@ function App() {
   return (
     <>
       <ScrollToTop />
-
       <Navbar />
 
-      {/* Main content wrapper */}
       <Box sx={{ pt: { xs: "80px", md: "90px" } }}>
-
         <Breadcrumbs />
 
         <Routes>
@@ -61,12 +59,12 @@ function App() {
           <Route path="/products" element={<Products />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/products/:id" element={<ProductSingle />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/careers/:id" element={<CareerSingle />} />
         </Routes>
-
       </Box>
 
       <BackToTop />
-
       <Footer />
     </>
   );

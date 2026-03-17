@@ -6,7 +6,11 @@ const logo = "/logo/logo.jpeg";
 function Footer() {
   const navigate = useNavigate();
 
-  const locationQuery = encodeURIComponent("Hosur, Tamil Nadu, India");
+  // ✅ Full address added
+  const fullAddress =
+    "Plot No: 22, SF No: 579/5A1, Rajaji Layout, Rajsriya U-8 Back Side, Hosur Taluk, Krishnagiri District - 635126";
+
+  const locationQuery = encodeURIComponent(fullAddress);
   const mapLink = `https://www.google.com/maps/dir/?api=1&destination=${locationQuery}`;
 
   const handleNavigation = (path) => {
@@ -15,13 +19,11 @@ function Footer() {
   };
 
   return (
-    // ── SECTION: full-width, py only, px: 16px on xs / 5% on sm+ ──
     <Box
       sx={{
         backgroundColor: "#071b3f",
         color: "white",
-        // ❌ Removed px: "5%" from here
-        px: { xs: "16px", sm: "5%" }, //  Mobile safety margin
+        px: { xs: "16px", sm: "5%" },
         pt: {
           xs: "40px",
           sm: "60px",
@@ -33,20 +35,19 @@ function Footer() {
         boxSizing: "border-box",
       }}
     >
-      {/* ── CONTAINER: max-width 1350px, centered ── */}
+      {/* Container */}
       <Box sx={{ maxWidth: "1350px", width: "100%", mx: "auto" }}>
-
-        {/* ── CONTENT: Main Row ── */}
+        {/* Main Content */}
         <Box
           sx={{
             display: "flex",
             justifyContent: "space-between",
             flexDirection: { xs: "column", md: "row" },
-            gap: { xs: 5, md: 0 },
+            gap: { xs: 3, md: 0 },
           }}
         >
           {/* LEFT: Brand */}
-          <Box sx={{ maxWidth: { xs: "100%", md: 420 } }}>
+          <Box sx={{ maxWidth: { xs: "80%", md: 420 } }}>
             <Box
               onClick={() => handleNavigation("/")}
               sx={{
@@ -150,7 +151,13 @@ function Footer() {
               {[
                 {
                   icon: "📍",
-                  label: "Hosur, Tamil Nadu, India",
+                  label: (
+                    <>
+                      Plot No: 22, SF No: 579/5A1,<br />
+                      Rajaji Layout, Rajsriya U-8 Back Side,<br />
+                      Hosur Taluk, Krishnagiri District - 635126
+                    </>
+                  ), // ✅ Updated
                   href: mapLink,
                   external: true,
                 },
@@ -179,6 +186,8 @@ function Footer() {
                       display: "flex",
                       alignItems: "flex-start",
                       gap: 1,
+                      lineHeight: 1.6, // ✅ improves readability
+                      wordBreak: "break-word", // ✅ prevents overflow
                       transition: "color 0.2s ease",
                       "&:hover": { color: "#FFC400", opacity: 1 },
                     }}
@@ -194,7 +203,7 @@ function Footer() {
           </Box>
         </Box>
 
-        {/* ── Bottom Strip ── */}
+        {/* Bottom Strip */}
         <Box
           sx={{
             borderTop: "1px solid rgba(255,255,255,0.1)",

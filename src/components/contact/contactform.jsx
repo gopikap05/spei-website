@@ -28,13 +28,20 @@ const contactDetails = [
     value: "spengineersindia2001@gmail.com",
     href: "mailto:spengineersindia2001@gmail.com",
   },
-  {
-    icon: <LocationOnIcon sx={{ color: "#FFC400", fontSize: "22px" }} />,
-    label: "Our Location",
-    value: "Hosur, Tamil Nadu, India",
-    href: "https://www.google.com/maps/dir/?api=1&destination=12.768583,77.802028",
-    external: true,
-  },
+{
+  icon: <LocationOnIcon sx={{ color: "#FFC400", fontSize: "22px" }} />,
+  label: "Our Location",
+  value: (
+    <>
+      Plot No: 22, SF No: 579/5A1,<br />
+      Rajaji Layout, Rajsriya U-8 Back Side,<br />
+      Hosur Taluk, Krishnagiri District - 635126
+    </>
+  ),
+  href:
+    "https://www.google.com/maps/dir/?api=1&destination=Plot%20No%2022%2C%20SF%20No%20579%2F5A1%2C%20Rajaji%20Layout%2C%20Hosur%2C%20Krishnagiri%2C%20Tamil%20Nadu%20635126",
+  external: true,
+}
 ];
 
 const inputStyle = {

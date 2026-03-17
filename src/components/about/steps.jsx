@@ -24,7 +24,7 @@ const steps = [
   },
   {
     number: "04",
-    title: "Refurbishment, Installation & Commissioning",
+    title: "Installation & Commissioning",
     description:
       "Our skilled professionals ensure smooth installation and timely commissioning at the client's site.",
   },
@@ -34,6 +34,11 @@ const steps = [
     description:
       "We provide dependable after-sales service and technical support to ensure uninterrupted performance and long-term customer satisfaction.",
   },
+    {
+    number: "06",
+    title: "Machine Refurbishment Services",
+    description:
+"At SP Engineers India, we refurbish and upgrade industrial machines to extend life, improve performance, and restore optimal efficiency."  },
 ];
 
 function Steps() {

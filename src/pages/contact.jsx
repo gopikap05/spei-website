@@ -12,14 +12,15 @@ function Contact() {
           //  Top padding clears fixed navbar + breadcrumb
           pt: {
             xs: "65px",
-            sm: "100px",
-            md: "150px",
+            sm: "90px",
+            md: "80px",
+            lg: "100px",
           },
           pb: {
             xs: "40px",
             sm: "60px",
-            md: "80px",
-            lg: "100px",
+            md: "70px",
+            lg: "50px",
           },
           background: "linear-gradient(135deg, #071b3f 0%, #0b2a66 100%)",
           color: "white",

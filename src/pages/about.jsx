@@ -8,11 +8,11 @@ function About() {
       {/* ── SECTION: Page Header ── */}
       <Box
         sx={{
-          px: { xs: "16px", sm: "5%" }, // ✅ mobile safety margin
-          // ✅ Top padding accounts for fixed navbar + breadcrumb bar
+          px: { xs: "16px", sm: "5%" }, //  mobile safety margin
+          //  Top padding accounts for fixed navbar + breadcrumb bar
           pt: {
-            xs: "120px",
-            sm: "130px",
+            xs: "65px",
+            sm: "100px",
             md: "150px",
           },
           pb: {

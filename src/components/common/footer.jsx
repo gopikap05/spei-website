@@ -21,7 +21,7 @@ function Footer() {
         backgroundColor: "#071b3f",
         color: "white",
         // ❌ Removed px: "5%" from here
-        px: { xs: "16px", sm: "5%" }, // ✅ Mobile safety margin
+        px: { xs: "16px", sm: "5%" }, //  Mobile safety margin
         pt: {
           xs: "40px",
           sm: "60px",

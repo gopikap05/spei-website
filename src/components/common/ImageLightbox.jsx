@@ -44,7 +44,7 @@ function ImageLightbox({ src, alt, sx = {} }) {
             },
           }}
         >
-          {/* ✅ Text instead of icon */}
+          {/*  Text instead of icon */}
           <Box
             className="zoom-text"
             sx={{

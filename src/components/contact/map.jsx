@@ -11,7 +11,7 @@ function Map() {
     // ── SECTION ──
     <Box
       sx={{
-        px: { xs: "16px", sm: "5%" }, // ✅ mobile safety margin
+        px: { xs: "16px", sm: "5%" }, //  mobile safety margin
         py: {
           xs: "40px",
           sm: "60px",
@@ -82,7 +82,7 @@ function Map() {
             overflow: "hidden",
             textDecoration: "none",
             border: "1px solid rgba(0,0,0,0.08)",
-            // ✅ Subtle hover effect on the map container
+            //  Subtle hover effect on the map container
             transition: "box-shadow 0.3s ease",
             "&:hover": {
               boxShadow: "0 12px 32px rgba(0,0,0,0.12)",

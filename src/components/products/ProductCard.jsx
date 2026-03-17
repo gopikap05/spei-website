@@ -12,9 +12,9 @@ function ProductCard({ product }) {
         height: "100%",
         display: "flex",
         flexDirection: "column",
-        transition: "box-shadow 0.3s ease", // ✅ only shadow, no transform
+        transition: "box-shadow 0.3s ease", //  only shadow, no transform
         "&:hover": {
-          boxShadow: "0 16px 32px rgba(0,0,0,0.16)", // ✅ no translateY — was breaking fixed
+          boxShadow: "0 16px 32px rgba(0,0,0,0.16)", //  no translateY — was breaking fixed
         },
       }}
     >

@@ -6,7 +6,7 @@ function Product() {
     // ── SECTION: full-width, px mobile safety margin ──
     <Box
       sx={{
-        px: { xs: "16px", sm: "5%" }, // ✅ moved from section, mobile safe
+        px: { xs: "16px", sm: "5%" }, //  moved from section, mobile safe
         py: {
           xs: "40px",
           sm: "60px",

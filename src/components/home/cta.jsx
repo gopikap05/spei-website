@@ -6,7 +6,7 @@ function CTASection() {
     // ── SECTION ──
     <Box
       sx={{
-        px: { xs: "16px", sm: "5%" }, // ✅ mobile safety margin
+        px: { xs: "16px", sm: "5%" }, //  mobile safety margin
         py: {
           xs: "40px",
           sm: "60px",
@@ -34,7 +34,7 @@ function CTASection() {
             from: { backgroundPosition: "0 0, 0 0" },
             to: { backgroundPosition: "60px 60px, 60px 60px" },
           },
-          pointerEvents: "none", // ✅ prevent overlay blocking clicks
+          pointerEvents: "none", //  prevent overlay blocking clicks
         }}
       />
 

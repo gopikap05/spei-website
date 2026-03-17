@@ -13,7 +13,7 @@ function AboutSection() {
     // ── SECTION ──
     <Box
       sx={{
-        px: { xs: "16px", sm: "5%" }, // ✅ mobile safety margin
+        px: { xs: "16px", sm: "5%" }, //  mobile safety margin
         py: {
           xs: "40px",
           sm: "60px",
@@ -40,7 +40,7 @@ function AboutSection() {
                 fontSize: { xs: "11px", sm: "12px", md: "13px" },
               }}
             >
-              ABOUT SPEI
+              ABOUT US
             </Typography>
 
             <Typography

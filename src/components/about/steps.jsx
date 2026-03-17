@@ -42,7 +42,7 @@ function Steps() {
       {/* ── SECTION 1: Infrastructure ── */}
       <Box
         sx={{
-          px: { xs: "16px", sm: "5%" }, // ✅ mobile safety margin
+          px: { xs: "16px", sm: "5%" }, //  mobile safety margin
           py: {
             xs: "40px",
             sm: "60px",
@@ -119,7 +119,7 @@ function Steps() {
       {/* ── SECTION 2: Process Steps ── */}
       <Box
         sx={{
-          px: { xs: "16px", sm: "5%" }, // ✅ mobile safety margin
+          px: { xs: "16px", sm: "5%" }, //  mobile safety margin
           py: {
             xs: "40px",
             sm: "60px",
@@ -205,7 +205,7 @@ function Steps() {
                   sx={{
                     fontSize: { xs: "64px", sm: "80px", md: "120px" },
                     fontWeight: 900,
-                    color: "rgba(255,196,0,0.15)", // ✅ gold tint instead of dark
+                    color: "rgba(255,196,0,0.15)", //  gold tint instead of dark
                     minWidth: { md: "180px", lg: "220px" },
                     textAlign: "center",
                     lineHeight: 1,

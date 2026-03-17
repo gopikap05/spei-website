@@ -30,7 +30,7 @@ function Details() {
     // ── SECTION ──
     <Box
       sx={{
-        px: { xs: "16px", sm: "5%" }, // ✅ mobile safety margin
+        px: { xs: "16px", sm: "5%" }, //  mobile safety margin
         py: {
           xs: "40px",
           sm: "60px",
@@ -53,13 +53,13 @@ function Details() {
             border: "1px solid rgba(0,0,0,0.06)",
             position: "relative",
             overflow: "hidden",
-            transition: "box-shadow 0.3s ease", // ✅ no transform — avoids fixed child issues
+            transition: "box-shadow 0.3s ease", //  no transform — avoids fixed child issues
             "&:hover": {
               boxShadow: "0 15px 40px rgba(0,0,0,0.08)",
             },
           }}
         >
-          {/* Gold accent bar ✅ brand color */}
+          {/* Gold accent bar  brand color */}
           <Box
             sx={{
               position: "absolute",
@@ -111,23 +111,23 @@ function Details() {
                   borderRadius: "12px",
                   transition: "all 0.3s ease",
                   "&:hover": {
-                    backgroundColor: "rgba(255,196,0,0.06)", // ✅ gold tint
+                    backgroundColor: "rgba(255,196,0,0.06)", //  gold tint
                     transform: "translateX(6px)",
                   },
                 }}
               >
-                {/* Icon box ✅ gold themed */}
+                {/* Icon box  gold themed */}
                 <Box
                   sx={{
                     width: { xs: 38, md: 44 },
                     height: { xs: 38, md: 44 },
-                    borderRadius: "10px", // ✅ rounded square vs circle
+                    borderRadius: "10px", //  rounded square vs circle
                     backgroundColor: "rgba(255,196,0,0.1)",
                     border: "1px solid rgba(255,196,0,0.25)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    color: "#FFC400", // ✅ gold icon
+                    color: "#FFC400", //  gold icon
                     flexShrink: 0,
                   }}
                 >

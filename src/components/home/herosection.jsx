@@ -6,10 +6,13 @@ function HeroSection() {
   return (
     <Box
       sx={{
-        minHeight: "100vh",
+        minHeight: { xs: "80dvh", md: "100vh" },
         position: "relative",
         display: "flex",
-        alignItems: "center",
+
+        //  FIX: align top on mobile, center on desktop
+        alignItems: { xs: "flex-start", md: "center" },
+
         backgroundImage: `url(${companyImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -43,65 +46,29 @@ function HeroSection() {
         }}
       />
 
-      {/* ── SECTION: NO px here ── */}
+      {/* Content wrapper */}
       <Box
         sx={{
           width: "100%",
           position: "relative",
           zIndex: 2,
-          // ✅ Offset for fixed navbar + breadcrumb
-          pt: { xs: "130px", sm: "140px", md: "160px" },
-          pb: { xs: "60px", sm: "80px", md: "100px" },
+
+          //  FIX: reduced mobile spacing
+          pt: { xs: "90px", sm: "120px", md: "160px" },
+          pb: { xs: "50px", sm: "80px", md: "100px" },
         }}
       >
-        {/* ── CONTAINER ── */}
+        {/* Container */}
         <Box
           sx={{
             maxWidth: "1350px",
             width: "100%",
             mx: "auto",
-            px: { xs: "16px", sm: "5%" }, // ✅ px on container
+            px: { xs: "16px", sm: "5%" },
           }}
         >
-          {/* ── CONTENT ── */}
+          {/* Content */}
           <Box sx={{ maxWidth: { xs: "100%", md: "720px", lg: "800px" } }}>
-
-            {/* ✅ Overline badge */}
-            {/* <Box
-              sx={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 1,
-                backgroundColor: "rgba(255,196,0,0.12)",
-                border: "1px solid rgba(255,196,0,0.3)",
-                borderRadius: "20px",
-                px: 2,
-                py: 0.6,
-                mb: 3,
-              }}
-            >
-              <Box
-                sx={{
-                  width: 6,
-                  height: 6,
-                  borderRadius: "50%",
-                  backgroundColor: "#FFC400",
-                  flexShrink: 0,
-                }}
-              />
-              <Typography
-                sx={{
-                  color: "#FFC400",
-                  fontWeight: 700,
-                  fontSize: { xs: "10px", sm: "11px", md: "12px" },
-                  letterSpacing: 1.5,
-                  textTransform: "uppercase",
-                }}
-              >
-                Precision Engineering Since 1994
-              </Typography>
-            </Box> */}
-
             {/* Heading */}
             <Typography
               variant="h2"
@@ -245,7 +212,7 @@ function HeroSection() {
               </Button>
             </Box>
 
-            {/* ✅ Scroll indicator */}
+            {/* Scroll indicator */}
             <Box
               sx={{
                 mt: { xs: 5, md: 7 },
@@ -280,6 +247,7 @@ function HeroSection() {
                   }}
                 />
               </Box>
+
               <Typography
                 sx={{
                   color: "rgba(255,255,255,0.4)",

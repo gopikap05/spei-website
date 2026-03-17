@@ -16,7 +16,7 @@ import assly2 from "../assets/machines/Assly line1.jpeg";
 import pipe1 from "../assets/machines/Pipe Line fabrication.jpg";
 import pipe2 from "../assets/machines/pipeline work.webp";
 
-// ✅ NEW imports
+//  NEW imports
 import pick1 from "../assets/machines/Pick and Place Machines.webp";
 import pick2 from "../assets/machines/pick-and-place-system.jpg";
 import pipeNew from "../assets/machines/pipe line and fabrication.png";
@@ -75,7 +75,7 @@ const productData = [
     title: "Pipeline Fabrication",
     description:
       "Precision pipeline fabrication and installation using MS, SS, and alloy steels for industrial applications.",
-    cardImage: pipeNew,   // ✅ updated new image
+    cardImage: pipeNew,   //  updated new image
     singleImage: pipe1,
   },
 ];

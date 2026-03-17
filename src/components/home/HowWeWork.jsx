@@ -93,7 +93,7 @@ function HowWeWork() {
         <Box
           sx={{
             display: "flex",
-            flexDirection: { xs: "column", sm: "row" }, // ✅ side by side from sm
+            flexDirection: { xs: "column", sm: "row" }, //  side by side from sm
             gap: { xs: 3, sm: 2, md: 3 },
             alignItems: "stretch",
           }}

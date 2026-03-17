@@ -14,7 +14,7 @@ function AboutMe() {
       {/* ── SECTION 1: Main About ── */}
       <Box
         sx={{
-          px: { xs: "16px", sm: "5%" }, // ✅ Mobile safety margin
+          px: { xs: "16px", sm: "5%" }, //  Mobile safety margin
           py: {
             xs: "40px",
             sm: "60px",
@@ -117,7 +117,7 @@ function AboutMe() {
       {/* ── SECTION 2: Why Choose Us Strip ── */}
       <Box
         sx={{
-          px: { xs: "16px", sm: "5%" }, // ✅ Mobile safety margin
+          px: { xs: "16px", sm: "5%" }, //  Mobile safety margin
           py: {
             xs: "40px",
             sm: "60px",

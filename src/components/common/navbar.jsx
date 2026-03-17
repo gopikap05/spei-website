@@ -38,7 +38,7 @@ function Navbar() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // ✅ Toggle instead of just open
+  //  Toggle instead of just open
   const handleMenuToggle = () => setMobileOpen((prev) => !prev);
   const handleMenuClose = () => setMobileOpen(false);
 
@@ -136,7 +136,7 @@ function Navbar() {
             ))}
           </Box>
 
-          {/* ✅ Toggle icon: Hamburger ↔ Close */}
+          {/*  Toggle icon: Hamburger ↔ Close */}
           <IconButton
             sx={{ display: { xs: "flex", md: "none" }, color: "white" }}
             onClick={handleMenuToggle}
@@ -165,9 +165,9 @@ function Navbar() {
       <Drawer
         anchor="right"
         open={mobileOpen}
-        onClose={handleMenuClose} // ✅ closes on backdrop click too
+        onClose={handleMenuClose} //  closes on backdrop click too
         ModalProps={{
-          keepMounted: true, // ✅ better mobile performance
+          keepMounted: true, //  better mobile performance
         }}
         sx={{
           "& .MuiDrawer-paper": {
@@ -195,7 +195,7 @@ function Navbar() {
             alt="SPEI Logo"
             sx={{ height: 36 }}
           />
-          {/* ✅ Close button inside drawer too */}
+          {/*  Close button inside drawer too */}
           <IconButton
             onClick={handleMenuClose}
             sx={{ color: "white", p: 0.5 }}
@@ -213,7 +213,7 @@ function Navbar() {
                 to={item.path}
                 onClick={() => {
                   handleNavClick();
-                  handleMenuClose(); // ✅ closes drawer on nav
+                  handleMenuClose(); //  closes drawer on nav
                 }}
                 sx={{
                   px: 3,

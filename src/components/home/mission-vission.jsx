@@ -1,19 +1,27 @@
 import { Box, Typography } from "@mui/material";
-import TrackChangesIcon from "@mui/icons-material/TrackChanges";   // Mission
-import VisibilityIcon from "@mui/icons-material/Visibility";        // Vision
+import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";   // Vision 🚀
+import TrackChangesIcon from "@mui/icons-material/TrackChanges";   // Mission 🎯
 
 function MissionVision() {
   const cards = [
     {
       number: "01",
-      icon: <VisibilityIcon sx={{ fontSize: { xs: "26px", md: "30px" }, color: "#FFC400" }} />,
+      icon: (
+        <RocketLaunchIcon
+          sx={{ fontSize: { xs: "26px", md: "30px" }, color: "#FFC400" }}
+        />
+      ),
       title: "Our Vision",
       content: "text",
       text: "To become a leading and most trusted world-class Special Purpose Machine manufacturer in India, delivering innovative automation solutions that enhance industrial productivity, efficiency, and technological advancement.",
     },
     {
       number: "02",
-      icon: <TrackChangesIcon sx={{ fontSize: { xs: "26px", md: "30px" }, color: "#FFC400" }} />,
+      icon: (
+        <TrackChangesIcon
+          sx={{ fontSize: { xs: "26px", md: "30px" }, color: "#FFC400" }}
+        />
+      ),
       title: "Our Mission",
       content: "list",
       items: [
@@ -25,7 +33,6 @@ function MissionVision() {
   ];
 
   return (
-    // ── SECTION ──
     <Box
       sx={{
         px: { xs: "16px", sm: "5%" },
@@ -43,7 +50,7 @@ function MissionVision() {
         overflow: "hidden",
       }}
     >
-      {/* Subtle grid background */}
+      {/* Background grid */}
       <Box
         sx={{
           position: "absolute",
@@ -55,7 +62,6 @@ function MissionVision() {
         }}
       />
 
-      {/* ── CONTAINER ── */}
       <Box
         sx={{
           maxWidth: "1350px",
@@ -65,7 +71,7 @@ function MissionVision() {
           zIndex: 1,
         }}
       >
-        {/* ── Heading ── */}
+        {/* Heading */}
         <Box sx={{ textAlign: "center", mb: { xs: 4, sm: 6, md: 8 } }}>
           <Typography
             variant="overline"
@@ -94,7 +100,6 @@ function MissionVision() {
             Vision & Mission
           </Typography>
 
-          {/* Gold divider under heading */}
           <Box
             sx={{
               mx: "auto",
@@ -107,7 +112,6 @@ function MissionVision() {
             }}
           />
 
-          {/* ✅ Tagline below heading */}
           <Typography
             sx={{
               color: "rgba(255,255,255,0.6)",
@@ -122,11 +126,11 @@ function MissionVision() {
           </Typography>
         </Box>
 
-        {/* ── Cards Row ── */}
+        {/* Cards */}
         <Box
           sx={{
             display: "flex",
-            gap: 0, // ✅ No gap — divider handles spacing
+            gap: 0,
             flexDirection: { xs: "column", md: "row" },
             alignItems: "stretch",
           }}
@@ -140,7 +144,7 @@ function MissionVision() {
                 flex: 1,
               }}
             >
-              {/* ── Card ── */}
+              {/* Card */}
               <Box
                 sx={{
                   flex: 1,
@@ -159,7 +163,7 @@ function MissionVision() {
                   },
                 }}
               >
-                {/* ✅ Icon box */}
+                {/* Icon */}
                 <Box
                   sx={{
                     width: { xs: 48, md: 56 },
@@ -226,11 +230,10 @@ function MissionVision() {
                 )}
               </Box>
 
-              {/* ✅ Gold vertical divider between cards — desktop only */}
+              {/* Divider desktop */}
               {index < cards.length - 1 && (
                 <Box
                   sx={{
-                    // Vertical on desktop
                     display: { xs: "none", md: "flex" },
                     alignItems: "center",
                     justifyContent: "center",
@@ -248,7 +251,7 @@ function MissionVision() {
                 </Box>
               )}
 
-              {/* Horizontal divider on mobile */}
+              {/* Divider mobile */}
               {index < cards.length - 1 && (
                 <Box
                   sx={{

@@ -70,7 +70,7 @@ function ProductSingle() {
             {product.title}
           </Typography>
 
-          {/* ✅ Image + Description Layout */}
+          {/*  Image + Description Layout */}
           <Box
             sx={{
               display: "flex",

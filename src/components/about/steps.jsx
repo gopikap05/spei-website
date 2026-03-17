@@ -24,7 +24,7 @@ const steps = [
   },
   {
     number: "04",
-    title: "Installation & Commissioning",
+    title: "Refurbishment, Installation & Commissioning",
     description:
       "Our skilled professionals ensure smooth installation and timely commissioning at the client's site.",
   },
@@ -42,7 +42,7 @@ function Steps() {
       {/* ── SECTION 1: Infrastructure ── */}
       <Box
         sx={{
-          px: { xs: "16px", sm: "5%" }, //  mobile safety margin
+          px: { xs: "16px", sm: "5%" },
           py: {
             xs: "40px",
             sm: "60px",
@@ -54,9 +54,7 @@ function Steps() {
           boxSizing: "border-box",
         }}
       >
-        {/* ── CONTAINER ── */}
         <Box sx={{ maxWidth: "1350px", width: "100%", mx: "auto" }}>
-
           <Typography
             variant="overline"
             sx={{
@@ -87,7 +85,6 @@ function Steps() {
             Infrastructure
           </Typography>
 
-          {/* Gold underline */}
           <Box
             sx={{
               mb: { xs: 3, md: 4 },
@@ -119,7 +116,7 @@ function Steps() {
       {/* ── SECTION 2: Process Steps ── */}
       <Box
         sx={{
-          px: { xs: "16px", sm: "5%" }, //  mobile safety margin
+          px: { xs: "16px", sm: "5%" },
           py: {
             xs: "40px",
             sm: "60px",
@@ -131,9 +128,7 @@ function Steps() {
           boxSizing: "border-box",
         }}
       >
-        {/* ── CONTAINER ── */}
         <Box sx={{ maxWidth: "1350px", width: "100%", mx: "auto" }}>
-
           <Typography
             variant="overline"
             sx={{
@@ -164,7 +159,6 @@ function Steps() {
             Our Process
           </Typography>
 
-          {/* Gold underline */}
           <Box
             sx={{
               mb: { xs: 5, md: 7 },
@@ -175,54 +169,59 @@ function Steps() {
             }}
           />
 
-          {/* Steps */}
+          {/* Steps - Animation Removed */}
           {steps.map((step, index) => {
             const isEven = index % 2 === 0;
 
             return (
-              <MotionBox
+              <Box
                 key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                viewport={{ once: true }}
                 sx={{
                   display: "flex",
                   flexDirection: {
                     xs: "column",
                     md: isEven ? "row" : "row-reverse",
                   },
-                  alignItems: "center",
+                  alignItems: "flex-start",
                   mb: { xs: 5, md: 8 },
-                  gap: { xs: 1, md: 0 },
-                  // Gold left border on each step
+                  gap: { xs: 2, md: 4 },
                   borderLeft: { xs: "3px solid #FFC400", md: "none" },
                   pl: { xs: 2.5, md: 0 },
+                  "& > *": {
+                    flexShrink: 0,
+                  },
                 }}
               >
-                {/* Big number */}
-                <Typography
-                  sx={{
-                    fontSize: { xs: "64px", sm: "80px", md: "120px" },
-                    fontWeight: 900,
-                    color: "rgba(255,196,0,0.15)", //  gold tint instead of dark
-                    minWidth: { md: "180px", lg: "220px" },
-                    textAlign: "center",
-                    lineHeight: 1,
-                    flexShrink: 0,
-                  }}
-                >
-                  {step.number}
-                </Typography>
-
-                {/* Content */}
+                {/* Big number - Fixed sizing and alignment */}
                 <Box
                   sx={{
-                    px: { md: 5, lg: 6 },
+                    width: { md: "180px", lg: "220px" },
+                    flexShrink: 0,
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      fontSize: { xs: "64px", sm: "80px", md: "120px" },
+                      fontWeight: 900,
+                      color: "rgba(255,196,0,0.15)",
+                      lineHeight: 1,
+                    }}
+                  >
+                    {step.number}
+                  </Typography>
+                </Box>
+
+                {/* Content - Fixed padding and width */}
+                <Box
+                  sx={{
+                    flex: 1,
+                    maxWidth: { md: "calc(100% - 220px)" },
+                    px: 0,
                     textAlign: { xs: "left", md: "left" },
                   }}
                 >
-                  {/* Step label */}
                   <Typography
                     sx={{
                       fontSize: { xs: "10px", md: "11px" },
@@ -267,7 +266,7 @@ function Steps() {
                     {step.description}
                   </Typography>
                 </Box>
-              </MotionBox>
+              </Box>
             );
           })}
         </Box>

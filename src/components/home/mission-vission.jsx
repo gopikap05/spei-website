@@ -6,6 +6,13 @@ function MissionVision() {
   const cards = [
     {
       number: "01",
+      icon: <VisibilityIcon sx={{ fontSize: { xs: "26px", md: "30px" }, color: "#FFC400" }} />,
+      title: "Our Vision",
+      content: "text",
+      text: "To become a leading and most trusted world-class Special Purpose Machine manufacturer in India, delivering innovative automation solutions that enhance industrial productivity, efficiency, and technological advancement.",
+    },
+    {
+      number: "02",
       icon: <TrackChangesIcon sx={{ fontSize: { xs: "26px", md: "30px" }, color: "#FFC400" }} />,
       title: "Our Mission",
       content: "list",
@@ -14,13 +21,6 @@ function MissionVision() {
         "Deliver innovative automation solutions that improve productivity, accuracy, and cost-efficiency",
         "Maintain uncompromising standards in quality, safety, and reliability",
       ],
-    },
-    {
-      number: "02",
-      icon: <VisibilityIcon sx={{ fontSize: { xs: "26px", md: "30px" }, color: "#FFC400" }} />,
-      title: "Our Vision",
-      content: "text",
-      text: "To become a leading and most trusted world-class Special Purpose Machine manufacturer in India, delivering innovative automation solutions that enhance industrial productivity, efficiency, and technological advancement.",
     },
   ];
 
@@ -112,7 +112,7 @@ function MissionVision() {
             sx={{
               color: "rgba(255,255,255,0.6)",
               fontSize: { xs: "13px", sm: "14px", md: "15px" },
-              maxWidth: "500px",
+              maxWidth: "400px",
               mx: "auto",
               lineHeight: 1.7,
             }}
@@ -159,23 +159,6 @@ function MissionVision() {
                   },
                 }}
               >
-                {/* ✅ Watermark number */}
-                <Typography
-                  sx={{
-                    position: "absolute",
-                    bottom: -10,
-                    right: 16,
-                    fontWeight: 900,
-                    fontSize: { xs: "80px", md: "110px" },
-                    lineHeight: 1,
-                    color: "rgba(255,196,0,0.06)",
-                    userSelect: "none",
-                    pointerEvents: "none",
-                  }}
-                >
-                  {card.number}
-                </Typography>
-
                 {/* ✅ Icon box */}
                 <Box
                   sx={{

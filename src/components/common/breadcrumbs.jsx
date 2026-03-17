@@ -13,7 +13,7 @@ function Breadcrumbs() {
   // Reusable animated link style
   const linkSx = {
     color: "#071b3f",
-    fontWeight: 500,
+    fontWeight: 700,
     fontSize: { xs: "12px", sm: "13px", md: "14px", lg: "15px" },
     position: "relative",
     textDecoration: "none",
@@ -30,7 +30,7 @@ function Breadcrumbs() {
       transition: "width 0.3s ease",
     },
     "&:hover": {
-      color: "#071b3f",
+      color: "#000000",
       opacity: 0.7,
       textDecoration: "none", // ✅ kill MUI default underline
       "&::after": {

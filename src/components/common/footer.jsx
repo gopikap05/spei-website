@@ -1,6 +1,7 @@
 import { Box, Typography, Link } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import logo from "../../assets/logo/logo.jpeg";
+
+const logo = "/logo/logo.jpeg";
 
 function Footer() {
   const navigate = useNavigate();

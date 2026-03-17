@@ -15,7 +15,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { NavLink } from "react-router-dom";
-import logo from "../../assets/logo/logo.jpeg";
+const logo = "/logo/logo.jpeg";
 
 const navItems = [
   { label: "Home", path: "/" },

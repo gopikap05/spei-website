@@ -51,7 +51,7 @@ function ProductSingle() {
       >
         {/* ── CONTAINER ── */}
         <Box sx={{ maxWidth: "1350px", width: "100%", mx: "auto" }}>
-
+          
           {/* Title */}
           <Typography
             variant="h3"
@@ -70,29 +70,52 @@ function ProductSingle() {
             {product.title}
           </Typography>
 
-          {/* ✅ Lightbox Image */}
-          <ImageLightbox
-            src={product.singleImage}
-            alt={product.title}
+          {/* ✅ Image + Description Layout */}
+          <Box
             sx={{
-              height: { xs: "220px", sm: "300px", md: "380px", lg: "450px" },
-              borderRadius: { xs: "8px", md: "12px" },
-              overflow: "hidden",
-              mb: { xs: 3, md: 5 },
-            }}
-          />
-
-          {/* Description */}
-          <Typography
-            sx={{
-              lineHeight: 1.8,
-              color: "#555",
-              maxWidth: "900px",
-              fontSize: { xs: "14px", sm: "15px", md: "16px", lg: "17px" },
+              display: "flex",
+              flexDirection: { xs: "column", md: "row" },
+              gap: { xs: 3, md: 6 },
+              alignItems: "center",
             }}
           >
-            {product.description}
-          </Typography>
+            {/* Image */}
+            <Box sx={{ width: { xs: "100%", md: "50%" } }}>
+              <ImageLightbox
+                src={product.singleImage}
+                alt={product.title}
+                sx={{
+                  width: "100%",
+                  height: {
+                    xs: "220px",
+                    sm: "300px",
+                    md: "380px",
+                    lg: "450px",
+                  },
+                  objectFit: "cover",
+                  borderRadius: { xs: "8px", md: "12px" },
+                }}
+              />
+            </Box>
+
+            {/* Description */}
+            <Box sx={{ width: { xs: "100%", md: "50%" } }}>
+              <Typography
+                sx={{
+                  lineHeight: 1.8,
+                  color: "#555",
+                  fontSize: {
+                    xs: "14px",
+                    sm: "15px",
+                    md: "16px",
+                    lg: "17px",
+                  },
+                }}
+              >
+                {product.description}
+              </Typography>
+            </Box>
+          </Box>
         </Box>
       </Box>
 

@@ -16,10 +16,15 @@ import assly2 from "../assets/machines/Assly line1.jpeg";
 import pipe1 from "../assets/machines/Pipe Line fabrication.jpg";
 import pipe2 from "../assets/machines/pipeline work.webp";
 
+// ✅ NEW imports
+import pick1 from "../assets/machines/Pick and Place Machines.webp";
+import pick2 from "../assets/machines/pick-and-place-system.jpg";
+import pipeNew from "../assets/machines/pipe line and fabrication.png";
+
 const productData = [
   {
     id: "endurance-machine",
-    title: "Life Cycle Endurance Machines",
+    title: "Life cycle testing machine",
     description:
       "Our fabricated Life Cycle Endurance Machines are engineered to perform continuous cyclic testing on mechanical, automotive, industrial, and consumer product components. The systems are designed with robust structures, precision control mechanisms, and automated monitoring.",
     cardImage: endurance1,
@@ -46,8 +51,8 @@ const productData = [
     title: "Pick and Place Machines",
     description:
       "Our Pick and Place Machines are designed for high-speed and accurate material transfer in automated production environments.",
-    cardImage: belt1,
-    singleImage: belt2,
+    cardImage: pick1,
+    singleImage: pick2,
   },
   {
     id: "conveyor",
@@ -70,8 +75,8 @@ const productData = [
     title: "Pipeline Fabrication",
     description:
       "Precision pipeline fabrication and installation using MS, SS, and alloy steels for industrial applications.",
-    cardImage: pipe1,
-    singleImage: pipe2,
+    cardImage: pipeNew,   // ✅ updated new image
+    singleImage: pipe1,
   },
 ];
 

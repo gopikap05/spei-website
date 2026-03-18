@@ -20,6 +20,7 @@ function Products() {
         <meta property="og:description" content="High-quality custom Special Purpose Machines, hydraulic systems, and industrial automation solutions for Indian manufacturers." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.spei.in/products" />
+        <meta property="og:image" content="https://www.spei.in/og-image.jpg" />
       </Helmet>
 
       <h1 style={{ display: "none" }}>

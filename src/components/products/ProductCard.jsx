@@ -70,7 +70,7 @@ function ProductCard({ product }) {
           <Typography
             sx={{
               fontSize: { xs: "12px", sm: "13px", md: "14px" },
-              color: "#777",
+              color: "#555", // ✅ was #777 (fails 4.5:1 on white), now passes
             }}
           >
             {product.category || "SPM Machine"}

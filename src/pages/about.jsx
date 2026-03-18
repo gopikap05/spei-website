@@ -22,6 +22,7 @@ function About() {
         <meta property="og:description" content="30+ years experience in custom SPM machines and industrial automation solutions in India." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.spei.in/about" />
+        <meta property="og:image" content="https://www.spei.in/og-image.jpg" />
       </Helmet>
 
       <h1 style={{ display: "none" }}>About SP Engineers India | SPM Machine Manufacturer in Hosur, India</h1>

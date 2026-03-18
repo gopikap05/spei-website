@@ -9,6 +9,7 @@ import Breadcrumbs from "./components/common/breadcrumbs";
 import Footer from "./components/common/footer";
 import ScrollToTop from "./components/common/ScrollToTop";
 import BackToTop from "./components/common/BackToTop";
+import WhatsAppButton from "./components/common/WhatsAppButton";
 
 import Home from "./pages/home";
 import About from "./pages/about";
@@ -79,6 +80,7 @@ function App() {
       </Box>
 
       <BackToTop />
+      <WhatsAppButton />
       <Footer />
     </>
   );

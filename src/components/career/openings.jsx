@@ -16,7 +16,7 @@ import { useNavigate } from "react-router-dom";
 export const openings = [
   {
     id: 1,
-    title: "Experienced Arc Welder",
+    title: "Arc Welder",
     department: "Manufacturing",
     location: "On-site",
     type: "Full-time",
@@ -37,11 +37,11 @@ export const openings = [
   },
   {
     id: 2,
-    title: "Fresh Diploma Mechanical Engineer",
+    title: "Diploma Mechanical Engineer",
     department: "Engineering",
     location: "On-site",
     type: "Full-time",
-    experience: "Fresher",
+    experience: "0-2 years",
     description:
       "Opportunity for fresh diploma holders to gain hands-on experience in SPM manufacturing and machine operations.",
     responsibilities: [
@@ -58,7 +58,7 @@ export const openings = [
   },
   {
     id: 3,
-    title: "Design Engineer – SolidWorks",
+    title: "Design Engineer – Solid Works",
     department: "Engineering",
     location: "On-site",
     type: "Full-time",

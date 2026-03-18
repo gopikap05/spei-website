@@ -184,11 +184,9 @@ function Steps() {
                     xs: "column",
                     md: isEven ? "row" : "row-reverse",
                   },
-                  alignItems: "flex-start",
+                  alignItems: { xs: "flex-start", md: "center" },
                   mb: { xs: 5, md: 8 },
-                  gap: { xs: 2, md: 4 },
-                  borderLeft: { xs: "3px solid #FFC400", md: "none" },
-                  pl: { xs: 2.5, md: 0 },
+                  gap: { xs: 1, md: 4 },
                   "& > *": {
                     flexShrink: 0,
                   },
@@ -199,7 +197,8 @@ function Steps() {
                     width: { md: "180px", lg: "220px" },
                     flexShrink: 0,
                     display: "flex",
-                    justifyContent: "center",
+                    justifyContent: { xs: "flex-start", md: "center" },
+                    alignItems: "center",
                   }}
                 >
                   <Typography
@@ -222,19 +221,6 @@ function Steps() {
                     textAlign: { xs: "left", md: "left" },
                   }}
                 >
-                  <Typography
-                    sx={{
-                      fontSize: { xs: "10px", md: "11px" },
-                      fontWeight: 700,
-                      color: "#D4AF37",
-                      letterSpacing: 1.5,
-                      mb: 0.8,
-                      textTransform: "uppercase",
-                    }}
-                  >
-                    {step.number}
-                  </Typography>
-
                   <Typography
                     component="h3"
                     sx={{

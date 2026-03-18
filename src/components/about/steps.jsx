@@ -232,7 +232,7 @@ function Steps() {
                       textTransform: "uppercase",
                     }}
                   >
-                    Step {step.number}
+                    {step.number}
                   </Typography>
 
                   <Typography

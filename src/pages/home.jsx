@@ -7,6 +7,7 @@ import HowWeWork from "../components/home/HowWeWork";
 
 import Breadcrumbs from "../components/common/breadcrumbs.jsx";
 import { Helmet } from "react-helmet-async";
+import SchemaMarkup from "../components/common/SchemaMarkup";
 
 function Home() {
   return (
@@ -28,6 +29,7 @@ function Home() {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.spei.in/" />
       </Helmet>
+      <SchemaMarkup />
 
       <h1 style={{ display: "none" }}>SP Engineers India | SPM Machine Manufacturer in Hosur, India</h1>
 

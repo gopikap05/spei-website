@@ -6,7 +6,6 @@ function WhatsAppButton() {
   const message = `Hello, I am interested in ${window.location.pathname}. Please share details.`;
   const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
-  // Track WhatsApp Click
   const handleClick = () => {
     if (window.gtag) {
       window.gtag("event", "whatsapp_click", {
@@ -22,7 +21,9 @@ function WhatsAppButton() {
       color="success"
       href={url}
       target="_blank"
-      onClick={handleClick} 
+      rel="noopener noreferrer"
+      aria-label="Chat with us on WhatsApp"
+      onClick={handleClick}
       sx={{
         position: "fixed",
         bottom: "90px",
@@ -30,9 +31,7 @@ function WhatsAppButton() {
         width: "50px",
         height: "50px",
         zIndex: 9999,
-
         animation: "pulse 2s infinite",
-
         "@keyframes pulse": {
           "0%": {
             transform: "scale(1)",
@@ -47,7 +46,6 @@ function WhatsAppButton() {
             boxShadow: "0 0 0 0 rgba(37, 211, 102, 0)",
           },
         },
-
         "&:hover": {
           transform: "scale(1.15)",
         },

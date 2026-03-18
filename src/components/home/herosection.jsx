@@ -10,37 +10,59 @@ function HeroSection() {
         position: "relative",
         display: "flex",
         alignItems: { xs: "flex-start", md: "center" },
-        backgroundImage: `url(${companyImage})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
         overflow: "hidden",
       }}
     >
+      {/* LCP background image — now a real <img> with fetchpriority="high" */}
+      <Box
+        component="img"
+        src={companyImage}
+        alt=""
+        aria-hidden="true"
+        fetchpriority="high"
+        loading="eager"
+        decoding="async"
+        sx={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          objectPosition: "center",
+          zIndex: 0,
+        }}
+      />
+
+      {/* Dark overlay */}
       <Box
         sx={{
           position: "absolute",
           inset: 0,
+          zIndex: 1,
           background:
             "linear-gradient(90deg, rgba(7,27,63,0.95) 0%, rgba(7,27,63,0.85) 50%, rgba(7,27,63,0.6) 100%)",
         }}
       />
 
+      {/* Grid animation — fixed: uses transform instead of backgroundPosition (GPU composited) */}
       <Box
         sx={{
           position: "absolute",
-          inset: 0,
+          inset: "-60px",       // oversized so translate doesn't reveal edges
+          zIndex: 1,
           backgroundImage:
             "linear-gradient(rgba(255,196,0,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,196,0,0.05) 1px, transparent 1px)",
           backgroundSize: "60px 60px",
           animation: "moveGrid 20s linear infinite",
           pointerEvents: "none",
           "@keyframes moveGrid": {
-            from: { backgroundPosition: "0 0, 0 0" },
-            to: { backgroundPosition: "60px 60px, 60px 60px" },
+            from: { transform: "translate(0, 0)" },
+            to: { transform: "translate(60px, 60px)" },  // GPU composited ✅
           },
         }}
       />
 
+      {/* Content */}
       <Box
         sx={{
           width: "100%",
@@ -110,8 +132,10 @@ function HeroSection() {
                 maxWidth: "580px",
               }}
             >
-              SP Engineers India designs and manufactures custom-built <strong>industrial automation</strong> and
-              <strong> precision-engineered SPM machinery</strong> tailored to complex manufacturing requirements.
+              SP Engineers India designs and manufactures custom-built{" "}
+              <strong>industrial automation</strong> and
+              <strong> precision-engineered SPM machinery</strong> tailored to
+              complex manufacturing requirements.
             </Typography>
 
             <Box

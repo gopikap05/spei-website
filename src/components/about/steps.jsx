@@ -60,7 +60,7 @@ function Steps() {
           <Typography
             variant="overline"
             sx={{
-              color: "#FFC400",
+              color: "#D4AF37",
               fontWeight: 700,
               letterSpacing: 2,
               fontSize: { xs: "11px", sm: "12px", md: "13px" },
@@ -134,7 +134,7 @@ function Steps() {
           <Typography
             variant="overline"
             sx={{
-              color: "#FFC400",
+              color: "#D4AF37",
               fontWeight: 700,
               letterSpacing: 2,
               fontSize: { xs: "11px", sm: "12px", md: "13px" },
@@ -226,7 +226,7 @@ function Steps() {
                     sx={{
                       fontSize: { xs: "10px", md: "11px" },
                       fontWeight: 700,
-                      color: "#FFC400",
+                      color: "#D4AF37",
                       letterSpacing: 1.5,
                       mb: 0.8,
                       textTransform: "uppercase",

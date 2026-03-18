@@ -22,7 +22,7 @@ function Product() {
         <Typography
           variant="overline"
           sx={{
-            color: "#FFC400",
+            color: "#D4AF37",
             fontWeight: 800,
             letterSpacing: 2,
             fontSize: { xs: "11px", sm: "12px", md: "13px", lg: "15px" },

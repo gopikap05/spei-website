@@ -190,7 +190,7 @@ function Openings() {
           <Box>
             <Typography
               variant="overline"
-              sx={{ color: "#FFC400", fontWeight: 700, letterSpacing: 1.5 }}
+              sx={{ color: "#D4AF37", fontWeight: 700, letterSpacing: 1.5 }}
             >
               OPPORTUNITIES
             </Typography>

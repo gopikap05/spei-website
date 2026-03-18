@@ -1,4 +1,3 @@
-id="robotstxt"
 User-agent: *
 Allow: /
 

@@ -10,24 +10,18 @@ function ProductsSection() {
     <Box
       sx={{
         px: { xs: "16px", sm: "5%" },
-        py: {
-          xs: "40px",
-          sm: "60px",
-          md: "80px",
-          lg: "100px",
-        },
+        py: { xs: "40px", sm: "60px", md: "80px", lg: "100px" },
         backgroundColor: "#ffffff",
         width: "100%",
         boxSizing: "border-box",
       }}
     >
       <Box sx={{ maxWidth: "1350px", width: "100%", mx: "auto" }}>
-
         <Box sx={{ textAlign: "center", mb: { xs: 4, sm: 5, md: 8 } }}>
           <Typography
             variant="overline"
             sx={{
-              color: "#D4AF37",
+              color: "#7a6000", // ✅ was #D4AF37 (fails on white), now passes 4.5:1
               fontWeight: 700,
               letterSpacing: 2,
               fontSize: { xs: "11px", sm: "12px", md: "13px" },
@@ -42,12 +36,7 @@ function ProductsSection() {
               fontWeight: 700,
               mt: 2,
               color: "#071b3f",
-              fontSize: {
-                xs: "22px",
-                sm: "26px",
-                md: "30px",
-                lg: "36px",
-              },
+              fontSize: { xs: "22px", sm: "26px", md: "30px", lg: "36px" },
             }}
           >
             Special Purpose Machines & Automation Solutions
@@ -56,30 +45,24 @@ function ProductsSection() {
           <Typography
             sx={{
               mt: 2,
-              color: "#666",
+              color: "#444", // ✅ was #666, darkened for better contrast
               maxWidth: "600px",
               mx: "auto",
               lineHeight: 1.7,
               fontSize: { xs: "13px", sm: "14px", md: "15px" },
             }}
           >
-            Explore our range of <strong>custom SPM machinery</strong> and <strong>industrial automation systems</strong> designed for precision engineering and manufacturing efficiency.
+            Explore our range of <strong>custom SPM machinery</strong> and{" "}
+            <strong>industrial automation systems</strong> designed for precision
+            engineering and manufacturing efficiency.
           </Typography>
         </Box>
 
         <Box
           sx={{
             display: "grid",
-            gridTemplateColumns: {
-              xs: "1fr",
-              sm: "repeat(2, 1fr)",
-            },
-            gap: {
-              xs: "20px",
-              sm: "24px",
-              md: "32px",
-              lg: "40px",
-            },
+            gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)" },
+            gap: { xs: "20px", sm: "24px", md: "32px", lg: "40px" },
           }}
         >
           {previewProducts.map((product) => (
@@ -111,8 +94,7 @@ function ProductsSection() {
                 left: "-100%",
                 width: "100%",
                 height: "100%",
-                background:
-                  "linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent)",
+                background: "linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent)",
                 transition: "all 0.6s ease",
               },
               "&:hover::before": { left: "100%" },
@@ -127,7 +109,6 @@ function ProductsSection() {
             View All SPM Products
           </Button>
         </Box>
-
       </Box>
     </Box>
   );

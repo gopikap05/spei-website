@@ -6,12 +6,7 @@ function AboutSection() {
     <Box
       sx={{
         px: { xs: "16px", sm: "5%" },
-        py: {
-          xs: "40px",
-          sm: "60px",
-          md: "80px",
-          lg: "100px",
-        },
+        py: { xs: "40px", sm: "60px", md: "80px", lg: "100px" },
         backgroundColor: "#f5f7fb",
         width: "100%",
         boxSizing: "border-box",
@@ -19,12 +14,11 @@ function AboutSection() {
     >
       <Box sx={{ maxWidth: "1350px", width: "100%", mx: "auto" }}>
         <Grid container spacing={{ xs: 5, md: 8 }} alignItems="center">
-
           <Grid item xs={12} md={6}>
             <Typography
               variant="overline"
               sx={{
-                color: "#D4AF37",
+                color: "#7a6000", // ✅ was #D4AF37 (fails on #f5f7fb), now passes 4.5:1
                 fontWeight: 900,
                 letterSpacing: 2,
                 fontSize: { xs: "11px", sm: "12px", md: "13px" },
@@ -41,12 +35,7 @@ function AboutSection() {
                 mb: 3,
                 color: "#071b3f",
                 lineHeight: 1.25,
-                fontSize: {
-                  xs: "24px",
-                  sm: "28px",
-                  md: "32px",
-                  lg: "36px",
-                },
+                fontSize: { xs: "24px", sm: "28px", md: "32px", lg: "36px" },
               }}
             >
               Engineering Excellence in
@@ -56,15 +45,10 @@ function AboutSection() {
 
             <Typography
               sx={{
-                color: "#555",
+                color: "#444", // ✅ was #555, darkened slightly for better contrast
                 lineHeight: 1.8,
                 mb: 4,
-                fontSize: {
-                  xs: "13px",
-                  sm: "14px",
-                  md: "15px",
-                  lg: "16px",
-                },
+                fontSize: { xs: "13px", sm: "14px", md: "15px", lg: "16px" },
               }}
             >
               SP Engineers India is a precision-driven manufacturer specializing in
@@ -96,8 +80,7 @@ function AboutSection() {
                   left: "-100%",
                   width: "100%",
                   height: "100%",
-                  background:
-                    "linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent)",
+                  background: "linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent)",
                   transition: "all 0.6s ease",
                 },
                 "&:hover::before": { left: "100%" },
@@ -112,7 +95,6 @@ function AboutSection() {
               Learn More About SPM Solutions
             </Button>
           </Grid>
-
         </Grid>
       </Box>
     </Box>

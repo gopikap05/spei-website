@@ -29,24 +29,18 @@ function HowWeWork() {
     <Box
       sx={{
         px: { xs: "16px", sm: "5%" },
-        py: {
-          xs: "40px",
-          sm: "60px",
-          md: "80px",
-          lg: "100px",
-        },
+        py: { xs: "40px", sm: "60px", md: "80px", lg: "100px" },
         backgroundColor: "#ffffff",
         width: "100%",
         boxSizing: "border-box",
       }}
     >
       <Box sx={{ maxWidth: "1350px", width: "100%", mx: "auto" }}>
-
         <Box sx={{ textAlign: "center", mb: { xs: 4, sm: 5, md: 6 } }}>
           <Typography
             variant="overline"
             sx={{
-              color: "#D4AF37",
+              color: "#7a6000", // ✅ was #D4AF37 (fails on white), now passes 4.5:1
               fontWeight: 900,
               letterSpacing: 2,
               fontSize: { xs: "11px", sm: "12px", md: "13px" },
@@ -61,12 +55,7 @@ function HowWeWork() {
               fontWeight: 700,
               mt: 1.5,
               color: "#071b3f",
-              fontSize: {
-                xs: "22px",
-                sm: "26px",
-                md: "30px",
-                lg: "36px",
-              },
+              fontSize: { xs: "22px", sm: "26px", md: "30px", lg: "36px" },
             }}
           >
             How We Build Your SPM Solutions
@@ -75,15 +64,16 @@ function HowWeWork() {
           <Typography
             sx={{
               mt: 2,
-              color: "#666",
+              color: "#444", // ✅ was #666
               maxWidth: "520px",
               mx: "auto",
               lineHeight: 1.7,
               fontSize: { xs: "13px", sm: "14px", md: "15px" },
             }}
           >
-            A simple, transparent process from first conversation to
-            final delivery of your custom <strong>special purpose machine</strong> — built around your needs.
+            A simple, transparent process from first conversation to final
+            delivery of your custom <strong>special purpose machine</strong> —
+            built around your needs.
           </Typography>
         </Box>
 
@@ -163,7 +153,7 @@ function HowWeWork() {
                 sx={{
                   fontSize: { xs: "10px", sm: "10px", md: "11px" },
                   fontWeight: 700,
-                  color: "#FFC400",
+                  color: "#7a6000", // ✅ was #FFC400 (fails on white), now passes 4.5:1
                   letterSpacing: 1.5,
                   mb: 0.8,
                   textTransform: "uppercase",
@@ -187,7 +177,7 @@ function HowWeWork() {
 
               <Typography
                 sx={{
-                  color: "#666",
+                  color: "#444", // ✅ was #666
                   lineHeight: 1.75,
                   fontSize: { xs: "13px", sm: "12px", md: "13px", lg: "14px" },
                 }}
@@ -222,15 +212,13 @@ function HowWeWork() {
                   sx={{
                     width: { sm: "160px", md: "260px", lg: "360px" },
                     height: "2px",
-                    background:
-                      "linear-gradient(90deg, #FFC400, rgba(255,196,0,0.2))",
+                    background: "linear-gradient(90deg, #FFC400, rgba(255,196,0,0.2))",
                   }}
                 />
               )}
             </Box>
           ))}
         </Box>
-
       </Box>
     </Box>
   );

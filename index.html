@@ -3,9 +3,20 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/webp" href="/spei-website/logo/logo.webp" />
+  <link rel="icon" type="image/webp" href="/logo/logo.webp" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SPEI</title>
+
+  <script>
+    (function () {
+      const redirect = sessionStorage.redirect;
+      delete sessionStorage.redirect;
+      if (redirect && redirect !== location.href) {
+        history.replaceState(null, null, redirect);
+      }
+    })();
+  </script>
+
 </head>
 
 <body>

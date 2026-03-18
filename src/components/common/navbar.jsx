@@ -16,7 +16,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { NavLink } from "react-router-dom";
 
-const logo = "/logo/logo.webp";
+const logo = "/spei-website/logo/logo.webp";
 
 const navItems = [
   { label: "Home", path: "/" },

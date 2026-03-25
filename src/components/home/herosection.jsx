@@ -19,7 +19,7 @@ function HeroSection() {
         src={companyImage}
         alt=""
         aria-hidden="true"
-        fetchpriority="high"
+        fetchPriority="high"
         loading="eager"
         decoding="async"
         sx={{

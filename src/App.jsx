@@ -21,17 +21,34 @@ import CareerSingle from "./pages/careerSingle";
 
 function App() {
   const location = useLocation();
+  const isProd = import.meta.env.PROD;
 
   useEffect(() => {
-    ReactGA.initialize("G-Q31XM6K6CH");
-  }, []);
+    if (!isProd) {
+      return;
+    }
+
+    try {
+      ReactGA.initialize("G-Q31XM6K6CH");
+    } catch (error) {
+      console.warn("Google Analytics initialization failed:", error);
+    }
+  }, [isProd]);
 
   useEffect(() => {
-    ReactGA.send({
-      hitType: "pageview",
-      page: location.pathname,
-    });
-  }, [location]);
+    if (!isProd) {
+      return;
+    }
+
+    try {
+      ReactGA.send({
+        hitType: "pageview",
+        page: location.pathname,
+      });
+    } catch (error) {
+      console.warn("Google Analytics pageview failed:", error);
+    }
+  }, [location, isProd]);
 
   useEffect(() => {
     const lenis = new Lenis({

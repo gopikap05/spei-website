@@ -29,7 +29,7 @@ function Breadcrumbs() {
         width: "100%",
         backgroundColor: "#f0cd7c",
         borderBottom: "1px solid rgba(0,0,0,0.08)",
-        py: { xs: 1, sm: 1.2, md: 1.5, lg: 2 },
+       py: { xs: 1.5, sm: 2, md: 2 },
         zIndex: 1200,
       }}
     >

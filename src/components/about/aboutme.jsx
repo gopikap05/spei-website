@@ -27,7 +27,7 @@ function AboutMe() {
         <Box sx={{ maxWidth: "1350px", width: "100%", mx: "auto" }}>
           <Grid container spacing={{ xs: 4, md: 8 }} alignItems="center">
 
-            <Grid item xs={12} md={7}>
+            <Grid size={{ xs: 12, md: 12 }}>
               <Box>
                 <Typography
                   variant="overline"
@@ -105,7 +105,7 @@ function AboutMe() {
               </Box>
             </Grid>
 
-            <Grid item xs={12} md={5} />
+            <Grid size={{ xs: 12, md: 5 }} />
 
           </Grid>
         </Box>

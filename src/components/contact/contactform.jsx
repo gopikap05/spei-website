@@ -392,8 +392,10 @@ function ContactForm() {
             >
               <TextField
                 fullWidth
+                id="firstName"
                 label="First Name"
                 name="firstName"
+                autoComplete="given-name"
                 value={formData.firstName}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -404,8 +406,10 @@ function ContactForm() {
               />
               <TextField
                 fullWidth
+                id="company"
                 label="Company"
                 name="company"
+                autoComplete="organization"
                 value={formData.company}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -425,9 +429,11 @@ function ContactForm() {
             >
               <TextField
                 fullWidth
+                id="email"
                 label="Email ID"
                 name="email"
                 type="email"
+                autoComplete="email"
                 value={formData.email}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -438,8 +444,10 @@ function ContactForm() {
               />
               <TextField
                 fullWidth
+                id="phone"
                 label="Phone Number"
                 name="phone"
+                autoComplete="tel"
                 value={formData.phone}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -463,8 +471,10 @@ function ContactForm() {
 
             <TextField
               fullWidth
+              id="message"
               label="Message"
               name="message"
+              autoComplete="off"
               multiline
               rows={5}
               value={formData.message}

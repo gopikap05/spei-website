@@ -14,7 +14,7 @@ function AboutSection() {
     >
       <Box sx={{ maxWidth: "1350px", width: "100%", mx: "auto" }}>
         <Grid container spacing={{ xs: 5, md: 8 }} alignItems="center">
-          <Grid item xs={12} md={6}>
+          <Grid size={{ xs: 12, md: 12 }}>
             <Typography
               variant="overline"
               sx={{

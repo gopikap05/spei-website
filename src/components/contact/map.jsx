@@ -1,11 +1,13 @@
-import { Box, Typography } from "@mui/material";
+import { useState } from "react";
+import { Box, Typography, Button } from "@mui/material";
 
 function Map() {
-  const locationQuery = "12.768583,77.802028";
-  const encodedLocation = encodeURIComponent(locationQuery);
+  const [mapError, setMapError] = useState(false);
+  const latitude = 12.768583;
+  const longitude = 77.802028;
 
-  const mapsLink = `https://www.google.com/maps/dir/?api=1&destination=${encodedLocation}`;
-  const embedLink = `https://www.google.com/maps?q=${encodedLocation}&output=embed`;
+  const mapsLink = `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}`;
+  const noScriptLink = `https://www.openstreetmap.org/?mlat=${latitude}&mlon=${longitude}#map=14/${latitude}/${longitude}`;
 
   return (
     <Box
@@ -66,35 +68,42 @@ function Map() {
         />
 
         <Box
-          component="a"
-          href={mapsLink}
-          target="_blank"
-          rel="noopener noreferrer"
           sx={{
-            display: "block",
             width: "100%",
-            height: { xs: "280px", sm: "360px", md: "420px", lg: "460px" },
+            minHeight: { xs: "280px", sm: "360px", md: "420px", lg: "460px" },
             borderRadius: { xs: "10px", md: "14px" },
-            overflow: "hidden",
-            textDecoration: "none",
             border: "1px solid rgba(0,0,0,0.08)",
-            transition: "box-shadow 0.3s ease",
-            "&:hover": {
-              boxShadow: "0 12px 32px rgba(0,0,0,0.12)",
-            },
+            backgroundColor: "#eaf1fb",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            textAlign: "center",
+            p: 3,
           }}
         >
-          <Box
-            component="iframe"
-            src={embedLink}
-            width="100%"
-            height="100%"
-            style={{ border: 0, display: "block" }}
-            loading="lazy"
-            allowFullScreen
-            referrerPolicy="no-referrer-when-downgrade"
-            title="Google Maps location of SP Engineers India in Hosur, Tamil Nadu"
-          />
+          <Typography sx={{ mb: 2, color: "#2f4f7a" }}>
+            Interactive map blocked in this environment. View location in an external map service:
+          </Typography>
+          <Button
+            component="a"
+            href={mapsLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="contained"
+            sx={{ mb: 1 }}
+          >
+            Open in Google Maps
+          </Button>
+          <Button
+            component="a"
+            href={noScriptLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="outlined"
+          >
+            Open in OpenStreetMap
+          </Button>
         </Box>
       </Box>
     </Box>

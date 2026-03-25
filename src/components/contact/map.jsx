@@ -1,13 +1,10 @@
-import { useState } from "react";
 import { Box, Typography, Button } from "@mui/material";
 
 function Map() {
-  const [mapError, setMapError] = useState(false);
   const latitude = 12.768583;
   const longitude = 77.802028;
 
   const mapsLink = `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}`;
-  const noScriptLink = `https://www.openstreetmap.org/?mlat=${latitude}&mlon=${longitude}#map=14/${latitude}/${longitude}`;
 
   return (
     <Box
@@ -25,7 +22,7 @@ function Map() {
       }}
     >
       <Box sx={{ maxWidth: "1350px", width: "100%", mx: "auto" }}>
-
+        
         <Typography
           variant="overline"
           sx={{
@@ -67,44 +64,52 @@ function Map() {
           }}
         />
 
+        {/* Map */}
         <Box
           sx={{
+            position: "relative",
             width: "100%",
-            minHeight: { xs: "280px", sm: "360px", md: "420px", lg: "460px" },
+            height: { xs: "280px", sm: "360px", md: "420px", lg: "460px" },
             borderRadius: { xs: "10px", md: "14px" },
             border: "1px solid rgba(0,0,0,0.08)",
-            backgroundColor: "#eaf1fb",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            textAlign: "center",
-            p: 3,
+            overflow: "hidden",
           }}
         >
-          <Typography sx={{ mb: 2, color: "#2f4f7a" }}>
-            Interactive map blocked in this environment. View location in an external map service:
-          </Typography>
+          <iframe
+            src={`https://www.google.com/maps?q=${latitude},${longitude}&z=15&output=embed`}
+            width="100%"
+            height="100%"
+            style={{ border: 0, display: "block" }}
+            loading="lazy"
+            allowFullScreen
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+
+          {/* Button overlay */}
           <Button
-            component="a"
+            variant="contained"
             href={mapsLink}
             target="_blank"
             rel="noopener noreferrer"
-            variant="contained"
-            sx={{ mb: 1 }}
+            sx={{
+              position: "absolute",
+              bottom: 16,
+              right: 16,
+              backgroundColor: "#071b3f",
+              textTransform: "none",
+              fontWeight: 600,
+              borderRadius: "8px",
+              px: 2,
+              py: 1,
+              "&:hover": {
+                backgroundColor: "#0a2a5c",
+              },
+            }}
           >
             Open in Google Maps
           </Button>
-          <Button
-            component="a"
-            href={noScriptLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            variant="outlined"
-          >
-            Open in OpenStreetMap
-          </Button>
         </Box>
+
       </Box>
     </Box>
   );

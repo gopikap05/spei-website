@@ -36,12 +36,7 @@ function MissionVision() {
     <Box
       sx={{
         px: { xs: "16px", sm: "5%" },
-        py: {
-          xs: "40px",
-          sm: "60px",
-          md: "80px",
-          lg: "100px",
-        },
+        py: { xs: "40px", sm: "60px", md: "80px", lg: "100px" },
         width: "100%",
         background: "linear-gradient(135deg, #071b3f 0%, #0b2a66 100%)",
         color: "white",
@@ -50,6 +45,7 @@ function MissionVision() {
         overflow: "hidden",
       }}
     >
+      {/* Grid bg */}
       <Box
         sx={{
           position: "absolute",
@@ -70,6 +66,7 @@ function MissionVision() {
           zIndex: 1,
         }}
       >
+        {/* Header */}
         <Box sx={{ textAlign: "center", mb: { xs: 4, sm: 6, md: 8 } }}>
           <Typography
             variant="overline"
@@ -88,12 +85,7 @@ function MissionVision() {
             sx={{
               fontWeight: 700,
               mt: 1.5,
-              fontSize: {
-                xs: "22px",
-                sm: "26px",
-                md: "30px",
-                lg: "34px",
-              },
+              fontSize: { xs: "22px", sm: "26px", md: "30px", lg: "34px" },
             }}
           >
             Vision & Mission
@@ -120,149 +112,150 @@ function MissionVision() {
               lineHeight: 1.7,
             }}
           >
-            The principles and purpose that drive everything we build
-            at SP Engineers India.
+            The principles and purpose that drive everything we build at SP
+            Engineers India.
           </Typography>
         </Box>
 
+        {/* Cards */}
         <Box
           sx={{
-            display: "flex",
-            gap: 0,
-            flexDirection: { xs: "column", md: "row" },
-            alignItems: "stretch",
+            display: "grid",
+            gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" },
+            gap: { xs: 3, md: 4 },
           }}
         >
           {cards.map((card, index) => (
             <Box
               key={index}
               sx={{
-                display: "flex",
-                flexDirection: { xs: "column", md: "row" },
-                flex: 1,
+                position: "relative",
+                p: { xs: 3, sm: 4, md: 5 },
+                borderRadius: 3,
+                backgroundColor: "rgba(255,255,255,0.05)",
+                border: "1px solid rgba(255,255,255,0.1)",
+                overflow: "hidden",
+                transition: "all 0.35s ease",
+                // "&:hover": {
+                //   backgroundColor: "rgba(255,255,255,0.09)",
+                //   borderColor: "rgba(255,196,0,0.35)",
+                //   transform: "translateY(-4px)",
+                //   boxShadow: "0 20px 40px rgba(0,0,0,0.25)",
+                // },
+                // top gold accent bar
+                "&::before": {
+                  content: '""',
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: "3px",
+                  background:
+                    "linear-gradient(90deg, #FFC400, rgba(255,196,0,0.15))",
+                  borderRadius: "3px 3px 0 0",
+                },
               }}
             >
-              <Box
+              {/* Ghost number */}
+              {/* <Typography
                 sx={{
-                  flex: 1,
-                  position: "relative",
-                  p: { xs: 3, sm: 4, md: 5 },
-                  borderRadius: 3,
-                  backgroundColor: "rgba(255,255,255,0.05)",
-                  border: "1px solid rgba(255,255,255,0.1)",
-                  overflow: "hidden",
-                  transition: "all 0.35s ease",
-                  "&:hover": {
-                    backgroundColor: "rgba(255,255,255,0.09)",
-                    borderColor: "rgba(255,196,0,0.35)",
-                    transform: "translateY(-4px)",
-                    boxShadow: "0 20px 40px rgba(0,0,0,0.25)",
-                  },
+                  position: "absolute",
+                  top: "16px",
+                  right: "24px",
+                  fontSize: { xs: "56px", md: "72px" },
+                  fontWeight: 700,
+                  lineHeight: 1,
+                  color: "rgba(255,196,0,0.06)",
+                  userSelect: "none",
+                  letterSpacing: "-2px",
                 }}
               >
-                <Box
-                  sx={{
-                    width: { xs: 48, md: 56 },
-                    height: { xs: 48, md: 56 },
-                    borderRadius: "14px",
-                    backgroundColor: "rgba(255,196,0,0.1)",
-                    border: "1px solid rgba(255,196,0,0.25)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    mb: { xs: 2.5, md: 3 },
-                  }}
-                >
-                  {card.icon}
-                </Box>
+                {card.number}
+              </Typography> */}
 
-                <Typography
-                  component="h3"
-                  sx={{
-                    fontWeight: 700,
-                    mb: 2.5,
-                    color: "#FFC400",
-                    fontSize: { xs: "17px", sm: "19px", md: "21px" },
-                  }}
-                >
-                  {card.title}
-                </Typography>
-
-                {card.content === "list" ? (
-                  <Box sx={{ opacity: 0.9 }}>
-                    {card.items.map((text, i) => (
-                      <Typography
-                        key={i}
-                        sx={{
-                          mb: i < card.items.length - 1 ? 2 : 0,
-                          fontSize: { xs: "13px", sm: "14px", md: "15px" },
-                          lineHeight: 1.8,
-                          display: "flex",
-                          gap: 1,
-                          alignItems: "flex-start",
-                        }}
-                      >
-                        <Box
-                          component="span"
-                          sx={{ color: "#FFC400", flexShrink: 0, mt: "3px" }}
-                        >
-                          •
-                        </Box>
-                        {text}
-                      </Typography>
-                    ))}
-                  </Box>
-                ) : (
-                  <Typography
-                    sx={{
-                      lineHeight: 1.85,
-                      opacity: 0.9,
-                      fontSize: { xs: "13px", sm: "14px", md: "15px" },
-                    }}
-                  >
-                    {card.text}
-                  </Typography>
-                )}
+              {/* Icon */}
+              <Box
+                sx={{
+                  width: { xs: 48, md: 56 },
+                  height: { xs: 48, md: 56 },
+                  borderRadius: "14px",
+                  backgroundColor: "rgba(255,196,0,0.1)",
+                  border: "1px solid rgba(255,196,0,0.25)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  mb: { xs: 2.5, md: 3 },
+                }}
+              >
+                {card.icon}
               </Box>
 
-              {index < cards.length - 1 && (
-                <Box
-                  sx={{
-                    display: { xs: "none", md: "flex" },
-                    alignItems: "center",
-                    justifyContent: "center",
-                    px: { md: 2, lg: 3 },
-                  }}
-                >
-                  <Box
-                    sx={{
-                      width: "1px",
-                      height: "70%",
-                      background:
-                        "linear-gradient(180deg, transparent, #FFC400, transparent)",
-                    }}
-                  />
-                </Box>
-              )}
+              {/* Title */}
+              <Typography
+                component="h3"
+                sx={{
+                  fontWeight: 700,
+                  mb: 1,
+                  color: "#FFC400",
+                  fontSize: { xs: "17px", sm: "19px", md: "21px" },
+                }}
+              >
+                {card.title}
+              </Typography>
 
-              {index < cards.length - 1 && (
-                <Box
+              {/* Short gold divider */}
+              <Box
+                sx={{
+                  width: "32px",
+                  height: "2px",
+                  backgroundColor: "rgba(255,196,0,0.4)",
+                  borderRadius: "2px",
+                  mb: 2.5,
+                }}
+              />
+
+              {/* Content */}
+              {card.content === "list" ? (
+                <Box sx={{ opacity: 0.9 }}>
+                  {card.items.map((text, i) => (
+                    <Typography
+                      key={i}
+                      sx={{
+                        mb: i < card.items.length - 1 ? 2 : 0,
+                        fontSize: { xs: "13px", sm: "14px", md: "15px" },
+                        lineHeight: 1.8,
+                        display: "flex",
+                        gap: 1.5,
+                        alignItems: "flex-start",
+                      }}
+                    >
+                      {/* Diamond bullet */}
+                      <Box
+                        component="span"
+                        sx={{
+                          flexShrink: 0,
+                          mt: "7px",
+                          width: "6px",
+                          height: "6px",
+                          backgroundColor: "#FFC400",
+                          transform: "rotate(45deg)",
+                          display: "inline-block",
+                        }}
+                      />
+                      {text}
+                    </Typography>
+                  ))}
+                </Box>
+              ) : (
+                <Typography
                   sx={{
-                    display: { xs: "flex", md: "none" },
-                    alignItems: "center",
-                    justifyContent: "center",
-                    py: 2,
+                    lineHeight: 1.85,
+                    opacity: 0.9,
+                    fontSize: { xs: "13px", sm: "14px", md: "15px" },
                   }}
                 >
-                  <Box
-                    sx={{
-                      height: "1px",
-                      width: "70%",
-                      background:
-                        "linear-gradient(90deg, transparent, #FFC400, transparent)",
-                    }}
-                  />
-                </Box>
+                  {card.text}
+                </Typography>
               )}
             </Box>
           ))}

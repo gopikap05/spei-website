@@ -10,6 +10,7 @@ import Footer from "./components/common/footer";
 import ScrollToTop from "./components/common/ScrollToTop";
 import BackToTop from "./components/common/BackToTop";
 import WhatsAppButton from "./components/common/WhatsAppButton";
+import PageLoader from "./components/common/PageLoader";
 
 import Home from "./pages/home";
 import About from "./pages/about";
@@ -24,10 +25,7 @@ function App() {
   const isProd = import.meta.env.PROD;
 
   useEffect(() => {
-    if (!isProd) {
-      return;
-    }
-
+    if (!isProd) return;
     try {
       ReactGA.initialize("G-Q31XM6K6CH");
     } catch (error) {
@@ -36,15 +34,9 @@ function App() {
   }, [isProd]);
 
   useEffect(() => {
-    if (!isProd) {
-      return;
-    }
-
+    if (!isProd) return;
     try {
-      ReactGA.send({
-        hitType: "pageview",
-        page: location.pathname,
-      });
+      ReactGA.send({ hitType: "pageview", page: location.pathname });
     } catch (error) {
       console.warn("Google Analytics pageview failed:", error);
     }
@@ -79,6 +71,7 @@ function App() {
 
   return (
     <>
+      <PageLoader />
       <ScrollToTop />
       <Navbar />
 

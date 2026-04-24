@@ -1,5 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import ContactForm from "../components/contact/contactform";
+import Details from "../components/contact/details";
 import Map from "../components/contact/map";
 import { Helmet } from "react-helmet-async";
 
@@ -54,6 +55,7 @@ function Contact() {
       </Box>
 
       <ContactForm />
+      <Details />
       <Map />
     </>
   );

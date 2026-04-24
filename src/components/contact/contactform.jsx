@@ -3,45 +3,13 @@ import {
   Typography,
   TextField,
   Button,
-  Paper,
   Alert,
   Snackbar,
   InputAdornment,
   CircularProgress,
 } from "@mui/material";
-import PhoneIcon from "@mui/icons-material/Phone";
-import EmailIcon from "@mui/icons-material/Email";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
-
-const contactDetails = [
-  {
-    icon: <PhoneIcon sx={{ color: "#FFC400", fontSize: "22px" }} />,
-    label: "Phone Number",
-    value: "9500990032",
-    href: "tel:9500990032",
-  },
-  {
-    icon: <EmailIcon sx={{ color: "#FFC400", fontSize: "22px" }} />,
-    label: "Email Address",
-    value: "spengineersindia2001@gmail.com",
-    href: "mailto:spengineersindia2001@gmail.com",
-  },
-  {
-    icon: <LocationOnIcon sx={{ color: "#FFC400", fontSize: "22px" }} />,
-    label: "Our Location",
-    value: (
-      <>
-        Plot No: 22, SF No: 579/5A1,<br />
-        Rajaji Layout, Rajsriya U-8 Back Side,<br />
-        Hosur Taluk, Krishnagiri District - 635126
-      </>
-    ),
-    href: "https://www.google.com/maps/dir/?api=1&destination=Plot%20No%2022%2C%20SF%20No%20579%2F5A1%2C%20Rajaji%20Layout%2C%20Hosur%2C%20Krishnagiri%2C%20Tamil%20Nadu%20635126",
-    external: true,
-  },
-];
 
 const inputStyle = {
   "& .MuiOutlinedInput-root": {
@@ -68,26 +36,32 @@ function ContactForm() {
   const formRef = useRef();
   
   const [formData, setFormData] = useState({
-    firstName: "",
-    company: "",
+    name: "",
     email: "",
     phone: "",
+    company: "",
+    location: "",
+    purpose: "",
     message: "",
   });
 
   const [errors, setErrors] = useState({
-    firstName: "",
-    company: "",
+    name: "",
     email: "",
     phone: "",
+    company: "",
+    location: "",
+    purpose: "",
     message: "",
   });
 
   const [touched, setTouched] = useState({
-    firstName: false,
-    company: false,
+    name: false,
     email: false,
     phone: false,
+    company: false,
+    location: false,
+    purpose: false,
     message: false,
   });
 
@@ -105,14 +79,9 @@ function ContactForm() {
 
   const validateName = (name) => {
     const nameRegex = /^[A-Za-z\s]+$/;
-    if (!name.trim()) return "First name is required";
-    if (!nameRegex.test(name)) return "First name should only contain letters and spaces";
-    if (name.trim().length < 2) return "First name must be at least 2 characters";
-    return "";
-  };
-
-  const validateCompany = (company) => {
-    if (company && company.trim().length < 2) return "Company name must be at least 2 characters if provided";
+    if (!name.trim()) return "Name is required";
+    if (!nameRegex.test(name)) return "Name should only contain letters and spaces";
+    if (name.trim().length < 2) return "Name must be at least 2 characters";
     return "";
   };
 
@@ -130,6 +99,20 @@ function ContactForm() {
     return "";
   };
 
+  const validateCompany = (company) => {
+    if (company && company.trim().length < 2) return "Company name must be at least 2 characters if provided";
+    return "";
+  };
+
+  const validateLocation = (location) => {
+    if (location && location.trim().length < 2) return "Location must be at least 2 characters if provided";
+    return "";
+  };
+
+  const validatePurpose = (purpose) => {
+    return "";
+  };
+
   const validateMessage = (message) => {
     if (!message.trim()) return "Message is required";
     return "";
@@ -140,12 +123,14 @@ function ContactForm() {
     
     let filteredValue = value;
     
-    if (name === "firstName") {
+    if (name === "name") {
       filteredValue = value.replace(/[^A-Za-z\s]/g, "");
     } else if (name === "phone") {
       filteredValue = value.replace(/\D/g, "").slice(0, 10);
     } else if (name === "company") {
       filteredValue = value.replace(/[^A-Za-z0-9\s&.,-]/g, "");
+    } else if (name === "location") {
+      filteredValue = value.replace(/[^A-Za-z0-9\s,.-]/g, "");
     } else if (name === "email") {
       filteredValue = value.toLowerCase();
     }
@@ -154,17 +139,23 @@ function ContactForm() {
 
     let error = "";
     switch (name) {
-      case "firstName":
+      case "name":
         error = validateName(filteredValue);
-        break;
-      case "company":
-        error = validateCompany(filteredValue);
         break;
       case "email":
         error = validateEmail(filteredValue);
         break;
       case "phone":
         error = validatePhone(filteredValue);
+        break;
+      case "company":
+        error = validateCompany(filteredValue);
+        break;
+      case "location":
+        error = validateLocation(filteredValue);
+        break;
+      case "purpose":
+        error = validatePurpose(filteredValue);
         break;
       case "message":
         error = validateMessage(filteredValue);
@@ -182,17 +173,23 @@ function ContactForm() {
     
     let error = "";
     switch (name) {
-      case "firstName":
+      case "name":
         error = validateName(formData[name]);
-        break;
-      case "company":
-        error = validateCompany(formData[name]);
         break;
       case "email":
         error = validateEmail(formData[name]);
         break;
       case "phone":
         error = validatePhone(formData[name]);
+        break;
+      case "company":
+        error = validateCompany(formData[name]);
+        break;
+      case "location":
+        error = validateLocation(formData[name]);
+        break;
+      case "purpose":
+        error = validatePurpose(formData[name]);
         break;
       case "message":
         error = validateMessage(formData[name]);
@@ -206,19 +203,23 @@ function ContactForm() {
 
   const validateForm = () => {
     const newErrors = {
-      firstName: validateName(formData.firstName),
-      company: validateCompany(formData.company),
+      name: validateName(formData.name),
       email: validateEmail(formData.email),
       phone: validatePhone(formData.phone),
+      company: validateCompany(formData.company),
+      location: validateLocation(formData.location),
+      purpose: validatePurpose(formData.purpose),
       message: validateMessage(formData.message),
     };
 
     setErrors(newErrors);
     setTouched({
-      firstName: true,
-      company: true,
+      name: true,
       email: true,
       phone: true,
+      company: true,
+      location: true,
+      purpose: true,
       message: true,
     });
 
@@ -236,9 +237,11 @@ function ContactForm() {
         
         const templateParams = {
           to_email: formData.email,
-          to_name: formData.firstName,
-          from_name: formData.firstName,
+          to_name: formData.name,
+          from_name: formData.name,
           from_company: formData.company || 'Not provided',
+          from_location: formData.location || 'Not provided',
+          from_purpose: formData.purpose || 'Not provided',
           from_email: formData.email,
           from_phone: `+91${formData.phone}`,
           message: formData.message,
@@ -261,18 +264,22 @@ function ContactForm() {
         });
         
         setFormData({
-          firstName: "",
-          company: "",
+          name: "",
           email: "",
           phone: "",
+          company: "",
+          location: "",
+          purpose: "",
           message: "",
         });
         
         setTouched({
-          firstName: false,
-          company: false,
+          name: false,
           email: false,
           phone: false,
+          company: false,
+          location: false,
+          purpose: false,
           message: false,
         });
 
@@ -322,12 +329,9 @@ function ContactForm() {
           maxWidth: "1350px",
           width: "100%",
           mx: "auto",
-          display: "flex",
-          flexDirection: { xs: "column", md: "row" },
-          gap: { xs: 5, md: 6, lg: 8 },
         }}
       >
-        <Box sx={{ flex: 0.6 }}>
+        <Box sx={{ width: "100%" }}>
           <Typography
             variant="overline"
             sx={{
@@ -382,6 +386,7 @@ function ContactForm() {
           </Typography>
 
           <Box component="form" ref={formRef} onSubmit={sendEmail} noValidate>
+            {/* Row 1: Name, Email, Phone */}
             <Box
               sx={{
                 display: "flex",
@@ -392,41 +397,18 @@ function ContactForm() {
             >
               <TextField
                 fullWidth
-                id="firstName"
-                label="First Name"
-                name="firstName"
-                autoComplete="given-name"
-                value={formData.firstName}
+                id="name"
+                label="Full Name"
+                name="name"
+                autoComplete="name"
+                value={formData.name}
                 onChange={handleChange}
                 onBlur={handleBlur}
                 required
-                error={touched.firstName && errors.firstName !== ""}
-                helperText={touched.firstName && errors.firstName}
+                error={touched.name && errors.name !== ""}
+                helperText={touched.name && errors.name}
                 sx={inputStyle}
               />
-              <TextField
-                fullWidth
-                id="company"
-                label="Company"
-                name="company"
-                autoComplete="organization"
-                value={formData.company}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                error={touched.company && errors.company !== ""}
-                helperText={touched.company && errors.company}
-                sx={inputStyle}
-              />
-            </Box>
-
-            <Box
-              sx={{
-                display: "flex",
-                gap: 2,
-                mb: 2,
-                flexDirection: { xs: "column", sm: "row" },
-              }}
-            >
               <TextField
                 fullWidth
                 id="email"
@@ -469,6 +451,59 @@ function ContactForm() {
               />
             </Box>
 
+            {/* Row 2: Company, Location, Purpose */}
+            <Box
+              sx={{
+                display: "flex",
+                gap: 2,
+                mb: 2,
+                flexDirection: { xs: "column", sm: "row" },
+              }}
+            >
+              <TextField
+                fullWidth
+                id="company"
+                label="Company (Optional)"
+                name="company"
+                autoComplete="organization"
+                value={formData.company}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={touched.company && errors.company !== ""}
+                helperText={touched.company && errors.company}
+                sx={inputStyle}
+              />
+              <TextField
+                fullWidth
+                id="location"
+                label="Location (Optional)"
+                name="location"
+                autoComplete="address-level2"
+                value={formData.location}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={touched.location && errors.location !== ""}
+                helperText={touched.location && errors.location}
+                sx={inputStyle}
+                placeholder="City, State"
+              />
+              <TextField
+                fullWidth
+                id="purpose"
+                label="Purpose of Contact (Optional)"
+                name="purpose"
+                autoComplete="off"
+                value={formData.purpose}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={touched.purpose && errors.purpose !== ""}
+                helperText={touched.purpose && errors.purpose}
+                sx={inputStyle}
+                placeholder="Product inquiry, Support, etc."
+              />
+            </Box>
+
+            {/* Row 3: Message */}
             <TextField
               fullWidth
               id="message"
@@ -507,104 +542,6 @@ function ContactForm() {
               {loading ? <CircularProgress size={24} sx={{ color: "white" }} /> : "Send Message"}
             </Button>
           </Box>
-        </Box>
-
-        <Box
-          sx={{
-            flex: 0.4,
-            display: "flex",
-            flexDirection: "column",
-            gap: { xs: 2, md: 3 },
-          }}
-        >
-          <Typography
-            variant="overline"
-            sx={{
-              color: "#D4AF37",
-              fontWeight: 700,
-              letterSpacing: 2,
-              fontSize: { xs: "11px", sm: "12px", md: "13px" },
-              display: "block",
-              mb: 0.5,
-            }}
-          >
-            REACH US DIRECTLY
-          </Typography>
-
-          <Typography
-            component="h2"
-            sx={{
-              fontWeight: 700,
-              color: "#071b3f",
-              mb: 1,
-              fontSize: { xs: "18px", sm: "20px", md: "22px" },
-            }}
-          >
-            Contact Details
-          </Typography>
-
-          <Box
-            sx={{
-              mb: 1,
-              width: "48px",
-              height: "4px",
-              borderRadius: "2px",
-              backgroundColor: "#FFC400",
-            }}
-          />
-
-          {contactDetails.map((item, index) => (
-            <Paper
-              key={index}
-              elevation={0}
-              sx={{
-                p: { xs: 2.5, md: 3 },
-                borderRadius: "12px",
-                border: "1px solid rgba(0,0,0,0.07)",
-                transition: "all 0.3s ease",
-                "&:hover": {
-                  borderColor: "rgba(255,196,0,0.4)",
-                  transform: "translateX(4px)",
-                },
-              }}
-            >
-              <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-                <Box
-                  sx={{
-                    width: 44,
-                    height: 44,
-                    borderRadius: "10px",
-                    backgroundColor: "rgba(255,196,0,0.1)",
-                    border: "1px solid rgba(255,196,0,0.25)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  {item.icon}
-                </Box>
-
-                <Box>
-                  <Typography sx={{ fontWeight: 700, color: "#071b3f", fontSize: "14px", mb: 0.3 }}>
-                    {item.label}
-                  </Typography>
-                  <Typography
-                    component="a"
-                    href={item.href}
-                    {...(item.external ? { target: "_blank", rel: "noopener" } : {})}
-                    sx={{
-                      color: "#666",
-                      textDecoration: "none",
-                      fontSize: "14px",
-                      "&:hover": { color: "#071b3f" },
-                    }}
-                  >
-                    {item.label === "Phone Number" ? `+91 ${item.value}` : item.value}
-                  </Typography>
-                </Box>
-              </Box>
-            </Paper>
-          ))}
         </Box>
       </Box>
 

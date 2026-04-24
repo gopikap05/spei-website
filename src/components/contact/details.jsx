@@ -1,27 +1,41 @@
-import { Box, Typography, Link } from "@mui/material";
-import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
-import PhoneOutlinedIcon from "@mui/icons-material/PhoneOutlined";
+import { Box, Typography, Paper } from "@mui/material";
+import PhoneIcon from "@mui/icons-material/Phone";
+import EmailIcon from "@mui/icons-material/Email";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
-const contactItems = [
+const contactDetails = [
   {
-    icon: <EmailOutlinedIcon fontSize="small" />,
-    label: "Email",
+    icon: <PhoneIcon sx={{ color: "#FFC400", fontSize: "22px" }} />,
+    label: "Phone Number",
+    value: "9500990032",
+    href: "tel:9500990032",
+  },
+  {
+    icon: <EmailIcon sx={{ color: "#FFC400", fontSize: "22px" }} />,
+    label: "Email Address",
     value: "spengineersindia2001@gmail.com",
     href: "mailto:spengineersindia2001@gmail.com",
   },
   {
-    icon: <PhoneOutlinedIcon fontSize="small" />,
-    label: "Phone",
-    value: "+91 9500990032",
-    href: "tel:+919500990032",
+    icon: <LocationOnIcon sx={{ color: "#FFC400", fontSize: "22px" }} />,
+    label: "Our Location",
+    value: (
+      <>
+        Plot No: 22, SF No: 579/5A1,
+        Rajaji Layout, Rajsriya U-8 Back Side,
+        Hosur Taluk, Krishnagiri District - 635126
+      </>
+    ),
+    href: "https://www.google.com/maps/dir/?api=1&destination=Plot%20No%2022%2C%20SF%20No%20579%2F5A1%2C%20Rajaji%20Layout%2C%20Hosur%2C%20Krishnagiri%2C%20Tamil%20Nadu%20635126",
+    external: true,
   },
   {
-    icon: <LinkedInIcon fontSize="small" />,
+    icon: <LinkedInIcon sx={{ color: "#FFC400", fontSize: "22px" }} />,
     label: "LinkedIn",
-    value: "Coming Soon",
-    href: "#",
-    external: false,
+    value: "Palanisamy K",
+    href: "https://www.linkedin.com/in/palanisamy-k-47970b402/",
+    external: true,
   },
 ];
 
@@ -36,136 +50,124 @@ function Details() {
           md: "80px",
           lg: "100px",
         },
-        backgroundColor: "#f5f7fb",
+        backgroundColor: "#ffffff",
         width: "100%",
         boxSizing: "border-box",
       }}
     >
-      <Box sx={{ maxWidth: "1350px", width: "100%", mx: "auto" }}>
-
+      <Box
+        sx={{
+          maxWidth: "1350px",
+          width: "100%",
+          mx: "auto",
+        }}
+      >
         <Box
           sx={{
-            p: { xs: 3, sm: 4, md: 5 },
-            borderRadius: "18px",
-            backgroundColor: "#ffffff",
-            border: "1px solid rgba(0,0,0,0.06)",
-            position: "relative",
-            overflow: "hidden",
-            transition: "box-shadow 0.3s ease",
-            "&:hover": {
-              boxShadow: "0 15px 40px rgba(0,0,0,0.08)",
-            },
+            flex: 0.4,
+            display: "flex",
+            flexDirection: "column",
+            gap: { xs: 1, md: 1.5 },
           }}
         >
-          <Box
-            sx={{
-              position: "absolute",
-              left: 0,
-              top: 0,
-              bottom: 0,
-              width: "4px",
-              backgroundColor: "#FFC400",
-              borderRadius: "18px 0 0 18px",
-            }}
-          />
-
           <Typography
             variant="overline"
             sx={{
-              color: "#FFC400",
+              color: "#D4AF37",
               fontWeight: 700,
               letterSpacing: 2,
               fontSize: { xs: "11px", sm: "12px", md: "13px" },
               display: "block",
-              mb: 1,
+              mb: 0.5,
             }}
           >
-            REACH US
+            REACH US DIRECTLY
           </Typography>
 
           <Typography
             component="h2"
             sx={{
               fontWeight: 700,
-              mb: { xs: 3, md: 4 },
               color: "#071b3f",
-              fontSize: { xs: "20px", sm: "22px", md: "24px" },
+              mb: 0.1,
+              fontSize: { xs: "18px", sm: "20px", md: "22px" },
             }}
           >
             Contact Details
           </Typography>
 
-          <Box sx={{ display: "flex", flexDirection: "column", gap: { xs: 1.5, md: 2 } }}>
-            {contactItems.map((item, index) => (
-              <Box
-                key={index}
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 2,
-                  p: { xs: 1.5, md: 2 },
-                  borderRadius: "12px",
-                  transition: "all 0.3s ease",
-                  "&:hover": {
-                    backgroundColor: "rgba(255,196,0,0.06)",
-                    transform: "translateX(6px)",
-                  },
-                }}
-              >
+          <Box
+            sx={{
+              mb: 1,
+              width: "48px",
+              height: "4px",
+              borderRadius: "2px",
+              backgroundColor: "#FFC400",
+            }}
+          />
+
+          {contactDetails.map((item, index) => (
+            <Paper
+              key={index}
+              elevation={0}
+              sx={{
+                p: { xs: 1.5, md: 2 },
+                borderRadius: "12px",
+                border: "1px solid rgba(0,0,0,0.07)",
+                transition: "all 0.3s ease",
+                "&:hover": {
+                  borderColor: "rgba(255,196,0,0.4)",
+                  transform: "translateX(4px)",
+                },
+              }}
+            >
+              <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
                 <Box
                   sx={{
-                    width: { xs: 38, md: 44 },
-                    height: { xs: 38, md: 44 },
+                    width: 44,
+                    height: 44,
                     borderRadius: "10px",
                     backgroundColor: "rgba(255,196,0,0.1)",
                     border: "1px solid rgba(255,196,0,0.25)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    color: "#FFC400",
-                    flexShrink: 0,
                   }}
                 >
                   {item.icon}
                 </Box>
 
-                <Box sx={{ minWidth: 0 }}>
-                  <Typography
-                    sx={{
-                      fontWeight: 700,
-                      color: "#071b3f",
-                      fontSize: { xs: "12px", sm: "13px", md: "14px" },
-                      mb: 0.2,
-                    }}
-                  >
+                <Box>
+                  <Typography sx={{ fontWeight: 700, color: "#FFC400", fontSize: "14px", mb: 0.3 }}>
                     {item.label}
                   </Typography>
-
-                  <Link
+                  <Typography
+                    component="a"
                     href={item.href}
-                    {...(item.external
-                      ? { target: "_blank", rel: "noopener noreferrer" }
-                      : {})}
-                    underline="none"
+                    {...(item.external ? { target: "_blank", rel: "noopener" } : {})}
                     sx={{
-                      color: "#555",
-                      fontWeight: 500,
-                      fontSize: { xs: "13px", md: "14px" },
-                      display: "block",
-                      overflow: "hidden",
-                      textOverflow: "ellipsis",
-                      whiteSpace: "nowrap",
-                      transition: "color 0.2s ease",
-                      "&:hover": { color: "#071b3f" },
-                      cursor: item.href === "#" ? "default" : "pointer",
+                      color: "#000000ff",
+                      textDecoration: "none",
+                      fontSize: "14px",
+                      mt: "5px",
+                      transition: "all 0.3s ease",
+                      display: "inline-block",
+                      "&:hover": {
+                        background: "linear-gradient(135deg, #B8860B 0%, #1E3A8A 100%)",
+                        backgroundClip: "text",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                        fontSize: "15px", 
+                        marginTop: "5px"
+                      },
                     }}
                   >
-                    {item.value}
-                  </Link>
+                    {item.label === "Phone Number" ? `+91 ${item.value}` : item.value}
+                  </Typography>
                 </Box>
               </Box>
-            ))}
-          </Box>
+            </Paper>
+          ))}
         </Box>
       </Box>
     </Box>

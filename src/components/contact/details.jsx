@@ -124,14 +124,15 @@ function Details() {
               <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
                 <Box
                   sx={{
-                    width: 44,
-                    height: 44,
+                    width: { xs: 30, sm: 40, md: 44 },
+                    height: { xs: 30, sm: 40, md: 44 },
                     borderRadius: "10px",
                     backgroundColor: "rgba(255,196,0,0.1)",
                     border: "1px solid rgba(255,196,0,0.25)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
+                    flexShrink: 0,
                   }}
                 >
                   {item.icon}
@@ -157,7 +158,7 @@ function Details() {
                         backgroundClip: "text",
                         WebkitBackgroundClip: "text",
                         WebkitTextFillColor: "transparent",
-                        fontSize: "15px", 
+                        fontSize: "15px",
                         marginTop: "5px"
                       },
                     }}

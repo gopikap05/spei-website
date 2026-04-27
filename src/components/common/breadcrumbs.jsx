@@ -33,11 +33,11 @@ function Breadcrumbs() {
         zIndex: 1200,
       }}
     >
-      <Box sx={{ maxWidth: "1350px", mx: "auto", px: { xs: "16px", sm: "5%" } }}>
+      <Box sx={{ maxWidth: "1440px", mx: "auto", px: { xs: "16px", sm: "5%" } }}>
         <MUIBreadcrumbs
           separator={
-            <Typography 
-              sx={{ 
+            <Typography
+              sx={{
                 fontWeight: 700,
                 fontSize: { xs: "14px", sm: "16px", md: "17px", lg: "18px" },
                 lineHeight: 1.4,
@@ -45,7 +45,7 @@ function Breadcrumbs() {
                 alignItems: "center",
                 color: "#071b3f",
                 opacity: 0.8
-              }} 
+              }}
               aria-hidden="true"
             >
               &gt;
@@ -68,7 +68,7 @@ function Breadcrumbs() {
               ...textStyle,
               textDecoration: "none",
               transition: "0.2s",
-              "&:hover": { letterSpacing: "2px",},
+              "&:hover": { letterSpacing: "2px", },
             }}
           >
             Home

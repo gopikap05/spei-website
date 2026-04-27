@@ -1,3 +1,4 @@
+import { Box, Typography } from "@mui/material";
 import Product from "../components/products/product";
 import { Helmet } from "react-helmet-async";
 
@@ -26,6 +27,59 @@ function Products() {
       <h1 style={{ display: "none" }}>
         Special Purpose Machines Manufacturer in India | Custom SPM, Hydraulic Systems & Industrial Automation Solutions
       </h1>
+
+      {/* Hero Section - Same as Careers page */}
+      <Box
+        sx={{
+          px: { xs: "16px", sm: "5%" },
+          pt: { xs: "65px", sm: "90px", md: "80px", lg: "100px" },
+          pb: { xs: "40px", sm: "60px", md: "70px", lg: "80px" },
+          background: "linear-gradient(135deg, #071b3f 0%, #0b2a66 100%)",
+          color: "white",
+          width: "100%",
+          boxSizing: "border-box",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+
+        <Box sx={{ maxWidth: "1440px", width: "100%", mx: "auto", position: "relative", zIndex: 1 }}>
+          <Typography 
+            variant="overline" 
+            sx={{ 
+              color: "#FFC400", 
+              fontWeight: 700, 
+              letterSpacing: 2, 
+              fontSize: { xs: "11px", sm: "12px", md: "13px" }, 
+              display: "block", 
+              mb: 1.5 
+            }}
+          >
+            EXPLORE OUR RANGE
+          </Typography>
+
+          <Typography 
+            sx={{ 
+              fontWeight: 700, 
+              color: "white", 
+              lineHeight: 1.2, 
+              fontSize: { xs: "28px", sm: "36px", md: "44px", lg: "52px" } 
+            }}
+          >
+            Products at SPEI
+          </Typography>
+
+          <Box 
+            sx={{ 
+              mt: 3, 
+              width: { xs: "48px", md: "64px" }, 
+              height: "4px", 
+              borderRadius: "2px", 
+              backgroundColor: "#FFC400" 
+            }} 
+          />
+        </Box>
+      </Box>
 
       <Product />
     </>

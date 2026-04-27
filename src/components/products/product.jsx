@@ -36,8 +36,8 @@ function Product() {
           sx={{
             fontWeight: 700,
             color: "#071b3f",
-            mt: 2,
-            mb: { xs: 4, sm: 5, md: 6 },
+            mt: 0,
+            mb: { xs: 0.5, sm: 1, md: 2 },
             fontSize: {
               xs: "22px",
               sm: "28px",

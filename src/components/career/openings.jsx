@@ -177,7 +177,7 @@ function JobCard({ job }) {
 function Openings() {
   return (
     <Box sx={{ px: "5%", py: { xs: "48px", md: "80px" } }}>
-      <Box sx={{ maxWidth: "1350px", mx: "auto" }}>
+      <Box sx={{ maxWidth: "1440px", mx: "auto" }}>
         <Box
           sx={{
             display: "flex",

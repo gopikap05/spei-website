@@ -3,7 +3,7 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
 function WhatsAppButton() {
   const phoneNumber = "919500990032";
-  const message = `Hello, I am interested in ${window.location.pathname}. Please share details.`;
+  const message = `Hello!`;
   const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
   const handleClick = () => {

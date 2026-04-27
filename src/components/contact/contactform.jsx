@@ -34,7 +34,7 @@ const inputStyle = {
 
 function ContactForm() {
   const formRef = useRef();
-  
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -120,9 +120,9 @@ function ContactForm() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    
+
     let filteredValue = value;
-    
+
     if (name === "name") {
       filteredValue = value.replace(/[^A-Za-z\s]/g, "");
     } else if (name === "phone") {
@@ -170,7 +170,7 @@ function ContactForm() {
   const handleBlur = (e) => {
     const { name } = e.target;
     setTouched({ ...touched, [name]: true });
-    
+
     let error = "";
     switch (name) {
       case "name":
@@ -197,7 +197,7 @@ function ContactForm() {
       default:
         break;
     }
-    
+
     setErrors({ ...errors, [name]: error });
   };
 
@@ -228,13 +228,13 @@ function ContactForm() {
 
   const sendEmail = async (e) => {
     e.preventDefault();
-    
+
     if (validateForm()) {
       setLoading(true);
-      
+
       try {
         emailjs.init(EMAILJS_PUBLIC_KEY);
-        
+
         const templateParams = {
           to_email: formData.email,
           to_name: formData.name,
@@ -262,7 +262,7 @@ function ContactForm() {
           message: "Message sent successfully! Check your email for confirmation.",
           severity: "success",
         });
-        
+
         setFormData({
           name: "",
           email: "",
@@ -272,7 +272,7 @@ function ContactForm() {
           purpose: "",
           message: "",
         });
-        
+
         setTouched({
           name: false,
           email: false,
@@ -285,9 +285,9 @@ function ContactForm() {
 
       } catch (error) {
         console.error("EmailJS Error:", error);
-        
+
         let errorMessage = "Failed to send message. Please try again.";
-        
+
         setSnackbar({
           open: true,
           message: errorMessage,
@@ -326,7 +326,7 @@ function ContactForm() {
     >
       <Box
         sx={{
-          maxWidth: "1350px",
+          maxWidth: "1440px",
           width: "100%",
           mx: "auto",
         }}
@@ -381,7 +381,7 @@ function ContactForm() {
               lineHeight: 1.7,
             }}
           >
-            Have questions about our <strong>SPM machines</strong> or <strong>industrial automation</strong> solutions? 
+            Have questions about our <strong>SPM machines</strong> or <strong>industrial automation</strong> solutions?
             Fill out the form below and we'll get back to you shortly.
           </Typography>
 

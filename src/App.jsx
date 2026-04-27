@@ -20,6 +20,11 @@ import ProductSingle from "./pages/productSingle";
 import Careers from "./pages/careers";
 import CareerSingle from "./pages/careerSingle";
 
+// Policy pages imports
+import CookiePolicy from "./components/policies/CookiePolicy";
+import PrivacyPolicy from "./components/policies/PrivacyPolicy";
+import TermsAndConditions from "./components/policies/TermsAndConditions";
+
 function App() {
   const location = useLocation();
   const isProd = import.meta.env.PROD;
@@ -79,6 +84,7 @@ function App() {
         <Breadcrumbs />
 
         <Routes>
+          {/* Main Pages */}
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/products" element={<Products />} />
@@ -86,6 +92,11 @@ function App() {
           <Route path="/products/:id" element={<ProductSingle />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/careers/:id" element={<CareerSingle />} />
+          
+          {/* Policy Pages */}
+          <Route path="/cookie-policy" element={<CookiePolicy />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
         </Routes>
       </Box>
 

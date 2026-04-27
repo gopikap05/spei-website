@@ -42,7 +42,7 @@ function Careers() {
         <Box sx={{ position: "absolute", top: "-80px", right: "-80px", width: "360px", height: "360px", borderRadius: "50%", border: "1px solid rgba(255,196,0,0.12)", pointerEvents: "none" }} />
         <Box sx={{ position: "absolute", bottom: "-120px", right: "60px", width: "240px", height: "240px", borderRadius: "50%", border: "1px solid rgba(255,255,255,0.06)", pointerEvents: "none" }} />
 
-        <Box sx={{ maxWidth: "1350px", width: "100%", mx: "auto" }}>
+        <Box sx={{ maxWidth: "1440px", width: "100%", mx: "auto" }}>
           <Typography variant="overline" sx={{ color: "#FFC400", fontWeight: 700, letterSpacing: 2, fontSize: { xs: "11px", sm: "12px", md: "13px" }, display: "block", mb: 1.5 }}>
             JOIN OUR TEAM
           </Typography>

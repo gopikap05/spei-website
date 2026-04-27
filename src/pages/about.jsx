@@ -48,7 +48,7 @@ function About() {
           boxSizing: "border-box",
         }}
       >
-        <Box sx={{ maxWidth: "1350px", width: "100%", mx: "auto" }}>
+        <Box sx={{ maxWidth: "1440px", width: "100%", mx: "auto" }}>
           <Typography
             variant="overline"
             sx={{

@@ -38,7 +38,7 @@ function CTASection() {
 
       <Box
         sx={{
-          maxWidth: "1350px",
+          maxWidth: "1440px",
           width: "100%",
           mx: "auto",
           position: "relative",

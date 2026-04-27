@@ -24,7 +24,7 @@ function AboutMe() {
           boxSizing: "border-box",
         }}
       >
-        <Box sx={{ maxWidth: "1350px", width: "100%", mx: "auto" }}>
+        <Box sx={{ maxWidth: "1440px", width: "100%", mx: "auto" }}>
           <Grid container spacing={{ xs: 4, md: 8 }} alignItems="center">
 
             <Grid size={{ xs: 12, md: 12 }}>
@@ -86,7 +86,7 @@ function AboutMe() {
                 >
                   Our deep understanding of industrial processes enables us to
                   develop reliable, efficient, and cost-effective <strong>industrial automation
-                  solutions</strong> that enhance productivity and operational performance.
+                    solutions</strong> that enhance productivity and operational performance.
                 </Typography>
 
                 <Typography
@@ -125,7 +125,7 @@ function AboutMe() {
           background: "linear-gradient(135deg, #0b2a66 0%, #071b3f 100%)",
         }}
       >
-        <Box sx={{ maxWidth: "1350px", width: "100%", mx: "auto" }}>
+        <Box sx={{ maxWidth: "1440px", width: "100%", mx: "auto" }}>
           <Box
             sx={{
               display: "grid",

@@ -19,11 +19,11 @@ import { openings } from "../components/career/openings";
 
 const F = "'Manrope', sans-serif";
 
-const EMAILJS_SERVICE_ID  = "service_8e1pz9j";
+const EMAILJS_SERVICE_ID = "service_8e1pz9j";
 const EMAILJS_TEMPLATE_ID = "template_5fglgbg";
-const EMAILJS_PUBLIC_KEY  = "jMCUD7zLd8Wt2y3wX";
+const EMAILJS_PUBLIC_KEY = "jMCUD7zLd8Wt2y3wX";
 
-const emptyForm   = { name: "", email: "", phone: "", qualification: "", experience: "", resumeLink: "" };
+const emptyForm = { name: "", email: "", phone: "", qualification: "", experience: "", resumeLink: "" };
 const emptyErrors = { name: "", email: "", phone: "", qualification: "", experience: "", resumeLink: "" };
 
 const inputSx = {
@@ -39,7 +39,7 @@ const inputSx = {
 };
 
 function ApplyForm({ job }) {
-  const [form, setForm]     = useState(emptyForm);
+  const [form, setForm] = useState(emptyForm);
   const [errors, setErrors] = useState(emptyErrors);
   const [status, setStatus] = useState("idle");
 
@@ -50,14 +50,14 @@ function ApplyForm({ job }) {
   const validate = () => {
     const e = { ...emptyErrors };
     let valid = true;
-    if (!form.name.trim())          { e.name = "Full name is required."; valid = false; }
-    if (!form.email.trim())         { e.email = "Email is required."; valid = false; }
+    if (!form.name.trim()) { e.name = "Full name is required."; valid = false; }
+    if (!form.email.trim()) { e.email = "Email is required."; valid = false; }
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) { e.email = "Enter a valid email address."; valid = false; }
-    if (!form.phone.trim())         { e.phone = "Phone number is required."; valid = false; }
+    if (!form.phone.trim()) { e.phone = "Phone number is required."; valid = false; }
     else if (!/^[0-9+\-\s()]{7,15}$/.test(form.phone)) { e.phone = "Enter a valid phone number."; valid = false; }
     if (!form.qualification.trim()) { e.qualification = "Qualification is required."; valid = false; }
-    if (!form.experience.trim())    { e.experience = "Please mention your experience."; valid = false; }
-    if (!form.resumeLink.trim())    { e.resumeLink = "Please provide your resume link."; valid = false; }
+    if (!form.experience.trim()) { e.experience = "Please mention your experience."; valid = false; }
+    if (!form.resumeLink.trim()) { e.resumeLink = "Please provide your resume link."; valid = false; }
     else if (!/^https?:\/\/.+/.test(form.resumeLink)) { e.resumeLink = "Enter a valid URL (must start with http/https)."; valid = false; }
     setErrors(e);
     return valid;
@@ -73,13 +73,13 @@ function ApplyForm({ job }) {
     setStatus("sending");
 
     const templateParams = {
-      job_title:               job.title,
-      applicant_name:          form.name,
-      applicant_email:         form.email,
-      applicant_phone:         form.phone,
+      job_title: job.title,
+      applicant_name: form.name,
+      applicant_email: form.email,
+      applicant_phone: form.phone,
       applicant_qualification: form.qualification,
-      applicant_experience:    form.experience,
-      resume_link:             form.resumeLink,
+      applicant_experience: form.experience,
+      resume_link: form.resumeLink,
     };
 
     try {
@@ -168,9 +168,9 @@ function ApplyForm({ job }) {
 }
 
 function CareerSingle() {
-  const { id }   = useParams();
+  const { id } = useParams();
   const navigate = useNavigate();
-  const job      = openings.find((j) => j.id === Number(id));
+  const job = openings.find((j) => j.id === Number(id));
 
   if (!job) {
     return (
@@ -218,7 +218,7 @@ function CareerSingle() {
       >
         <Box sx={{ position: "absolute", top: "-80px", right: "-80px", width: "360px", height: "360px", borderRadius: "50%", border: "1px solid rgba(255,196,0,0.12)", pointerEvents: "none" }} />
 
-        <Box sx={{ maxWidth: "1350px", width: "100%", mx: "auto", minWidth: 0 }}>
+        <Box sx={{ maxWidth: "1440px", width: "100%", mx: "auto", minWidth: 0 }}>
           <Button
             startIcon={<ArrowBackIcon fontSize="small" />}
             onClick={() => navigate("/careers")}
@@ -251,7 +251,7 @@ function CareerSingle() {
       </Box>
 
       <Box sx={{ px: { xs: "16px", sm: "5%" }, py: { xs: "48px", md: "80px" }, backgroundColor: "#f7f9fc", boxSizing: "border-box", width: "100%", overflow: "hidden" }}>
-        <Box sx={{ maxWidth: "1350px", mx: "auto", display: "flex", flexDirection: { xs: "column", md: "row" }, gap: { xs: 3, md: 5 }, alignItems: "flex-start", width: "100%", minWidth: 0 }}>
+        <Box sx={{ maxWidth: "1440px", mx: "auto", display: "flex", flexDirection: { xs: "column", md: "row" }, gap: { xs: 3, md: 5 }, alignItems: "flex-start", width: "100%", minWidth: 0 }}>
 
           <Box sx={{ width: { xs: "100%", md: "40%" }, flexShrink: 0, minWidth: 0, boxSizing: "border-box", backgroundColor: "white", border: "1px solid #e8ecf4", borderRadius: "16px", p: { xs: 3, md: 4 }, position: { md: "sticky" }, top: { md: "120px" } }}>
             <Typography sx={{ fontFamily: F, fontWeight: 800, fontSize: "18px", color: "#071b3f", mb: 2 }}>About this Role</Typography>

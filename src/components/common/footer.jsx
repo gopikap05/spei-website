@@ -34,7 +34,7 @@ function Footer() {
         boxSizing: "border-box",
       }}
     >
-      <Box sx={{ maxWidth: "1350px", width: "100%", mx: "auto" }}>
+      <Box sx={{ maxWidth: "1440px", width: "100%", mx: "auto" }}>
         <Box
           sx={{
             display: "flex",
@@ -106,6 +106,46 @@ function Footer() {
                 { label: "About Us", path: "/about" },
                 { label: "Products", path: "/products" },
                 { label: "Contact", path: "/contact" },
+              ].map((item, i) => (
+                <Typography key={i} sx={{ mb: 1.5 }}>
+                  <Link
+                    component="button"
+                    underline="none"
+                    onClick={() => handleNavigation(item.path)}
+                    sx={{
+                      color: "white",
+                      opacity: 0.8,
+                      cursor: "pointer",
+                      fontSize: { xs: "13px", sm: "14px", md: "15px" },
+                      background: "none",
+                      border: "none",
+                      transition: "color 0.2s ease",
+                      "&:hover": { color: "#FFC400", opacity: 1 },
+                    }}
+                  >
+                    {item.label}
+                  </Link>
+                </Typography>
+              ))}
+            </Box>
+
+            {/* Legal / Policies Section */}
+            <Box>
+              <Typography
+                sx={{
+                  fontWeight: 700,
+                  mb: 3,
+                  color: "#FFC400",
+                  fontSize: { xs: "15px", sm: "16px", md: "17px" },
+                }}
+              >
+                Legal
+              </Typography>
+
+              {[
+                { label: "Privacy Policy", path: "/privacy-policy" },
+                { label: "Terms & Conditions", path: "/terms-and-conditions" },
+                { label: "Cookie Policy", path: "/cookie-policy" },
               ].map((item, i) => (
                 <Typography key={i} sx={{ mb: 1.5 }}>
                   <Link

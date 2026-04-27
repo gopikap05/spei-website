@@ -56,7 +56,7 @@ function Steps() {
           boxSizing: "border-box",
         }}
       >
-        <Box sx={{ maxWidth: "1350px", width: "100%", mx: "auto" }}>
+        <Box sx={{ maxWidth: "1440px", width: "100%", mx: "auto" }}>
           <Typography
             variant="overline"
             sx={{
@@ -109,7 +109,7 @@ function Steps() {
             Our <strong>SPM machine building section</strong> is located in the Hosur Industrial
             Area, known as the Tamil Nadu industrial manufacturing hub of India.
             Our setup includes a 3000 sq.ft building dedicated to <strong>custom machine
-            assembly</strong> and inspection. We have a strong team of engineers along
+              assembly</strong> and inspection. We have a strong team of engineers along
             with experienced in-house machine builders including designers,
             fitters, welders, and electrical engineers.
           </Typography>
@@ -130,7 +130,7 @@ function Steps() {
           boxSizing: "border-box",
         }}
       >
-        <Box sx={{ maxWidth: "1350px", width: "100%", mx: "auto" }}>
+        <Box sx={{ maxWidth: "1440px", width: "100%", mx: "auto" }}>
           <Typography
             variant="overline"
             sx={{

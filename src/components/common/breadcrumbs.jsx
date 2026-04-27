@@ -13,7 +13,7 @@ function Breadcrumbs() {
 
   const textStyle = {
     fontWeight: 700,
-    fontSize: { xs: "12px", sm: "13px", md: "14px", lg: "15px" },
+    fontSize: { xs: "14px", sm: "16px", md: "17px", lg: "18px" },
     lineHeight: 1.4,
     display: "flex",
     alignItems: "center",
@@ -29,19 +29,35 @@ function Breadcrumbs() {
         width: "100%",
         backgroundColor: "#f0cd7c",
         borderBottom: "1px solid rgba(0,0,0,0.08)",
-       py: { xs: 1.5, sm: 2, md: 2 },
+        py: { xs: 1.5, sm: 2, md: 2 },
         zIndex: 1200,
       }}
     >
       <Box sx={{ maxWidth: "1350px", mx: "auto", px: { xs: "16px", sm: "5%" } }}>
         <MUIBreadcrumbs
           separator={
-            <Typography sx={{ ...textStyle, opacity: 0.5 }} aria-hidden="true">&gt;</Typography>
+            <Typography 
+              sx={{ 
+                fontWeight: 700,
+                fontSize: { xs: "14px", sm: "16px", md: "17px", lg: "18px" },
+                lineHeight: 1.4,
+                display: "flex",
+                alignItems: "center",
+                color: "#071b3f",
+                opacity: 0.8
+              }} 
+              aria-hidden="true"
+            >
+              &gt;
+            </Typography>
           }
           sx={{
             "& .MuiBreadcrumbs-ol": {
               alignItems: "center",
               flexWrap: "nowrap",
+            },
+            "& .MuiBreadcrumbs-separator": {
+              color: "#071b3f !important",
             },
           }}
         >
@@ -52,7 +68,7 @@ function Breadcrumbs() {
               ...textStyle,
               textDecoration: "none",
               transition: "0.2s",
-              "&:hover": { opacity: 0.7 },
+              "&:hover": { letterSpacing: "2px",},
             }}
           >
             Home
@@ -74,7 +90,7 @@ function Breadcrumbs() {
                 sx={{
                   ...textStyle,
                   textDecoration: "none",
-                  color: isLast ? "#071b3f" : "#071b3f",
+                  color: "#071b3f",
                   fontWeight: isLast ? 700 : 500,
                   cursor: isLast ? "default" : "pointer",
                   "&:hover": {

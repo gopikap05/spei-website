@@ -1,5 +1,5 @@
 import { useEffect, useState, memo } from "react";
-import { Box, keyframes } from "@mui/material";
+import { Box, keyframes, useMediaQuery, useTheme } from "@mui/material";
 import logo from "/logo/logo.webp";
 
 /* Animations */
@@ -46,6 +46,17 @@ const barPulse = keyframes`
   40%           { opacity: 1;   transform: scaleY(1); }
 `;
 
+/* Responsive gear sizes based on screen */
+const getGearSizes = (isMobile, isTablet) => {
+  if (isMobile) {
+    return { large: 32, medium: 20, small: 16 };
+  }
+  if (isTablet) {
+    return { large: 42, medium: 24, small: 18 };
+  }
+  return { large: 54, medium: 28, small: 22 };
+};
+
 /* Memoized SVG gear component for better performance */
 const Gear = memo(({ size = 28, speed = "2s", reverse = false, color = "#FFC400", opacity = 1 }) => {
   return (
@@ -58,7 +69,7 @@ const Gear = memo(({ size = 28, speed = "2s", reverse = false, color = "#FFC400"
         opacity,
         animation: `${reverse ? gearSpinReverse : gearSpin} ${speed} linear infinite`,
         flexShrink: 0,
-        willChange: 'transform', // Optimize for animation
+        willChange: 'transform',
       }}
     >
       <path
@@ -73,7 +84,13 @@ Gear.displayName = 'Gear';
 
 /* Main component */
 export default function PageLoader() {
-  const [phase, setPhase] = useState("visible"); // visible → hiding → gone
+  const [phase, setPhase] = useState("visible");
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
+  const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
+
+  const gearSizes = getGearSizes(isMobile, isTablet);
 
   useEffect(() => {
     const hideTimer = setTimeout(() => setPhase("hiding"), 2400);
@@ -86,8 +103,62 @@ export default function PageLoader() {
 
   if (phase === "gone") return null;
 
-  // Reduced from 10 to 6 bars for better performance
-  const barHeights = [0.4, 0.75, 1, 0.6, 0.9, 0.5];
+  // Responsive bar heights - fewer bars on mobile for better performance
+  const getBarHeights = () => {
+    if (isMobile) return [0.5, 0.8, 0.6, 0.9]; // 4 bars on mobile
+    if (isTablet) return [0.4, 0.75, 1, 0.6, 0.9, 0.5]; // 6 bars on tablet
+    return [0.4, 0.75, 1, 0.6, 0.9, 0.5, 0.7, 0.85]; // 8 bars on desktop
+  };
+
+  const barHeights = getBarHeights();
+
+  // Responsive positioning for decorative elements
+  const getDecoPosition = () => {
+    if (isMobile) {
+      return {
+        topLeft1: { top: 16, left: 16 },
+        topLeft2: { top: 32, left: 42 },
+        bottomRight1: { bottom: 16, right: 16 },
+        bottomRight2: { bottom: 32, right: 44 },
+      };
+    }
+    if (isTablet) {
+      return {
+        topLeft1: { top: 24, left: 24 },
+        topLeft2: { top: 48, left: 58 },
+        bottomRight1: { bottom: 24, right: 24 },
+        bottomRight2: { bottom: 48, right: 64 },
+      };
+    }
+    return {
+      topLeft1: { top: 28, left: 28 },
+      topLeft2: { top: 54, left: 66 },
+      bottomRight1: { bottom: 28, right: 28 },
+      bottomRight2: { bottom: 56, right: 72 },
+    };
+  };
+
+  const decoPos = getDecoPosition();
+
+  // Responsive glow size
+  const getGlowSize = () => {
+    if (isMobile) return 300;
+    if (isTablet) return 400;
+    return 500;
+  };
+
+  // Responsive bottom tagline
+  const getBottomPosition = () => {
+    if (isMobile) return 16;
+    if (isTablet) return 22;
+    return 28;
+  };
+
+  // Responsive gap between elements
+  const getContentGap = () => {
+    if (isMobile) return 2;
+    return 3;
+  };
 
   return (
     <Box
@@ -104,17 +175,21 @@ export default function PageLoader() {
         animation: phase === "hiding" ? `${fadeOut} 0.6s ease forwards` : "none",
       }}
     >
-      {/* Moving grid — same as hero section */}
+      {/* Moving grid */}
       <Box
         sx={{
           position: "absolute",
           inset: "-60px",
           backgroundImage:
             "linear-gradient(rgba(255,196,0,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,196,0,0.06) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-          animation: `${moveGrid} 20s linear infinite`,
+          backgroundSize: {
+            xs: "40px 40px", // Faster grid on mobile
+            sm: "50px 50px",
+            md: "60px 60px"
+          },
+          animation: `${moveGrid} ${isMobile ? '12s' : '20s'} linear infinite`,
           pointerEvents: "none",
-          willChange: 'transform', // Optimize grid animation
+          willChange: 'transform',
         }}
       />
 
@@ -125,29 +200,30 @@ export default function PageLoader() {
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          width: 500,
-          height: 500,
+          width: getGlowSize(),
+          height: getGlowSize(),
           borderRadius: "50%",
-          background:
-            "radial-gradient(circle, rgba(255,196,0,0.08) 0%, transparent 68%)",
+          background: {
+            xs: "radial-gradient(circle, rgba(255,196,0,0.05) 0%, transparent 70%)",
+            md: "radial-gradient(circle, rgba(255,196,0,0.08) 0%, transparent 68%)"
+          },
           pointerEvents: "none",
         }}
       />
 
-      {/* Decorative gears — top-left */}
-      <Box sx={{ position: "absolute", top: 28, left: 28, opacity: 0.18 }}>
-        <Gear size={50} speed="6s" color="#FFC400" />
+      {/* Decorative gears - responsive positioning and sizing */}
+      <Box sx={{ position: "absolute", top: decoPos.topLeft1.top, left: decoPos.topLeft1.left, opacity: { xs: 0.12, md: 0.18 } }}>
+        <Gear size={gearSizes.large} speed={isMobile ? "4s" : "6s"} color="#FFC400" />
       </Box>
-      <Box sx={{ position: "absolute", top: 54, left: 66, opacity: 0.11 }}>
-        <Gear size={26} speed="4s" reverse color="#FFC400" />
+      <Box sx={{ position: "absolute", top: decoPos.topLeft2.top, left: decoPos.topLeft2.left, opacity: { xs: 0.08, md: 0.11 } }}>
+        <Gear size={gearSizes.medium} speed={isMobile ? "3s" : "4s"} reverse color="#FFC400" />
       </Box>
 
-      {/* Decorative gears — bottom-right */}
-      <Box sx={{ position: "absolute", bottom: 28, right: 28, opacity: 0.18 }}>
-        <Gear size={54} speed="7s" reverse color="#FFC400" />
+      <Box sx={{ position: "absolute", bottom: decoPos.bottomRight1.bottom, right: decoPos.bottomRight1.right, opacity: { xs: 0.12, md: 0.18 } }}>
+        <Gear size={gearSizes.large} speed={isMobile ? "4.5s" : "7s"} reverse color="#FFC400" />
       </Box>
-      <Box sx={{ position: "absolute", bottom: 56, right: 72, opacity: 0.10 }}>
-        <Gear size={28} speed="4.5s" color="#FFC400" />
+      <Box sx={{ position: "absolute", bottom: decoPos.bottomRight2.bottom, right: decoPos.bottomRight2.right, opacity: { xs: 0.07, md: 0.10 } }}>
+        <Gear size={gearSizes.small} speed={isMobile ? "3s" : "4.5s"} color="#FFC400" />
       </Box>
 
       {/* Centre content */}
@@ -157,8 +233,10 @@ export default function PageLoader() {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          gap: 3,
+          gap: getContentGap(),
           animation: `${fadeIn} 0.55s ease forwards`,
+          px: { xs: 2, sm: 3 },
+          textAlign: "center",
         }}
       >
         {/* Logo */}
@@ -168,14 +246,21 @@ export default function PageLoader() {
           alt="SPEI"
           onError={(e) => {
             e.target.style.display = "none";
-            // Safely access next sibling
             if (e.target.nextSibling) {
               e.target.nextSibling.style.display = "flex";
             }
           }}
           sx={{
-            height: { xs: 68, md: 80 },
+            height: {
+              xs: 50,
+              sm: 65,
+              md: 80
+            },
             width: "auto",
+            maxWidth: {
+              xs: "80%",
+              sm: "auto"
+            },
             objectFit: "contain",
             filter: "drop-shadow(0 0 20px rgba(255,196,0,0.4))",
           }}
@@ -187,12 +272,12 @@ export default function PageLoader() {
             display: "none",
             alignItems: "center",
             justifyContent: "center",
-            width: 80,
-            height: 80,
+            width: { xs: 60, md: 80 },
+            height: { xs: 60, md: 80 },
             border: "2px solid #FFC400",
             borderRadius: "8px",
             color: "#FFC400",
-            fontSize: "22px",
+            fontSize: { xs: "18px", md: "22px" },
             fontWeight: 800,
             letterSpacing: "0.1em",
             fontFamily: "'Manrope', sans-serif",
@@ -207,17 +292,33 @@ export default function PageLoader() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            gap: 0.6,
+            gap: { xs: 0.4, sm: 0.6 },
           }}
         >
           <Box
             sx={{
               color: "#FFC400",
-              fontSize: { xs: "16px", md: "20px" },
+              fontSize: {
+                xs: "12px",
+                sm: "16px",
+                md: "20px"
+              },
               fontWeight: 700,
-              letterSpacing: "0.3em",
+              letterSpacing: {
+                xs: "0.2em",
+                sm: "0.25em",
+                md: "0.3em"
+              },
               textTransform: "uppercase",
               fontFamily: "'Manrope', sans-serif",
+              whiteSpace: "nowrap",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              maxWidth: {
+                xs: "200px",
+                sm: "300px",
+                md: "none"
+              },
             }}
           >
             SP Engineers India
@@ -225,10 +326,26 @@ export default function PageLoader() {
           <Box
             sx={{
               color: "rgba(255,255,255,0.3)",
-              fontSize: { xs: "14px", md: "18px" },
-              letterSpacing: "0.2em",
+              fontSize: {
+                xs: "10px",
+                sm: "14px",
+                md: "18px"
+              },
+              letterSpacing: {
+                xs: "0.15em",
+                sm: "0.18em",
+                md: "0.2em"
+              },
               textTransform: "uppercase",
               fontFamily: "'Manrope', sans-serif",
+              whiteSpace: "nowrap",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              maxWidth: {
+                xs: "180px",
+                sm: "280px",
+                md: "none"
+              },
             }}
           >
             Industrial Automation
@@ -238,8 +355,16 @@ export default function PageLoader() {
         {/* Progress bar */}
         <Box
           sx={{
-            width: { xs: 220, md: 260 },
-            height: "2px",
+            width: {
+              xs: 180,
+              sm: 220,
+              md: 260,
+              lg: 300
+            },
+            height: {
+              xs: "1.5px",
+              md: "2px"
+            },
             backgroundColor: "rgba(255,255,255,0.08)",
             borderRadius: "2px",
             overflow: "hidden",
@@ -249,47 +374,63 @@ export default function PageLoader() {
           <Box
             sx={{
               height: "100%",
-              background:
-                "linear-gradient(90deg, #e6a800 0%, #FFC400 60%, #ffe066 100%)",
+              background: "linear-gradient(90deg, #e6a800 0%, #FFC400 60%, #ffe066 100%)",
               borderRadius: "2px",
               animation: `${barGrow} 2.4s cubic-bezier(0.4, 0, 0.2, 1) forwards`,
             }}
           />
-          {/* Shimmer sweep */}
-          <Box
-            sx={{
-              position: "absolute",
-              top: 0,
-              width: "40%",
-              height: "100%",
-              background:
-                "linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent)",
-              animation: `${scanLine} 1.6s ease-in-out infinite`,
-            }}
-          />
+          {/* Shimmer sweep - hidden on mobile for performance */}
+          {!isMobile && (
+            <Box
+              sx={{
+                position: "absolute",
+                top: 0,
+                width: "40%",
+                height: "100%",
+                background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent)",
+                animation: `${scanLine} 1.6s ease-in-out infinite`,
+              }}
+            />
+          )}
         </Box>
 
-        {/* Equalizer animation bars - reduced from 10 to 6 for performance */}
+        {/* Equalizer animation bars - responsive count */}
         <Box
           sx={{
             display: "flex",
             alignItems: "flex-end",
-            gap: "4px", // Slightly increased gap for better spacing with fewer bars
-            height: 20,
+            gap: {
+              xs: "3px",
+              sm: "4px",
+              md: "5px"
+            },
+            height: {
+              xs: 16,
+              sm: 18,
+              md: 20
+            },
           }}
         >
           {barHeights.map((height, index) => (
             <Box
               key={index}
               sx={{
-                width: "3px",
-                height: `${height * 20}px`,
+                width: {
+                  xs: "2px",
+                  sm: "2.5px",
+                  md: "3px"
+                },
+                height: {
+                  xs: `${height * 16}px`,
+                  sm: `${height * 18}px`,
+                  md: `${height * 20}px`
+                },
                 backgroundColor: "#FFC400",
                 borderRadius: "1.5px",
                 opacity: 0.65,
                 animation: `${barPulse} ${0.75 + (index % 4) * 0.12}s ease-in-out infinite`,
                 animationDelay: `${index * 0.07}s`,
-                willChange: 'transform, opacity', // Optimize bar animations
+                willChange: 'transform, opacity',
               }}
             />
           ))}
@@ -300,12 +441,29 @@ export default function PageLoader() {
       <Box
         sx={{
           position: "absolute",
-          bottom: 28,
+          bottom: getBottomPosition(),
           color: "rgba(255,255,255,0.15)",
-          fontSize: "16px",
-          letterSpacing: "0.22em",
+          fontSize: {
+            xs: "10px",
+            sm: "13px",
+            md: "16px"
+          },
+          letterSpacing: {
+            xs: "0.15em",
+            sm: "0.18em",
+            md: "0.22em"
+          },
           textTransform: "uppercase",
           fontFamily: "'Manrope', sans-serif",
+          whiteSpace: "nowrap",
+          overflow: "hidden",
+          textOverflow: "ellipsis",
+          maxWidth: {
+            xs: "280px",
+            sm: "400px",
+            md: "none"
+          },
+          px: { xs: 2, sm: 3 },
         }}
       >
         Precision · Innovation · Excellence

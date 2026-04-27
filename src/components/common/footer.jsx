@@ -86,14 +86,14 @@ function Footer() {
             sx={{
               display: "flex",
               flexDirection: { xs: "column", sm: "row" },
-              gap: { xs: 4, sm: 6, md: 10 },
+              gap: { xs: 2, sm: 4, md: 10 },
             }}
           >
             <Box>
               <Typography
                 sx={{
                   fontWeight: 700,
-                  mb: 3,
+                  mb: { xs: 1.5, sm: 1.5, md: 2, lg: 2 },
                   color: "#FFC400",
                   fontSize: { xs: "15px", sm: "16px", md: "17px" },
                 }}
@@ -134,7 +134,7 @@ function Footer() {
               <Typography
                 sx={{
                   fontWeight: 700,
-                  mb: 3,
+                  mb: { xs: 1.5, sm: 1.5, md: 2, lg: 2 },
                   color: "#FFC400",
                   fontSize: { xs: "15px", sm: "16px", md: "17px" },
                 }}
@@ -173,7 +173,7 @@ function Footer() {
               <Typography
                 sx={{
                   fontWeight: 700,
-                  mb: 3,
+                  mb: { xs: 1.5, sm: 1.5, md: 2, lg: 2 },
                   color: "#FFC400",
                   fontSize: { xs: "15px", sm: "16px", md: "17px" },
                 }}
